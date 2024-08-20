@@ -1,9 +1,10 @@
 import Style from './IncidentData.module.scss';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Field, useFormikContext, ErrorMessage } from 'formik';
 
 import AddForm from '../Icon/AddForm';
 import AddDate from '../Icon/AddDate';
+import { AppContext } from '../../../context/AppContext';
 
 const IncidentData = () => {
   const { setFieldValue } = useFormikContext();
@@ -15,10 +16,14 @@ const IncidentData = () => {
     setFieldValue('incidentDate', dateFormat);
   };
 
+  const appContext = useContext(AppContext)
+
+  
+
   const address = () => {
     if (!addressField) return;
     return (
-      <>
+      <div>
         <div className={Style.address}>
           <label className={Style.contents}> miejscowość:</label>
           <Field className={Style.inputText} name="incidentCity" />
@@ -48,12 +53,13 @@ const IncidentData = () => {
             placeholder="mieszkanie"
           />
         </div>
-      </>
+      </div>
     );
   };
 
   return (
     <>
+      {"IMIE USERA: " +  appContext?.name}
       <div className={`${Style.wrapDiv}`}>
         <label className={Style.contents}>
           Numer karty nadany przez podmiot udzielający świadczeń zdrowotnych:

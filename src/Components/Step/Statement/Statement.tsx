@@ -1,11 +1,14 @@
 import Style from './Statement.module.scss';
 import AddDate from '../Icon/AddDate';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Field, useFormikContext } from 'formik';
+import { AppContext } from '../../../context/AppContext';
 
 const Statement = () => {
   const { setFieldValue } = useFormikContext();
   const [wrapSignature, setWrapSignature] = useState(false);
+
+  const appContext = useContext(AppContext);
 
   //Panel Podpisu
   const signature = () => {
@@ -32,10 +35,13 @@ const Statement = () => {
     const dateFormat = `${day} / ${time.split('.')[0].slice(0, 5)}`;
     setFieldValue('patientRefusalDate', dateFormat);
   };
+
   return (
     <>
+   
       <div className={Style.wrapDiv}>
         <h2 className={Style.title}>OŚWIADCZENIE PACJENTA</h2>
+        <input onChange={e => appContext?.setUserName(e.target.value)}/>
         <p className={Style.contents}>
           Poinformowany, świadomy możliwości bezpośredniego zagrożenia zdrowia i
           życia, nie wyrażam zgody na:

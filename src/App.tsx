@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 import './App.scss';
 import Form from './Components/Section/Form/Form';
 import Nav from './Components/Section/Nav/Naw';
+import { AppProvider } from './context/AppContext';
 
 function App() {
   //regex
@@ -72,22 +73,27 @@ function App() {
   }
 
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={(values, { setSubmitting }) => {
-        setSubmitting(false);
-        console.log(values);
-        console.log('ok');
-      }}
-    >
-      {(formikProps) => (
-        <form onSubmit={formikProps.handleSubmit} className="globalCard">
-          <Nav />
-          <Form step={step} stanStep={stanStep} />{' '}
-        </form>
-      )}
-    </Formik>
+    <div>
+    <AppProvider>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={(values, { setSubmitting }) => {
+          setSubmitting(false);
+          console.log(values);
+          console.log('ok');
+        }}
+      >
+        {(formikProps) => (
+          <form onSubmit={formikProps.handleSubmit} className="globalCard">
+            <Nav />
+            <Form step={step} stanStep={stanStep} />{' '}
+          </form>
+        )}
+      </Formik>
+    </AppProvider>
+    <div>Inny komponent</div>
+    </div>
   );
 }
 
