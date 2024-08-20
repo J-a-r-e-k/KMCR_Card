@@ -1,0 +1,18 @@
+.nav {
+  background-color: #aaa;
+  min-width: 200px;
+  max-width: 20%;
+  padding: 20px 10px;
+}
+.text {
+  margin: 5px;
+  padding: 5px;
+  font-size: 1.2rem;
+  color: #222;
+  border: 0.5px #555 solid;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.text:hover {
+  border: 0.5px #fff solid;
+}
