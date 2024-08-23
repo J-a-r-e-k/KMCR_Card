@@ -1,9 +1,37 @@
-import { createContext, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
+
+type IncidentData = {
+  nrIncident: string;
+  incidentDate: string;
+  incidentPlace: string;
+  incidentCity: string;
+  incidentPost: string;
+  incidentStreet: string;
+  incidentNr: string;
+  incidentNrApartment: string;
+  companyName: string;
+};
+
+type PatientData = {
+  patientFirstName: string;
+  patientLastName: string;
+  patientCity: string;
+  patientPostalCod: string;
+  patientStreet: string;
+  patientIdNumber: string;
+  patientNrApartment: string;
+  patientBirthDate: string;
+  patientPesel: string;
+  patientGender: string;
+};
 
 type AppContextProps = {
   name: string;
   setUserName: (name: string) => void;
-  incidentData: string;
+  incidentData: IncidentData;
+  setIncidentData: (data: IncidentData) => void;
+  patientData: PatientData;
+  setPatientData: (patient: PatientData) => void;
 };
 
 export const AppContext = createContext<AppContextProps | undefined>(undefined);
@@ -12,8 +40,8 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [userName, setUserName] = useState('Jarosław');
 
   const [incidentData, setIncidentData] = useState({
-    nrIncident: 'sfsdf',
-    incidentDate: '',
+    nrIncident: '',
+    incidentDate: 'aaa',
     incidentPlace: '',
     incidentCity: '',
     incidentPost: '',
@@ -21,7 +49,19 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     incidentNr: '',
     incidentNrApartment: '',
     companyName: '',
-    patientGender: '',
+  });
+
+  const [patientData, setPatientData] = useState({
+    patientFirstName: '',
+    patientLastName: '',
+    patientCity: '',
+    patientPostalCod: '',
+    patientStreet: '',
+    patientIdNumber: '',
+    patientNrApartment: '',
+    patientBirthDate: '',
+    patientPesel: '',
+    patientGender: 'man',
   });
 
   return (
@@ -31,9 +71,21 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         setUserName: setUserName,
         incidentData: incidentData,
         setIncidentData: setIncidentData,
+        patientData: patientData,
+        setPatientData: setPatientData,
       }}
     >
       {children}
     </AppContext.Provider>
   );
+};
+
+export const useAppContext = () => {
+  const context = useContext(AppContext);
+
+  if (!context) {
+    throw new Error('useAppContext must be used within AppContextProvider');
+  }
+
+  return context;
 };
