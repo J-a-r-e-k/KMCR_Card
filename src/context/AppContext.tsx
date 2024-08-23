@@ -38,6 +38,10 @@ type Statement = {
   patientRefusalDate: string;
 };
 
+type Interview = {
+  interviewDescription: string;
+};
+
 type AppContextProps = {
   name: string;
   setUserName: (name: string) => void;
@@ -47,6 +51,8 @@ type AppContextProps = {
   setPatientData: (patient: PatientData) => void;
   statement: Statement;
   setStatement: (statement: Statement) => void;
+  interview: Interview;
+  setInterview: (interview: Interview) => void;
 };
 
 export const AppContext = createContext<AppContextProps | undefined>(undefined);
@@ -91,6 +97,10 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     patientRefusalDate: '',
   });
 
+  const [interview, setInterview] = useState({
+    interviewDescription: '',
+  });
+
   return (
     <AppContext.Provider
       value={{
@@ -102,6 +112,8 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         setPatientData: setPatientData,
         statement: statement,
         setStatement: setStatement,
+        interview: interview,
+        setInterview: setInterview,
       }}
     >
       {children}

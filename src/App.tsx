@@ -1,5 +1,4 @@
 import { useState } from 'react';
-// import { Formik } from 'formik';
 // import * as Yup from 'yup';
 
 import './App.scss';
@@ -77,22 +76,6 @@ function App() {
   return (
     <div>
       <AppProvider>
-        {/* <Formik
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          onSubmit={(values, { setSubmitting }) => {
-            setSubmitting(false);
-            console.log(values);
-            console.log('ok');
-          }}
-        >
-          {(formikProps) => (
-            <form onSubmit={formikProps.handleSubmit} className="globalCard">
-              <Nav />
-              <Form step={step} stanStep={stanStep} />{' '}
-            </form>
-          )}
-        </Formik> */}
         <form className="globalCard">
           <Nav />
           <Form step={step} stanStep={stanStep} />
