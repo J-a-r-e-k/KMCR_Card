@@ -23,6 +23,19 @@ type PatientData = {
   patientBirthDate: string;
   patientPesel: string;
   patientGender: string;
+
+  legalGuardianFirstName: string;
+  legalGuardianLastName: string;
+  legalGuardianCity: string;
+  legalGuardianPostalCod: string;
+  legalGuardianStreet: string;
+  legalGuardianIdNumber: string;
+  legalGuardianNrApartment: string;
+  legalGuardianTelephone: string;
+};
+
+type Statement = {
+  patientRefusalDate: string;
 };
 
 type AppContextProps = {
@@ -32,6 +45,8 @@ type AppContextProps = {
   setIncidentData: (data: IncidentData) => void;
   patientData: PatientData;
   setPatientData: (patient: PatientData) => void;
+  statement: Statement;
+  setStatement: (statement: Statement) => void;
 };
 
 export const AppContext = createContext<AppContextProps | undefined>(undefined);
@@ -62,6 +77,18 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     patientBirthDate: '',
     patientPesel: '',
     patientGender: 'man',
+    legalGuardianFirstName: '',
+    legalGuardianLastName: '',
+    legalGuardianCity: '',
+    legalGuardianPostalCod: '',
+    legalGuardianStreet: '',
+    legalGuardianIdNumber: '',
+    legalGuardianNrApartment: '',
+    legalGuardianTelephone: '',
+  });
+
+  const [statement, setStatement] = useState({
+    patientRefusalDate: '',
   });
 
   return (
@@ -73,6 +100,8 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         setIncidentData: setIncidentData,
         patientData: patientData,
         setPatientData: setPatientData,
+        statement: statement,
+        setStatement: setStatement,
       }}
     >
       {children}

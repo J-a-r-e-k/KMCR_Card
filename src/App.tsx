@@ -98,7 +98,6 @@ function App() {
           <Form step={step} stanStep={stanStep} />
         </form>
       </AppProvider>
-      <div>Inny komponent</div>
     </div>
   );
 }
