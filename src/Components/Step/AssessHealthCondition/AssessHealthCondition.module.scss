@@ -1,0 +1,75 @@
+.wrapGlasgow {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  border: 1px #999 solid;
+}
+h2 {
+  font-size: 1.2rem;
+}
+label {
+  font-size: 1.2rem;
+}
+
+.wrapCheck {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1px;
+}
+
+.check {
+  //   font-size: rem;
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+  border: 2px #999 solid;
+  cursor: pointer;
+}
+.check:hover,
+.breathingRate:hover {
+  border: 2px blue solid;
+}
+.sumCheck {
+  margin: 0 5px;
+  text-align: center;
+  line-height: 2em;
+  //   border: 1px #999 solid;
+  border-radius: 5px;
+}
+.wrapSum {
+  align-self: center;
+}
+.wrapBreathingRate {
+  display: flex;
+  flex-wrap: wrap;
+  //   justify-content: center;
+}
+.breathingRate {
+  width: 30px;
+  height: 20px;
+  margin: 0 2px 0 auto;
+  font-size: 1.2rem;
+  text-align: center;
+  border: 1px #777 solid;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.wrapLungSide {
+  display: flex;
+  justify-content: end;
+  //   flex-wrap: wrap;
+}
+
+.lungSide {
+  width: 25px;
+  text-align: center;
+}
+
+.breathDifferent {
+  width: 100%;
+  font-size: 1.2rem;
+  border-bottom: 1px #000 dotted;
+  cursor: pointer;
+}

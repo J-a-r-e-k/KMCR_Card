@@ -14,9 +14,12 @@ const Interview = () => {
     >
       <>
         <h2 className={Style.title}>I - WYWIAD</h2>
-        <div className={Style.wrapText}>
-          <Field className={Style.text} name="interviewDescription" />
-        </div>
+        <Field
+          className={Style.text}
+          name="interviewDescription"
+          as="textarea"
+          // rows="4"
+        />
       </>
     </Formik>
   );

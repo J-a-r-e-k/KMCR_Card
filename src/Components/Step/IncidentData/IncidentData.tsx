@@ -89,7 +89,9 @@ const IncidentData = () => {
 
             <button
               className={Style.btnAddDate}
-              onClick={() => today()}
+              onClick={() => {
+                today();
+              }}
               type="button"
             >
               <AddDate />
