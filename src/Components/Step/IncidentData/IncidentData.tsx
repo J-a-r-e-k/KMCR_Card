@@ -1,6 +1,6 @@
 import Style from './IncidentData.module.scss';
 import { useState } from 'react';
-import { Formik, Field } from 'formik';
+import { Formik, Field, Form } from 'formik';
 
 import AddForm from '../Icon/AddForm';
 import AddDate from '../Icon/AddDate';
@@ -66,63 +66,77 @@ const IncidentData = () => {
           appContext.setIncidentData(value);
         }}
       >
-        <>
-          <div className={`${Style.wrapDiv}`}>
-            <label className={Style.contents}>
-              Numer karty nadany przez podmiot udzielający świadczeń
-              zdrowotnych:
-            </label>
-            <Field className={Style.inputText} name="nrIncident" />
-          </div>
+        {({
+          // values,
+          // errors,
+          // touched,
+          // handleChange,
+          // handleBlur,
+          handleSubmit,
+          isSubmitting,
+          /* and other goodies */
+        }) => (
+          <Form onSubmit={handleSubmit}>
+            <div className={`${Style.wrapDiv}`}>
+              <label className={Style.contents}>
+                Numer karty nadany przez podmiot udzielający świadczeń
+                zdrowotnych:
+              </label>
+              <Field className={Style.inputText} name="nrIncident" />
+            </div>
 
-          <div className={Style.wrapDiv}>
-            <label className={Style.contents}>
-              Data i godzina udzielenia swiadczenia zdrowotnego (rrrr-mm-dd
-              gg:mm):
-            </label>
-            <Field className={Style.inputText} name="incidentDate" />
-            {/* <ErrorMessage
+            <div className={Style.wrapDiv}>
+              <label className={Style.contents}>
+                Data i godzina udzielenia swiadczenia zdrowotnego (rrrr-mm-dd
+                gg:mm):
+              </label>
+              <Field className={Style.inputText} name="incidentDate" />
+              {/* <ErrorMessage
             name="incidentDate"
             component="div"
             className={Style.error}
           /> */}
 
-            <button
-              className={Style.btnAddDate}
-              onClick={() => {
-                today();
-              }}
-              type="button"
-            >
-              <AddDate />
+              <button
+                className={Style.btnAddDate}
+                onClick={() => {
+                  today();
+                }}
+                type="button"
+              >
+                <AddDate />
+              </button>
+            </div>
+            <div className={`${Style.wrapDiv} ${Style.wrapDivPatient}`}>
+              <button
+                className={Style.btnAddress}
+                onClick={() => setAddressField(!addressField)}
+                type="button"
+              >
+                <AddForm />
+              </button>
+              <label className={Style.contents}>
+                Miejsce udzielenia swiadczenia zdrowotnego:
+              </label>
+              {address()}
+              <Field
+                className={Style.inputText}
+                name="companyName"
+                placeholder="Miejsce zdarzenia"
+              />
+            </div>
+            <div className={`${Style.wrapDiv} ${Style.wrapDivPatient}`}>
+              <label className={Style.contents}>
+                Dane podmiotu udzielającego świadczenia, ze wskazaniem komórki
+                organizacyjnej, w której udzielono świadczeń zdrowotnych:
+              </label>
+              <input className={Style.inputText} type="text" placeholder="" />
+            </div>
+            <button type="submit" disabled={isSubmitting}>
+              xx
             </button>
-          </div>
-          <div className={`${Style.wrapDiv} ${Style.wrapDivPatient}`}>
-            <button
-              className={Style.btnAddress}
-              onClick={() => setAddressField(!addressField)}
-              type="button"
-            >
-              <AddForm />
-            </button>
-            <label className={Style.contents}>
-              Miejsce udzielenia swiadczenia zdrowotnego:
-            </label>
-            {address()}
-            <Field
-              className={Style.inputText}
-              name="companyName"
-              placeholder="Miejsce zdarzenia"
-            />
-          </div>
-          <div className={`${Style.wrapDiv} ${Style.wrapDivPatient}`}>
-            <label className={Style.contents}>
-              Dane podmiotu udzielającego świadczenia, ze wskazaniem komórki
-              organizacyjnej, w której udzielono świadczeń zdrowotnych:
-            </label>
-            <input className={Style.inputText} type="text" placeholder="" />
-          </div>
-        </>
+          </Form>
+        )}
       </Formik>
     </>
   );

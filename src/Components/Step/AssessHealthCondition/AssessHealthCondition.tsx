@@ -1,6 +1,6 @@
 import { useAppContext } from '../../../context/AppContext';
 import Style from './AssessHealthCondition.module.scss';
-import { Formik, Field } from 'formik';
+import { Formik, Field, Form } from 'formik';
 
 const AssessHealthCondition = () => {
   const appContext = useAppContext();
@@ -8,7 +8,7 @@ const AssessHealthCondition = () => {
   const glasgow = () => {
     return (
       <>
-        <div className={Style.wrapGlasgow}>
+        <Form className={Style.wrapGlasgow}>
           <h2>GLASGOW-COMA-SCALE</h2>
 
           <ul>
@@ -171,14 +171,14 @@ const AssessHealthCondition = () => {
             <p>SUMA:</p>
             <p className={Style.sumCheck}>12</p>
           </div>
-        </div>
+        </Form>
       </>
     );
   };
   const rts = () => {
     return (
       <>
-        <div className={Style.wrapGlasgow}>
+        <Form className={Style.wrapGlasgow}>
           <h2>RTS</h2>
 
           <ul>
@@ -341,14 +341,14 @@ const AssessHealthCondition = () => {
             <p>SUMA:</p>
             <p className={Style.sumCheck}>12</p>
           </div>
-        </div>
+        </Form>
       </>
     );
   };
   const breath = () => {
     return (
       <>
-        <div className={Style.wrapGlasgow}>
+        <Form className={Style.wrapGlasgow}>
           <h2>UKŁAD ODDECHOWY</h2>
           <ul>
             <li className={`${Style.wrapCheck} ${Style.wrapBreathingRate}`}>
@@ -475,13 +475,128 @@ const AssessHealthCondition = () => {
                 type="text"
               />
             </li>
+            <li className={`${Style.wrapCheck} ${Style.wrapBreathingRate}`}>
+              <label>Saturacja</label>
+              <Field
+                className={Style.breathingRate}
+                name="gender"
+                // type="number"
+                // type="button"
+                // value="4"
+              />
+              <p> %</p>
+            </li>
           </ul>
-          <div className={`${Style.wrapCheck} ${Style.wrapSum}`}>
-            <p>Saturacja:</p>
-            <p className={Style.sumCheck}>12xxxxxxxxxxxxxxxx</p>
+        </Form>
+      </>
+    );
+  };
+
+  const pupil = () => {
+    return (
+      <Form>
+        <div className={Style.wrapGlasgow}>
+          <h2>ŹRENICE</h2>
+          <ul>
+            <div className={Style.wrapLungSide}>
+              <p className={Style.description}>Reakcja na światło:</p>
+              <p className={Style.lungSide}>L</p>
+              <p className={Style.lungSide}>P</p>
+            </div>
+            <li className={Style.wrapCheck}>
+              <label>prawidłowa</label>
+              <div>
+                <Field className={Style.check} name="gender" type="button" />
+                <Field className={Style.check} name="gender" type="button" />
+              </div>
+            </li>
+            <li className={Style.wrapCheck}>
+              <label>powolna</label>
+              <div>
+                <Field className={Style.check} name="gender" type="button" />
+                <Field className={Style.check} name="gender" type="button" />
+              </div>
+            </li>
+            <li className={Style.wrapCheck}>
+              <label>brak</label>
+              <div>
+                <Field className={Style.check} name="gender" type="button" />
+                <Field className={Style.check} name="gender" type="button" />
+              </div>
+            </li>
+          </ul>
+          <ul>
+            <p className={Style.description}>Reakcja na światło:</p>
+            <li className={Style.wrapCheck}>
+              <label>normalne</label>
+              <div>
+                <Field className={Style.check} name="gender" type="button" />
+                <Field className={Style.check} name="gender" type="button" />
+              </div>
+            </li>
+            <li className={Style.wrapCheck}>
+              <label>wąskie</label>
+              <div>
+                <Field className={Style.check} name="gender" type="button" />
+                <Field className={Style.check} name="gender" type="button" />
+              </div>
+            </li>
+            <li className={Style.wrapCheck}>
+              <label>szerokie</label>
+              <div>
+                <Field className={Style.check} name="gender" type="button" />
+                <Field className={Style.check} name="gender" type="button" />
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div className={Style.wrapGlasgow}>
+          <h2>CIŚNIENIE TĘTNICZE</h2>
+          <div className={`${Style.wrapCheck} ${Style.wrapBreathingRate}`}>
+            <Field
+              className={Style.breathingRate}
+              name="gender"
+              // type="number"
+              // type="button"
+              // value="4"
+            />
+            <p>/</p>
+            <Field
+              className={Style.breathingRate}
+              name="gender"
+              // type="number"
+              // type="button"
+              // value="4"
+            />
+            <p> mm/Hg</p>
           </div>
         </div>
-      </>
+        <div className={Style.wrapGlasgow}>
+          <h2>TĘTNO</h2>
+          <div className={Style.wrapPulse}>
+            <div className={`${Style.wrapCheck} ${Style.wrapBreathingRate}`}>
+              <Field
+                className={Style.breathingRate}
+                name="gender"
+                // type="number"
+                // type="button"
+                // value="4"
+              />
+              <p> /min</p>
+            </div>
+            <div className={Style.wrapPulseCheck}>
+              <div className={Style.wrapLungSide}>
+                <label className={Style.pulsText}>miarowe</label>
+                <Field className={Style.check} name="gender" type="button" />
+              </div>
+              <div className={Style.wrapLungSide}>
+                <label className={Style.pulsText}>niemiarowe</label>
+                <Field className={Style.check} name="gender" type="button" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </Form>
     );
   };
   return (
@@ -492,11 +607,30 @@ const AssessHealthCondition = () => {
         appContext.setAssessHealthCondition(values);
       }}
     >
-      <>
-        {glasgow()}
-        {rts()}
-        {breath()}
-      </>
+      {
+        //   {
+        //     // values,
+        //     // errors,
+        //     // touched,
+        //     // handleChange,
+        //     // handleBlur,
+        //     // handleSubmit,
+        //     // isSubmitting,
+        //     /* and other goodies */
+        //   }
+        // ) => (
+        <>
+          {/* <form onSubmit={handleSubmit}> */}
+          {glasgow()}
+          {rts()}
+          {breath()}
+          {pupil()}
+          {/* <button type="submit" disabled={isSubmitting}>
+            Submit
+          </button> */}
+          {/* </form> */}
+        </>
+      }
     </Formik>
   );
 };
