@@ -59,6 +59,7 @@
   border-radius: 5px;
   border: solid #999 1px;
   cursor: pointer;
+  appearance: none;
 
   img {
     position: absolute;
@@ -71,6 +72,14 @@
 .signature:hover {
   border: 1px blue solid;
 }
+//
+.check:checked {
+  background-color: #022a61;
+  background-image: url('../../../../public/icon-checkmark.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .wrapPanelSignature {
   position: fixed;
   top: 0%;
@@ -115,4 +124,10 @@
   height: 60%;
   background-color: #eee;
   border-radius: 10px;
+}
+
+.radio {
+  background-color: red;
+  width: 50px;
+  height: 50px;
 }

@@ -36,6 +36,7 @@ type PatientData = {
 
 type Statement = {
   patientRefusalDate: string;
+  refusal: string;
 };
 
 type Interview = {
@@ -79,7 +80,7 @@ export const AppContext = createContext<AppContextProps | undefined>(undefined);
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [userName, setUserName] = useState('Jarosław');
 
-  const [currentStep, setCurrentStep] = useState<number>(0);
+  const [currentStep, setCurrentStep] = useState<number>(2);
 
   const [incidentData, setIncidentData] = useState({
     nrIncident: '',
@@ -122,6 +123,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 
   const [statement, setStatement] = useState({
     patientRefusalDate: '',
+    refusal: '',
   });
 
   const [interview, setInterview] = useState({
@@ -160,7 +162,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     },
   ];
 
-  console.log(incidentData);
+  console.log(statement);
   return (
     <AppContext.Provider
       value={{
