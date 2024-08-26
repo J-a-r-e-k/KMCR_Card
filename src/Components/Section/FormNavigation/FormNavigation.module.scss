@@ -1,0 +1,32 @@
+.btn {
+  position: absolute;
+  bottom: 15px;
+  right: 5%;
+  width: 120px;
+  height: 45px;
+  border: 1px black solid;
+  border-radius: 7px;
+  font-size: 1.4rem;
+  background-color: #999;
+  cursor: pointer;
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+.btn:hover {
+  border: 1px blue solid;
+  background-color: #aaa;
+  svg {
+    fill: blue;
+  }
+}
+
+.btnBack {
+  right: auto;
+  left: 5%;
+}
+.btnHome {
+  top: 15px;
+  bottom: auto;
+}

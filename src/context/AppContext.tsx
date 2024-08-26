@@ -46,6 +46,14 @@ type AssessHealthCondition = {
   openingEyes: number;
 };
 
+export enum FormStep {
+  IncidentData = 'IncidentData',
+  PatientData = 'PatientData',
+  Statement = 'Statement',
+  Interview = 'Interview',
+  AssessHealthCondition = 'AssessHealthCondition',
+}
+
 type AppContextProps = {
   name: string;
   setUserName: (name: string) => void;
@@ -61,6 +69,9 @@ type AppContextProps = {
   setAssessHealthCondition: (
     assessHealthCondition: AssessHealthCondition
   ) => void;
+  steps: Array<{ id: number; type: FormStep; label: string }>; // { id: number; type: FormStep; label: string }[]
+  currentStep: number;
+  setCurrentStep: (newSte: number) => void;
 };
 
 export const AppContext = createContext<AppContextProps | undefined>(undefined);
@@ -68,9 +79,11 @@ export const AppContext = createContext<AppContextProps | undefined>(undefined);
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [userName, setUserName] = useState('Jarosław');
 
+  const [currentStep, setCurrentStep] = useState<number>(0);
+
   const [incidentData, setIncidentData] = useState({
     nrIncident: '',
-    incidentDate: 'aaa',
+    incidentDate: '',
     incidentPlace: '',
     incidentCity: '',
     incidentPost: '',
@@ -79,6 +92,12 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     incidentNrApartment: '',
     companyName: '',
   });
+
+  //obiekt do zapisania szmery strona: P & L//
+  // szmerO ={
+  //  left: true,
+  //  rigt: false
+  // }
 
   const [patientData, setPatientData] = useState({
     patientFirstName: '',
@@ -113,6 +132,35 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     openingEyes: 0,
   });
 
+  const STEPS: { id: number; type: FormStep; label: string }[] = [
+    {
+      id: 0,
+      type: FormStep.IncidentData,
+      label: 'Zdarzenie',
+    },
+    {
+      id: 1,
+      type: FormStep.PatientData,
+      label: 'Dane pacjenta',
+    },
+    {
+      id: 2,
+      type: FormStep.Statement,
+      label: 'Statemtns',
+    },
+    {
+      id: 3,
+      type: FormStep.Interview,
+      label: 'Interview',
+    },
+    {
+      id: 4,
+      type: FormStep.AssessHealthCondition,
+      label: 'Asse',
+    },
+  ];
+
+  console.log(incidentData);
   return (
     <AppContext.Provider
       value={{
@@ -128,6 +176,9 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         setInterview: setInterview,
         assessHealthCondition: assessHealthCondition,
         setAssessHealthCondition: setAssessHealthCondition,
+        steps: STEPS,
+        currentStep: currentStep,
+        setCurrentStep: setCurrentStep,
       }}
     >
       {children}

@@ -76,10 +76,10 @@ function App() {
   return (
     <div>
       <AppProvider>
-        <form className="globalCard">
+        <div className="globalCard">
           <Nav />
           <Form step={step} stanStep={stanStep} />
-        </form>
+        </div>
       </AppProvider>
     </div>
   );

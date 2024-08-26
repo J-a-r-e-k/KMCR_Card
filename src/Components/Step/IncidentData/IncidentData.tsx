@@ -1,10 +1,11 @@
 import Style from './IncidentData.module.scss';
 import { useState } from 'react';
-import { Formik, Field, Form } from 'formik';
+import { Formik, Field } from 'formik';
 
 import AddForm from '../Icon/AddForm';
 import AddDate from '../Icon/AddDate';
 import { useAppContext } from '../../../context/AppContext';
+import { FormNavigation } from '../../Section/FormNavigation/FormNavigation';
 
 const IncidentData = () => {
   const appContext = useAppContext();
@@ -73,10 +74,11 @@ const IncidentData = () => {
           // handleChange,
           // handleBlur,
           handleSubmit,
-          isSubmitting,
+          // isSubmitting,
+          // isValid,
           /* and other goodies */
         }) => (
-          <Form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit}>
             <div className={`${Style.wrapDiv}`}>
               <label className={Style.contents}>
                 Numer karty nadany przez podmiot udzielający świadczeń
@@ -121,7 +123,7 @@ const IncidentData = () => {
               {address()}
               <Field
                 className={Style.inputText}
-                name="companyName"
+                name="incidentPlace"
                 placeholder="Miejsce zdarzenia"
               />
             </div>
@@ -130,12 +132,17 @@ const IncidentData = () => {
                 Dane podmiotu udzielającego świadczenia, ze wskazaniem komórki
                 organizacyjnej, w której udzielono świadczeń zdrowotnych:
               </label>
-              <input className={Style.inputText} type="text" placeholder="" />
+              <Field
+                name="companyName"
+                className={Style.inputText}
+                type="text"
+                placeholder=""
+              />
             </div>
-            <button type="submit" disabled={isSubmitting}>
-              xx
-            </button>
-          </Form>
+
+            <FormNavigation />
+            {/* <FormNavigation isNextButtonDisabled={!isValid} /> */}
+          </form>
         )}
       </Formik>
     </>

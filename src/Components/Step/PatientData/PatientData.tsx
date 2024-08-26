@@ -1,4 +1,5 @@
 import { useAppContext } from '../../../context/AppContext';
+import { FormNavigation } from '../../Section/FormNavigation/FormNavigation';
 import Style from './PatientData.module.scss';
 import { Field, Formik } from 'formik';
 
@@ -187,10 +188,13 @@ const PatientData = () => {
           appContext.setPatientData(value);
         }}
       >
-        <>
-          {patientForm()}
-          {guardianDate()}
-        </>
+        {({ handleSubmit }) => (
+          <form onSubmit={handleSubmit}>
+            {patientForm()}
+            {guardianDate()}
+            <FormNavigation />
+          </form>
+        )}
       </Formik>
     </>
   );

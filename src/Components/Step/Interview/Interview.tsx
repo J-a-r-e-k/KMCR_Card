@@ -1,6 +1,7 @@
 import { useAppContext } from '../../../context/AppContext';
 import { Formik, Field } from 'formik';
 import Style from './Interview.module.scss';
+import { FormNavigation } from '../../Section/FormNavigation/FormNavigation';
 
 const Interview = () => {
   const appContext = useAppContext();
@@ -12,15 +13,20 @@ const Interview = () => {
         appContext.setInterview(value);
       }}
     >
-      <>
-        <h2 className={Style.title}>I - WYWIAD</h2>
-        <Field
-          className={Style.text}
-          name="interviewDescription"
-          as="textarea"
-          // rows="4"
-        />
-      </>
+      {({ handleSubmit }) => (
+        <>
+          <form onSubmit={handleSubmit}>
+            <h2 className={Style.title}>I - WYWIAD</h2>
+            <Field
+              className={Style.text}
+              name="interviewDescription"
+              as="textarea"
+              // rows="4"
+            />
+            <FormNavigation />
+          </form>
+        </>
+      )}
     </Formik>
   );
 };

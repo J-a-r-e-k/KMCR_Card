@@ -3,6 +3,7 @@ import AddDate from '../Icon/AddDate';
 import { useState } from 'react';
 import { Formik, Field } from 'formik';
 import { useAppContext } from '../../../context/AppContext';
+import { FormNavigation } from '../../Section/FormNavigation/FormNavigation';
 
 const Statement = () => {
   const appContext = useAppContext();
@@ -46,60 +47,65 @@ const Statement = () => {
           appContext.setStatement(value);
         }}
       >
-        <div className={Style.wrapDiv}>
-          <h2 className={Style.title}>OŚWIADCZENIE PACJENTA</h2>
-          <input onChange={(e) => appContext?.setUserName(e.target.value)} />
-          <p className={Style.contents}>
-            Poinformowany, świadomy możliwości bezpośredniego zagrożenia zdrowia
-            i życia, nie wyrażam zgody na:
-          </p>
-          <div className={Style.wrapCheck}>
-            <div
-              className={`${Style.check} ${'activeExamination'}`}
-              onClick={() => {
-                // genderPatient('examination');
-              }}
-            ></div>
-            <p className={Style.contents}>udzielenie świadczenia zdrowotnego</p>
-            <div
-              className={`${Style.check} ${'activeTransport'}`}
-              onClick={() => {
-                // genderPatient('transport');
-              }}
-            ></div>
-            <p className={Style.contents}>przewiezienie do szpitala</p>
-          </div>
-          <p className={Style.contents}>
-            Oświadczam również, że udzielono mi wyczerpujących informacji o
-            stanie zdrowia oraz uzyskałem odpowiedzi na zadawane przeze mnie
-            pytania.
-          </p>
-
-          <div>
-            <label className={Style.contents}>Data i godzina odmowy:</label>
-            <Field className={Style.inputText} name="patientRefusalDate" />
-            <button
-              className={Style.btnAddDate}
-              onClick={() => today()}
-              type="button"
-            >
-              <AddDate />
-            </button>
-          </div>
-          <div className={Style.wrapSignature}>
+        <>
+          <div className={Style.wrapDiv}>
+            <h2 className={Style.title}>OŚWIADCZENIE PACJENTA</h2>
+            <input onChange={(e) => appContext?.setUserName(e.target.value)} />
             <p className={Style.contents}>
-              podpis pacjenta lub przedstawiciela ustawowego:
+              Poinformowany, świadomy możliwości bezpośredniego zagrożenia
+              zdrowia i życia, nie wyrażam zgody na:
             </p>
-            <div
-              className={Style.signature}
-              onClick={() => {
-                setWrapSignature(!wrapSignature);
-                console.log('ok');
-              }}
-            ></div>
-            {signature()}
+            <div className={Style.wrapCheck}>
+              <div
+                className={`${Style.check} ${'activeExamination'}`}
+                onClick={() => {
+                  // genderPatient('examination');
+                }}
+              ></div>
+              <p className={Style.contents}>
+                udzielenie świadczenia zdrowotnego
+              </p>
+              <div
+                className={`${Style.check} ${'activeTransport'}`}
+                onClick={() => {
+                  // genderPatient('transport');
+                }}
+              ></div>
+              <p className={Style.contents}>przewiezienie do szpitala</p>
+            </div>
+            <p className={Style.contents}>
+              Oświadczam również, że udzielono mi wyczerpujących informacji o
+              stanie zdrowia oraz uzyskałem odpowiedzi na zadawane przeze mnie
+              pytania.
+            </p>
+
+            <div>
+              <label className={Style.contents}>Data i godzina odmowy:</label>
+              <Field className={Style.inputText} name="patientRefusalDate" />
+              <button
+                className={Style.btnAddDate}
+                onClick={() => today()}
+                type="button"
+              >
+                <AddDate />
+              </button>
+            </div>
+            <div className={Style.wrapSignature}>
+              <p className={Style.contents}>
+                podpis pacjenta lub przedstawiciela ustawowego:
+              </p>
+              <div
+                className={Style.signature}
+                onClick={() => {
+                  setWrapSignature(!wrapSignature);
+                  console.log('ok');
+                }}
+              ></div>
+              {signature()}
+            </div>
           </div>
-        </div>
+          <FormNavigation />
+        </>
       </Formik>
     </>
   );

@@ -1,6 +1,7 @@
 import { useAppContext } from '../../../context/AppContext';
+import { FormNavigation } from '../../Section/FormNavigation/FormNavigation';
 import Style from './AssessHealthCondition.module.scss';
-import { Formik, Field, Form } from 'formik';
+import { Formik, Field } from 'formik';
 
 const AssessHealthCondition = () => {
   const appContext = useAppContext();
@@ -8,7 +9,7 @@ const AssessHealthCondition = () => {
   const glasgow = () => {
     return (
       <>
-        <Form className={Style.wrapGlasgow}>
+        <div className={Style.wrapGlasgow}>
           <h2>GLASGOW-COMA-SCALE</h2>
 
           <ul>
@@ -171,14 +172,14 @@ const AssessHealthCondition = () => {
             <p>SUMA:</p>
             <p className={Style.sumCheck}>12</p>
           </div>
-        </Form>
+        </div>
       </>
     );
   };
   const rts = () => {
     return (
       <>
-        <Form className={Style.wrapGlasgow}>
+        <div className={Style.wrapGlasgow}>
           <h2>RTS</h2>
 
           <ul>
@@ -341,14 +342,14 @@ const AssessHealthCondition = () => {
             <p>SUMA:</p>
             <p className={Style.sumCheck}>12</p>
           </div>
-        </Form>
+        </div>
       </>
     );
   };
   const breath = () => {
     return (
       <>
-        <Form className={Style.wrapGlasgow}>
+        <div className={Style.wrapGlasgow}>
           <h2>UKŁAD ODDECHOWY</h2>
           <ul>
             <li className={`${Style.wrapCheck} ${Style.wrapBreathingRate}`}>
@@ -487,14 +488,14 @@ const AssessHealthCondition = () => {
               <p> %</p>
             </li>
           </ul>
-        </Form>
+        </div>
       </>
     );
   };
 
   const pupil = () => {
     return (
-      <Form>
+      <div>
         <div className={Style.wrapGlasgow}>
           <h2>ŹRENICE</h2>
           <ul>
@@ -578,7 +579,7 @@ const AssessHealthCondition = () => {
               <Field
                 className={Style.breathingRate}
                 name="gender"
-                // type="number"
+                type="number"
                 // type="button"
                 // value="4"
               />
@@ -596,7 +597,7 @@ const AssessHealthCondition = () => {
             </div>
           </div>
         </div>
-      </Form>
+      </div>
     );
   };
   return (
@@ -607,30 +608,15 @@ const AssessHealthCondition = () => {
         appContext.setAssessHealthCondition(values);
       }}
     >
-      {
-        //   {
-        //     // values,
-        //     // errors,
-        //     // touched,
-        //     // handleChange,
-        //     // handleBlur,
-        //     // handleSubmit,
-        //     // isSubmitting,
-        //     /* and other goodies */
-        //   }
-        // ) => (
-        <>
-          {/* <form onSubmit={handleSubmit}> */}
+      {({ handleSubmit }) => (
+        <form onSubmit={handleSubmit}>
           {glasgow()}
           {rts()}
           {breath()}
           {pupil()}
-          {/* <button type="submit" disabled={isSubmitting}>
-            Submit
-          </button> */}
-          {/* </form> */}
-        </>
-      }
+          <FormNavigation />
+        </form>
+      )}
     </Formik>
   );
 };
