@@ -13,7 +13,7 @@ const Interview = () => {
         appContext.setInterview(value);
       }}
     >
-      {({ handleSubmit }) => (
+      {({ handleSubmit, submitForm }) => (
         <>
           <form onSubmit={handleSubmit}>
             <h2 className={Style.title}>I - WYWIAD</h2>
@@ -23,7 +23,7 @@ const Interview = () => {
               as="textarea"
               // rows="4"
             />
-            <FormNavigation />
+            <FormNavigation onSaveForm={submitForm} />
           </form>
         </>
       )}

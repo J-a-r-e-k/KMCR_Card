@@ -47,7 +47,7 @@ const Statement = () => {
           appContext.setStatement(value);
         }}
       >
-        {({ handleSubmit }) => (
+        {({ handleSubmit, submitForm }) => (
           <form onSubmit={handleSubmit}>
             <div className={Style.wrapDiv}>
               <h2 className={Style.title}>OŚWIADCZENIE PACJENTA</h2>
@@ -117,7 +117,7 @@ const Statement = () => {
                 {signature()}
               </div>
             </div>
-            <FormNavigation />
+            <FormNavigation onSaveForm={submitForm} />
           </form>
         )}
       </Formik>

@@ -11,161 +11,209 @@ const AssessHealthCondition = () => {
       <>
         <div className={Style.wrapGlasgow}>
           <h2>GLASGOW-COMA-SCALE</h2>
-
           <ul>
             <p>OTWIERANIE OCZU</p>
             <li className={Style.wrapCheck}>
-              <label>spontaniczne</label>
+              <p>spontaniczne</p>
               <Field
-                className={Style.check}
-                name="gender"
-                type="button"
+                id="4"
+                className={Style.checkField}
+                name="gcs.openingEyes"
+                type="radio"
                 value="4"
               />
-
-              {/* <span>1</span> */}
+              <label htmlFor="4" className={Style.check}>
+                4
+              </label>
             </li>
             <li className={Style.wrapCheck}>
-              {/* <p>{appContext.assessHealthCondition.openingEyes}</p> */}
-              <label>na głos </label>
-
+              <p>na głos </p>
               <Field
-                className={Style.check}
-                name="gender"
-                type="button"
+                id="3"
+                className={Style.checkField}
+                name="gcs.openingEyes"
+                type="radio"
                 value="3"
               />
+              <label htmlFor="3" className={Style.check}>
+                3
+              </label>
             </li>
             <li className={Style.wrapCheck}>
-              <label>na ból</label>
+              <p>na ból</p>
               <Field
-                className={Style.check}
-                name="gender"
-                type="button"
+                id="2"
+                className={Style.checkField}
+                name="gcs.openingEyes"
+                type="radio"
                 value="2"
               />
+              <label htmlFor="2" className={Style.check}>
+                2
+              </label>
             </li>
             <li className={Style.wrapCheck}>
-              <label>brak</label>
+              <p>brak</p>
               <Field
-                className={Style.check}
-                name="gender"
-                type="button"
+                id="1"
+                className={Style.checkField}
+                name="gcs.openingEyes"
+                type="radio"
                 value="1"
               />
+              <label htmlFor="1" className={Style.check}>
+                1
+              </label>
             </li>
           </ul>
           <ul>
             <p>REAKCJA SŁOWNA</p>
             <li className={Style.wrapCheck}>
-              <label>zorientowany</label>
+              <p>zorientowany</p>
               <Field
-                className={Style.check}
-                name="gender"
-                type="button"
+                id="reactWords_5"
+                className={Style.checkField}
+                name="gcs.reactWords"
+                type="radio"
                 value="5"
               />
+              <label htmlFor="reactWords_5" className={Style.check}>
+                5
+              </label>
             </li>
             <li className={Style.wrapCheck}>
-              <label>splątany</label>
+              <p>splątany</p>
               <Field
-                className={Style.check}
-                name="gender"
-                type="button"
+                id="reactWords_4"
+                className={Style.checkField}
+                name="gcs.reactWords"
+                type="radio"
                 value="4"
               />
-
-              {/* <span>1</span> */}
+              <label htmlFor="reactWords_4" className={Style.check}>
+                4
+              </label>
             </li>
             <li className={Style.wrapCheck}>
-              {/* <p>{appContext.assessHealthCondition.openingEyes}</p> */}
-              <label>niewłaściwe słowa</label>
-
+              <p>niewłaściwe słowa</p>
               <Field
-                className={Style.check}
-                name="gender"
-                type="button"
+                id="reactWords_3"
+                className={Style.checkField}
+                name="gcs.reactWords"
+                type="radio"
                 value="3"
               />
+              <label htmlFor="reactWords_3" className={Style.check}>
+                3
+              </label>
             </li>
             <li className={Style.wrapCheck}>
-              <label>niezrozumiałe dźwięki</label>
+              <p>niezrozumiałe dźwięki</p>
               <Field
-                className={Style.check}
-                name="gender"
-                type="button"
+                id="reactWords_2"
+                className={Style.checkField}
+                name="gcs.reactWords"
+                type="radio"
                 value="2"
               />
+              <label htmlFor="reactWords_2" className={Style.check}>
+                2
+              </label>
             </li>
             <li className={Style.wrapCheck}>
-              <label>brak</label>
+              <p>brak</p>
               <Field
-                className={Style.check}
-                name="gender"
-                type="button"
+                id="reactWords_1"
+                className={Style.checkField}
+                name="gcs.reactWords"
+                type="radio"
                 value="1"
               />
+              <label htmlFor="reactWords_1" className={Style.check}>
+                1
+              </label>
             </li>
           </ul>
           <ul>
             <p>REAKCJA RUCHOWA</p>
             <li className={Style.wrapCheck}>
-              <label>wykonuje polecenia</label>
+              <p>wykonuje polecenia</p>
               <Field
-                className={Style.check}
-                name="gender"
-                type="button"
+                id="reakcjaMotoryczna_6"
+                className={Style.checkField}
+                name="gcs.reakcjaMotoryczna"
+                type="radio"
                 value="6"
               />
+              <label htmlFor="reakcjaMotoryczna_6" className={Style.check}>
+                6
+              </label>
             </li>
             <li className={Style.wrapCheck}>
-              <label>lokalizuje ból</label>
+              <p>lokalizuje ból</p>
               <Field
-                className={Style.check}
-                name="gender"
-                type="button"
+                id="reakcjaMotoryczna_5"
+                className={Style.checkField}
+                name="gcs.reakcjaMotoryczna"
+                type="radio"
                 value="5"
               />
+              <label htmlFor="reakcjaMotoryczna_5" className={Style.check}>
+                5
+              </label>
             </li>
             <li className={Style.wrapCheck}>
-              <label>ucieka od bólu</label>
+              <p>ucieka od bólu</p>
               <Field
-                className={Style.check}
-                name="gender"
-                type="button"
+                id="reakcjaMotoryczna_4"
+                className={Style.checkField}
+                name="gcs.reakcjaMotoryczna"
+                type="radio"
                 value="4"
               />
-
-              {/* <span>1</span> */}
+              <label htmlFor="reakcjaMotoryczna_4" className={Style.check}>
+                4
+              </label>
             </li>
             <li className={Style.wrapCheck}>
-              {/* <p>{appContext.assessHealthCondition.openingEyes}</p> */}
-              <label>zgięciowa </label>
-
+              <p>zgięciowa</p>
               <Field
-                className={Style.check}
-                name="gender"
-                type="button"
+                id="reakcjaMotoryczna_3"
+                className={Style.checkField}
+                name="gcs.reakcjaMotoryczna"
+                type="radio"
                 value="3"
               />
+              <label htmlFor="reakcjaMotoryczna_3" className={Style.check}>
+                3
+              </label>
             </li>
             <li className={Style.wrapCheck}>
-              <label>wyprost </label>
+              <p>wyprost</p>
               <Field
-                className={Style.check}
-                name="gender"
-                type="button"
+                id="reakcjaMotoryczna_2"
+                className={Style.checkField}
+                name="gcs.reakcjaMotoryczna"
+                type="radio"
                 value="2"
               />
+              <label htmlFor="reakcjaMotoryczna_2" className={Style.check}>
+                2
+              </label>
             </li>
+
             <li className={Style.wrapCheck}>
-              <label>brak</label>
+              <p> brak</p>
               <Field
-                className={Style.check}
-                name="gender"
-                type="button"
+                id="reakcjaMotoryczna_1"
+                className={Style.checkField}
+                name="gcs.reakcjaMotoryczna"
+                type="radio"
                 value="1"
               />
+              <label htmlFor="reakcjaMotoryczna_1" className={Style.check}>
+                1
+              </label>
             </li>
           </ul>
           <div className={`${Style.wrapCheck} ${Style.wrapSum}`}>
@@ -356,64 +404,89 @@ const AssessHealthCondition = () => {
               <label>częśtość oddechów</label>
               <Field
                 className={Style.breathingRate}
-                name="gender"
-                // type="number"
-                // type="button"
-                // value="4"
+                name="respiratorySystem.respiratoryRate"
+                type="number"
               />
               <p> /min</p>
 
               {/* <span>1</span> */}
             </li>
             <li className={Style.wrapCheck}>
-              <label>duszność</label>
-              <div>
+              <p>duszność</p>
+              <div className={Style.wrapCheck}>
                 <Field
-                  className={Style.check}
-                  name="gender"
-                  type="button"
-                  value="T"
+                  id="dyspneaYes"
+                  className={Style.checkField}
+                  name="respiratorySystem.dyspnea"
+                  type="radio"
+                  value="yes"
                 />
+                <label htmlFor="dyspneaYes" className={Style.check}>
+                  TAK
+                </label>
+
                 <Field
-                  className={Style.check}
-                  name="gender"
-                  type="button"
-                  value="N"
+                  id="dyspneaNO"
+                  className={Style.checkField}
+                  name="respiratorySystem.dyspnea"
+                  type="radio"
+                  value="no"
                 />
+                <label htmlFor="dyspneaNO" className={Style.check}>
+                  NIE
+                </label>
               </div>
             </li>
             <li className={Style.wrapCheck}>
-              <label>siinica</label>
-              <div>
+              <p>siinica</p>
+              <div className={Style.wrapCheck}>
                 <Field
-                  className={Style.check}
-                  name="gender"
-                  type="button"
-                  value="T"
+                  id="cyanosisYes"
+                  className={Style.checkField}
+                  name="respiratorySystem.cyanosis"
+                  type="radio"
+                  value="yes"
                 />
+                <label htmlFor="cyanosisYes" className={Style.check}>
+                  TAK
+                </label>
+
                 <Field
-                  className={Style.check}
-                  name="gender"
-                  type="button"
-                  value="N"
+                  id="cyanosisNo"
+                  className={Style.checkField}
+                  name="respiratorySystem.cyanosis"
+                  type="radio"
+                  value="no"
                 />
+                <label htmlFor="cyanosisNo" className={Style.check}>
+                  NIE
+                </label>
               </div>
             </li>
             <li className={Style.wrapCheck}>
-              <label>bezdech</label>
-              <div>
+              <p>bezdech</p>
+              <div className={Style.wrapCheck}>
                 <Field
-                  className={Style.check}
-                  name="gender"
-                  type="button"
-                  value="T"
+                  id="apneaYes"
+                  className={Style.checkField}
+                  name="respiratorySystem.apnea"
+                  type="radio"
+                  value="yes"
                 />
+                <label htmlFor="apneaYes" className={Style.check}>
+                  TAK
+                </label>
+
                 <Field
-                  className={Style.check}
-                  name="gender"
-                  type="button"
-                  value="N"
+                  id="apneaNo"
+                  className={Style.checkField}
+                  name="respiratorySystem.apnea"
+                  type="radio"
+                  value="no"
                 />
+                <label htmlFor="apneaNo" className={Style.check}>
+                  NIE
+                </label>
               </div>
             </li>
           </ul>
@@ -424,55 +497,113 @@ const AssessHealthCondition = () => {
             </div>
             <li className={Style.wrapCheck}>
               <label>szmer prawidłowy</label>
-              <div>
-                <Field className={Style.check} name="gender" type="button" />
-                <Field className={Style.check} name="gender" type="button" />
+              <div className={Style.wrapCheck}>
+                <Field
+                  className={Style.check}
+                  name="respiratorySystem.normalBreathSounds.left"
+                  type="checkbox"
+                />
+                <Field
+                  className={Style.check}
+                  name="respiratorySystem.normalBreathSounds.right"
+                  type="checkbox"
+                />
               </div>
+              {/* left: '',
+        right: '', */}
             </li>
             <li className={Style.wrapCheck}>
               <label>furczenie</label>
-              <div>
-                <Field className={Style.check} name="gender" type="button" />
-                <Field className={Style.check} name="gender" type="button" />
+              <div className={Style.wrapCheck}>
+                <Field
+                  className={Style.check}
+                  name="respiratorySystem.wheezing.left"
+                  type="checkbox"
+                />
+                <Field
+                  className={Style.check}
+                  name="respiratorySystem.wheezing.right"
+                  type="checkbox"
+                />
               </div>
             </li>
             <li className={Style.wrapCheck}>
               <label>świsty</label>
-              <div>
-                <Field className={Style.check} name="gender" type="button" />
-                <Field className={Style.check} name="gender" type="button" />
+              <div className={Style.wrapCheck}>
+                <Field
+                  className={Style.check}
+                  name="respiratorySystem.whistling.left"
+                  type="checkbox"
+                />
+                <Field
+                  className={Style.check}
+                  name="respiratorySystem.whistling.right"
+                  type="checkbox"
+                />
               </div>
             </li>
             <li className={Style.wrapCheck}>
               <label>trzeszczenie</label>
-              <div>
-                <Field className={Style.check} name="gender" type="button" />
-                <Field className={Style.check} name="gender" type="button" />
+              <div className={Style.wrapCheck}>
+                <Field
+                  className={Style.check}
+                  name="respiratorySystem.crepitation.left"
+                  type="checkbox"
+                />
+                <Field
+                  className={Style.check}
+                  name="respiratorySystem.crepitation.right"
+                  type="checkbox"
+                />
               </div>
             </li>
             <li className={Style.wrapCheck}>
               <label>rzężenie</label>
-              <div>
-                <Field className={Style.check} name="gender" type="button" />
-                <Field className={Style.check} name="gender" type="button" />
+              <div className={Style.wrapCheck}>
+                <Field
+                  className={Style.check}
+                  name="respiratorySystem.rales.left"
+                  type="checkbox"
+                />
+                <Field
+                  className={Style.check}
+                  name="respiratorySystem.rales.right"
+                  type="checkbox"
+                />
               </div>
             </li>
             <li className={Style.wrapCheck}>
               <label>brak szmeru</label>
-              <div>
-                <Field className={Style.check} name="gender" type="button" />
-                <Field className={Style.check} name="gender" type="button" />
+              <div className={Style.wrapCheck}>
+                <Field
+                  className={Style.check}
+                  name="respiratorySystem.noBreathSounds.left"
+                  type="checkbox"
+                />
+                <Field
+                  className={Style.check}
+                  name="respiratorySystem.noBreathSounds.right"
+                  type="checkbox"
+                />
               </div>
             </li>
             <li className={Style.wrapCheck}>
               <label>inne:</label>
-              <div>
-                <Field className={Style.check} name="gender" type="button" />
-                <Field className={Style.check} name="gender" type="button" />
+              <div className={Style.wrapCheck}>
+                <Field
+                  className={Style.check}
+                  name="respiratorySystem.otherSounds.left"
+                  type="checkbox"
+                />
+                <Field
+                  className={Style.check}
+                  name="respiratorySystem.otherSounds.right"
+                  type="checkbox"
+                />
               </div>
               <Field
                 className={Style.breathDifferent}
-                name="gender"
+                name="respiratorySystem.otherSounds.description"
                 type="text"
               />
             </li>
@@ -480,10 +611,8 @@ const AssessHealthCondition = () => {
               <label>Saturacja</label>
               <Field
                 className={Style.breathingRate}
-                name="gender"
-                // type="number"
-                // type="button"
-                // value="4"
+                name="respiratorySystem.oxygenSaturation"
+                type="number"
               />
               <p> %</p>
             </li>
@@ -492,7 +621,8 @@ const AssessHealthCondition = () => {
       </>
     );
   };
-
+  // pupil: {
+  //   normal: public.normal
   const pupil = () => {
     return (
       <div>
@@ -506,23 +636,47 @@ const AssessHealthCondition = () => {
             </div>
             <li className={Style.wrapCheck}>
               <label>prawidłowa</label>
-              <div>
-                <Field className={Style.check} name="gender" type="button" />
-                <Field className={Style.check} name="gender" type="button" />
+              <div className={Style.wrapCheck}>
+                <Field
+                  className={Style.check}
+                  name="public.normal.left"
+                  type="checkbox"
+                />
+                <Field
+                  className={Style.check}
+                  name="public.normal.right"
+                  type="checkbox"
+                />
               </div>
             </li>
             <li className={Style.wrapCheck}>
               <label>powolna</label>
-              <div>
-                <Field className={Style.check} name="gender" type="button" />
-                <Field className={Style.check} name="gender" type="button" />
+              <div className={Style.wrapCheck}>
+                <Field
+                  className={Style.check}
+                  name="public.slow.left"
+                  type="checkbox"
+                />
+                <Field
+                  className={Style.check}
+                  name="public.slow.right"
+                  type="checkbox"
+                />
               </div>
             </li>
             <li className={Style.wrapCheck}>
               <label>brak</label>
-              <div>
-                <Field className={Style.check} name="gender" type="button" />
-                <Field className={Style.check} name="gender" type="button" />
+              <div className={Style.wrapCheck}>
+                <Field
+                  className={Style.check}
+                  name="public.absent.left"
+                  type="checkbox"
+                />
+                <Field
+                  className={Style.check}
+                  name="public.absent.right"
+                  type="checkbox"
+                />
               </div>
             </li>
           </ul>
@@ -530,23 +684,47 @@ const AssessHealthCondition = () => {
             <p className={Style.description}>Reakcja na światło:</p>
             <li className={Style.wrapCheck}>
               <label>normalne</label>
-              <div>
-                <Field className={Style.check} name="gender" type="button" />
-                <Field className={Style.check} name="gender" type="button" />
+              <div className={Style.wrapCheck}>
+                <Field
+                  className={Style.check}
+                  name="public.regular.left"
+                  type="checkbox"
+                />
+                <Field
+                  className={Style.check}
+                  name="public.regular.right"
+                  type="checkbox"
+                />
               </div>
             </li>
             <li className={Style.wrapCheck}>
               <label>wąskie</label>
-              <div>
-                <Field className={Style.check} name="gender" type="button" />
-                <Field className={Style.check} name="gender" type="button" />
+              <div className={Style.wrapCheck}>
+                <Field
+                  className={Style.check}
+                  name="public.narrow.left"
+                  type="checkbox"
+                />
+                <Field
+                  className={Style.check}
+                  name="public.narrow.right"
+                  type="checkbox"
+                />
               </div>
             </li>
             <li className={Style.wrapCheck}>
               <label>szerokie</label>
-              <div>
-                <Field className={Style.check} name="gender" type="button" />
-                <Field className={Style.check} name="gender" type="button" />
+              <div className={Style.wrapCheck}>
+                <Field
+                  className={Style.check}
+                  name="public.wide.left"
+                  type="checkbox"
+                />
+                <Field
+                  className={Style.check}
+                  name="public.wide.right"
+                  type="checkbox"
+                />
               </div>
             </li>
           </ul>
@@ -578,22 +756,34 @@ const AssessHealthCondition = () => {
             <div className={`${Style.wrapCheck} ${Style.wrapBreathingRate}`}>
               <Field
                 className={Style.breathingRate}
-                name="gender"
+                name="pulse"
                 type="number"
-                // type="button"
-                // value="4"
               />
               <p> /min</p>
             </div>
             <div className={Style.wrapPulseCheck}>
-              <div className={Style.wrapLungSide}>
-                <label className={Style.pulsText}>miarowe</label>
-                <Field className={Style.check} name="gender" type="button" />
-              </div>
-              <div className={Style.wrapLungSide}>
-                <label className={Style.pulsText}>niemiarowe</label>
-                <Field className={Style.check} name="gender" type="button" />
-              </div>
+              <label htmlFor="heartRhythmRegular" className={Style.pulsText}>
+                miarowe
+              </label>
+              <Field
+                id="heartRhythmRegular"
+                className={Style.check}
+                name="heartRhythm"
+                type="radio"
+                value="Regular"
+              />
+              <Field
+                id="heartRhythmIrregular"
+                className={Style.check}
+                name="heartRhythm"
+                type="radio"
+                value="Irregular"
+              />
+              <label htmlFor="heartRhythmIrregular" className={Style.pulsText}>
+                niemiarowe
+              </label>
+
+              <div className={Style.wrapLungSide}></div>
             </div>
           </div>
         </div>
@@ -608,13 +798,13 @@ const AssessHealthCondition = () => {
         appContext.setAssessHealthCondition(values);
       }}
     >
-      {({ handleSubmit }) => (
+      {({ handleSubmit, submitForm }) => (
         <form onSubmit={handleSubmit}>
           {glasgow()}
           {rts()}
           {breath()}
           {pupil()}
-          <FormNavigation />
+          <FormNavigation onSaveForm={submitForm} />
         </form>
       )}
     </Formik>

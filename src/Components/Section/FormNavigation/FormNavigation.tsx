@@ -2,7 +2,7 @@ import { useAppContext } from '../../../context/AppContext';
 // import { useEffect } from 'react';
 import Style from './FormNavigation.module.scss';
 
-export const FormNavigation = () => {
+export const FormNavigation = ({ onSaveForm }: { onSaveForm?: () => void }) => {
   const { currentStep, setCurrentStep, steps } = useAppContext();
 
   return (
@@ -12,6 +12,7 @@ export const FormNavigation = () => {
         onClick={() => {
           if (currentStep == 0) return;
           setCurrentStep(currentStep - 1);
+          onSaveForm?.();
         }}
         type="submit"
       >
@@ -23,6 +24,7 @@ export const FormNavigation = () => {
         onClick={() => {
           if (currentStep == steps.length - 1) return;
           setCurrentStep(currentStep + 1);
+          onSaveForm?.();
         }}
 
         // disabled={isNextButtonDisabled}

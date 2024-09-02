@@ -188,11 +188,11 @@ const PatientData = () => {
           appContext.setPatientData(value);
         }}
       >
-        {({ handleSubmit }) => (
+        {({ handleSubmit, submitForm }) => (
           <form onSubmit={handleSubmit}>
             {patientForm()}
             {guardianDate()}
-            <FormNavigation />
+            <FormNavigation onSaveForm={submitForm} />
           </form>
         )}
       </Formik>

@@ -1,3 +1,14 @@
+//kasowanie elementu '+/=' w input //
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+//
+
 .wrapGlasgow {
   display: flex;
   flex-direction: column;
@@ -20,13 +31,36 @@ label {
 }
 
 .check {
-  //   font-size: rem;
-  width: 25px;
-  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  margin: 0 3px;
   border-radius: 5px;
   border: 2px #999 solid;
   cursor: pointer;
+  appearance: none; //
 }
+.checkField {
+  appearance: none;
+  // opacity: 0;
+}
+// appearance: none;
+
+.check:checked {
+  color: transparent;
+  background-color: #999;
+  background-image: url('../../../../public/icon-checkmark.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.checkField:checked + .check {
+  border: 2px #777 solid;
+  background-color: #999;
+  color: #fff;
+}
+
 .check:hover,
 .breathingRate:hover {
   border: 2px blue solid;
@@ -70,7 +104,8 @@ label {
 }
 
 .lungSide {
-  width: 25px;
+  width: 30px;
+  margin: 0 5px;
   text-align: center;
 }
 

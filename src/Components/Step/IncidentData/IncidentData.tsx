@@ -74,6 +74,7 @@ const IncidentData = () => {
           // handleChange,
           // handleBlur,
           handleSubmit,
+          submitForm,
           // isSubmitting,
           // isValid,
           /* and other goodies */
@@ -140,7 +141,7 @@ const IncidentData = () => {
               />
             </div>
 
-            <FormNavigation />
+            <FormNavigation onSaveForm={submitForm} />
             {/* <FormNavigation isNextButtonDisabled={!isValid} /> */}
           </form>
         )}
