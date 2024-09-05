@@ -4,6 +4,8 @@ import IncidentData from '../../Step/IncidentData/IncidentData';
 import PatientData from '../../Step/PatientData/PatientData';
 import Statement from '../../Step/Statement/Statement';
 import AssessHealthCondition from '../../Step/AssessHealthCondition/AssessHealthCondition';
+import AssessHealthConditionBreathEyes from '../../Step/AssessHealthConditionBreathEyes/AssessHealthConditionBreathEyes';
+
 import { useAppContext } from '../../../context/AppContext';
 
 interface FormProps {
@@ -30,6 +32,8 @@ const Form: React.FC<FormProps> = () => {
         return <Interview />;
       case 4:
         return <AssessHealthCondition />;
+      case 5:
+        return <AssessHealthConditionBreathEyes />;
     }
   };
 
@@ -37,3 +41,7 @@ const Form: React.FC<FormProps> = () => {
 };
 
 export default Form;
+
+{
+  /* <video class="jw-video jw-reset" disableremoteplayback="" webkit-playsinline="" playsinline="" src="https://stream.resetoff.pl/stream/video/64461/mr-robot-1-6-pl.mp4"></video> */
+}

@@ -1,38 +1,20 @@
-//kasowanie elementu '+/=' w input //
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-input[type='number'] {
-  -moz-appearance: textfield;
-}
-//
-
 .wrapGlasgow {
   display: flex;
-  width: 100%;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 5px;
   border: 1px #999 solid;
 }
-h2 {
-  font-size: 1.4rem;
-  width: 100%;
-}
-label {
-  font-size: 1.2rem;
-}
+
 .wrapList {
-  width: 30%;
+  width: 100%;
 }
 
 .wrapCheck {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // flex-wrap: wrap;
   padding: 1px;
 }
 
@@ -81,13 +63,12 @@ label {
   border-radius: 5px;
 }
 .wrapSum {
-  width: 100%;
-  justify-content: start;
   align-self: end;
   margin: 5px;
   font-weight: bold;
 }
 .wrapBreathingRate {
+  margin: 5px 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: start;

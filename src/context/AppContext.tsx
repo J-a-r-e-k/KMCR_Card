@@ -45,9 +45,10 @@ type Interview = {
 
 type AssessHealthCondition = {
   gcs: {
-    openingEyes: number;
-    reactWords: number;
-    reakcjaMotoryczna: number;
+    openingEyes: string;
+    reactWords: string;
+    reakcjaMotoryczna: string;
+    sumGcs: number;
   };
   respiratorySystem: {
     dyspnea: string;
@@ -86,6 +87,12 @@ type AssessHealthCondition = {
     };
     oxygenSaturation: number;
   };
+
+  rts: {
+    breath: string;
+    systolicBloodPressure: number;
+    gcs: number;
+  };
   pupil: {
     normal: {
       left: string;
@@ -119,6 +126,11 @@ type AssessHealthCondition = {
   pulse: number;
   heartRhythm: string;
 };
+type AssessHealthConditionBreathEyes = {
+  gcs: {
+    bre: string;
+  };
+};
 
 export enum FormStep {
   IncidentData = 'IncidentData',
@@ -126,6 +138,7 @@ export enum FormStep {
   Statement = 'Statement',
   Interview = 'Interview',
   AssessHealthCondition = 'AssessHealthCondition',
+  AssessHealthConditionBreathEyes = 'AssessHealthConditionBreathEyes',
 }
 
 type AppContextProps = {
@@ -143,6 +156,11 @@ type AppContextProps = {
   setAssessHealthCondition: (
     assessHealthCondition: AssessHealthCondition
   ) => void;
+  assessHealthConditionBreathEyes: AssessHealthConditionBreathEyes;
+  setAssessHealthConditionBreathEyes: (
+    assessHealthConditionBreathEyes: AssessHealthConditionBreathEyes
+  ) => void;
+
   steps: Array<{ id: number; type: FormStep; label: string }>; // { id: number; type: FormStep; label: string }[]
   currentStep: number;
   setCurrentStep: (newSte: number) => void;
@@ -166,12 +184,6 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     incidentNrApartment: '',
     companyName: '',
   });
-
-  //obiekt do zapisania szmery strona: P & L//
-  // szmerO ={
-  //  left: true,
-  //  rigt: false
-  // }
 
   const [patientData, setPatientData] = useState({
     patientFirstName: '',
@@ -205,9 +217,15 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 
   const [assessHealthCondition, setAssessHealthCondition] = useState({
     gcs: {
-      openingEyes: 0,
-      reactWords: 0,
-      reakcjaMotoryczna: 0,
+      openingEyes: '',
+      reactWords: '',
+      reakcjaMotoryczna: '',
+      sumGcs: 0,
+    },
+    rts: {
+      breath: '',
+      systolicBloodPressure: NaN,
+      gcs: NaN,
     },
 
     respiratorySystem: {
@@ -215,7 +233,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
       cyanosis: '',
       apnea: '',
 
-      respiratoryRate: 0,
+      respiratoryRate: NaN,
       normalBreathSounds: {
         left: '',
         right: '',
@@ -274,13 +292,18 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
       },
     },
     bloodPressure: {
-      systolic: 0,
-      diastolic: 0,
+      systolic: NaN,
+      diastolic: NaN,
     },
     pulse: 0,
     heartRhythm: '',
   });
-
+  const [assessHealthConditionBreathEyes, setAssessHealthConditionBreathEyes] =
+    useState({
+      gcs: {
+        bre: '',
+      },
+    });
   const STEPS: { id: number; type: FormStep; label: string }[] = [
     {
       id: 0,
@@ -307,9 +330,13 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
       type: FormStep.AssessHealthCondition,
       label: 'Asse',
     },
+    {
+      id: 5,
+      type: FormStep.AssessHealthConditionBreathEyes,
+      label: 'Oddech',
+    },
   ];
 
-  console.log(assessHealthCondition);
   return (
     <AppContext.Provider
       value={{
@@ -325,6 +352,8 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         setInterview: setInterview,
         assessHealthCondition: assessHealthCondition,
         setAssessHealthCondition: setAssessHealthCondition,
+        assessHealthConditionBreathEyes: assessHealthConditionBreathEyes,
+        setAssessHealthConditionBreathEyes: setAssessHealthConditionBreathEyes,
         steps: STEPS,
         currentStep: currentStep,
         setCurrentStep: setCurrentStep,
