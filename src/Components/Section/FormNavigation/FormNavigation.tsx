@@ -1,5 +1,5 @@
 import { useAppContext } from '../../../context/AppContext';
-// import { useEffect } from 'react';
+
 import Style from './FormNavigation.module.scss';
 
 export const FormNavigation = ({ onSaveForm }: { onSaveForm?: () => void }) => {
@@ -26,8 +26,6 @@ export const FormNavigation = ({ onSaveForm }: { onSaveForm?: () => void }) => {
           setCurrentStep(currentStep + 1);
           onSaveForm?.();
         }}
-
-        // disabled={isNextButtonDisabled}
       >
         Dalej
       </button>
@@ -39,10 +37,3 @@ export const FormNavigation = ({ onSaveForm }: { onSaveForm?: () => void }) => {
     </>
   );
 };
-
-// export const FormNavigation = ({
-//     isNextButtonDisabled,
-//   }: {
-//     isNextButtonDisabled?: boolean;
-//   }) => {
-//     const { currentStep, setCurrentStep, steps } = useAppContext();

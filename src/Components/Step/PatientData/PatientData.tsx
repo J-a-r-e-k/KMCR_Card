@@ -3,9 +3,6 @@ import { FormNavigation } from '../../Section/FormNavigation/FormNavigation';
 import Style from './PatientData.module.scss';
 import { Field, Formik } from 'formik';
 
-// import { setPatientData } from '../../../context/AppContext';
-// import { Field, useFormikContext, ErrorMessage } from 'formik';
-
 const PatientData = () => {
   const appContext = useAppContext();
 
@@ -201,9 +198,3 @@ const PatientData = () => {
 };
 
 export default PatientData;
-
-// initialValues={appContext.incidentData}
-//         onSubmit={(values, { setSubmitting }) => {
-//           setSubmitting(false);
-//           appContext.setIncidentData(values);
-//         }}

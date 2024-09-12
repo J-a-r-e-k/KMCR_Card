@@ -34,7 +34,7 @@ type PatientData = {
   legalGuardianTelephone: string;
 };
 
-type Statement = {
+export type Statement = {
   patientRefusalDate: string;
   refusal: string;
   withdrawalAidTime: string;
@@ -45,7 +45,7 @@ type Interview = {
   interviewDescription: string;
 };
 
-type AssessHealthCondition = {
+export type AssessHealthCondition = {
   gcs: {
     openingEyes: string;
     reactWords: string;
@@ -265,7 +265,7 @@ type InjuryAssessment = {
 type DiagnosisCode = {
   cos: string;
 };
-// DODAĆ DO OŚWIADCZENIA PACJENTA ELEMENT: ODSTĄPIENIE OD ŚWIADCZEŃ//
+
 //SEKCJA OPIS //
 
 export enum FormStep {
@@ -316,7 +316,7 @@ export const AppContext = createContext<AppContextProps | undefined>(undefined);
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [userName, setUserName] = useState('Jarosław');
 
-  const [currentStep, setCurrentStep] = useState<number>(8);
+  const [currentStep, setCurrentStep] = useState<number>(4);
 
   const [incidentData, setIncidentData] = useState({
     nrIncident: '',
@@ -375,6 +375,8 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
       gcs: NaN,
     },
   });
+  console.log('statement', assessHealthCondition.gcs);
+
   const [assessHealthConditionBreathEyes, setAssessHealthConditionBreathEyes] =
     useState({
       respiratorySystem: {

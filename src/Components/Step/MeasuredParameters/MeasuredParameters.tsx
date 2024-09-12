@@ -47,7 +47,7 @@ const MeasuredParameters = () => {
       </div>
     );
   }
-  //<>//
+
   function psychomotorEvaluation() {
     return (
       <div className={Style.wrapGlobal}>

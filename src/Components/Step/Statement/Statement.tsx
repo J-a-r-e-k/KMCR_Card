@@ -1,8 +1,11 @@
 import Style from './Statement.module.scss';
 import AddDate from '../Icon/AddDate';
 import { useState } from 'react';
-import { Formik, Field } from 'formik';
-import { useAppContext } from '../../../context/AppContext';
+import { Formik, Field, FormikHelpers } from 'formik';
+import {
+  useAppContext,
+  Statement as StatementType,
+} from '../../../context/AppContext';
 import { FormNavigation } from '../../Section/FormNavigation/FormNavigation';
 
 const Statement = () => {
@@ -28,7 +31,11 @@ const Statement = () => {
     );
   };
 
-  function statement() {
+  function statement({
+    setFieldValue,
+  }: {
+    setFieldValue: FormikHelpers<StatementType>['setFieldValue'];
+  }) {
     return (
       <div className={Style.wrapDiv}>
         <h2 className={Style.title}>OŚWIADCZENIE PACJENTA</h2>
@@ -65,10 +72,13 @@ const Statement = () => {
             className={Style.btnAddDate}
             onClick={() => {
               const dateTime = today();
-              appContext.setStatement({
-                ...appContext.statement,
-                patientRefusalDate: dateTime,
-              });
+              // appContext.setStatement({
+              //   ...appContext.statement,
+              //   patientRefusalDate: dateTime,
+              // });
+              setFieldValue('patientRefusalDate', dateTime);
+              //save to formik
+
               console.log(dateTime);
             }}
             type="button"
@@ -96,13 +106,13 @@ const Statement = () => {
     const [day, time] = new Date().toISOString().split('T');
     const dateFormat = `${day} / ${time.split('.')[0].slice(0, 5)}`;
     return dateFormat;
-    // appContext.setStatement({
-    //   ...appContext.statement,
-    //   patientRefusalDate: dateFormat,
-    // });
   };
 
-  function withdrawalAid() {
+  function withdrawalAid({
+    setFieldValue,
+  }: {
+    setFieldValue: FormikHelpers<StatementType>['setFieldValue'];
+  }) {
     return (
       <div className={Style.wrapDiv}>
         <p className={Style.textBold}>
@@ -119,6 +129,7 @@ const Statement = () => {
                 ...appContext.statement,
                 withdrawalAidTime: dateTime,
               });
+              setFieldValue('withdrawalAidTime', dateTime);
               console.log(dateTime);
             }}
             type="button"
@@ -149,10 +160,10 @@ const Statement = () => {
           appContext.setStatement(value);
         }}
       >
-        {({ handleSubmit, submitForm }) => (
+        {({ handleSubmit, submitForm, setFieldValue }) => (
           <form onSubmit={handleSubmit}>
-            {statement()}
-            {withdrawalAid()}
+            {statement({ setFieldValue })}
+            {withdrawalAid({ setFieldValue })}
             <FormNavigation onSaveForm={submitForm} />
           </form>
         )}
