@@ -262,6 +262,9 @@ type InjuryAssessment = {
   };
 };
 
+type DiagnosisCode = {
+  cos: string;
+};
 // DODAĆ DO OŚWIADCZENIA PACJENTA ELEMENT: ODSTĄPIENIE OD ŚWIADCZEŃ//
 //SEKCJA OPIS //
 
@@ -274,6 +277,7 @@ export enum FormStep {
   AssessHealthConditionBreathEyes = 'AssessHealthConditionBreathEyes',
   MeasuredParameters = 'MeasuredParameters',
   InjuryAssessment = 'InjuryAssessment',
+  DiagnosisCode = 'DiagnosisCode',
 }
 
 type AppContextProps = {
@@ -299,6 +303,8 @@ type AppContextProps = {
   setMeasuredParameters: (measuredParameters: MeasuredParameters) => void;
   injuryAssessment: InjuryAssessment;
   setInjuryAssessment: (injuryAssessment: InjuryAssessment) => void;
+  diagnosisCode: DiagnosisCode;
+  setDiagnosisCode: (diagnosisCode: DiagnosisCode) => void;
 
   steps: Array<{ id: number; type: FormStep; label: string }>; // { id: number; type: FormStep; label: string }[]
   currentStep: number;
@@ -310,7 +316,7 @@ export const AppContext = createContext<AppContextProps | undefined>(undefined);
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [userName, setUserName] = useState('Jarosław');
 
-  const [currentStep, setCurrentStep] = useState<number>(2);
+  const [currentStep, setCurrentStep] = useState<number>(8);
 
   const [incidentData, setIncidentData] = useState({
     nrIncident: '',
@@ -576,6 +582,10 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     },
   });
 
+  const [diagnosisCode, setDiagnosisCode] = useState({
+    cos: '',
+  });
+
   const STEPS: { id: number; type: FormStep; label: string }[] = [
     {
       id: 0,
@@ -617,6 +627,11 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
       type: FormStep.InjuryAssessment,
       label: 'Obrażenia',
     },
+    {
+      id: 8,
+      type: FormStep.DiagnosisCode,
+      label: 'Rozpoznanie',
+    },
   ];
   // console.log(assessHealthConditionBreathEyes);
   return (
@@ -640,6 +655,8 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         setMeasuredParameters: setMeasuredParameters,
         injuryAssessment: injuryAssessment,
         setInjuryAssessment: setInjuryAssessment,
+        diagnosisCode: diagnosisCode,
+        setDiagnosisCode: setDiagnosisCode,
 
         steps: STEPS,
         currentStep: currentStep,

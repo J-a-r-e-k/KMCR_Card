@@ -1,3 +1,4 @@
+import { useAppContext } from '../../../context/AppContext';
 import Interview from '../../Step/Interview/Interview';
 import Style from './Form.module.scss';
 import IncidentData from '../../Step/IncidentData/IncidentData';
@@ -6,9 +7,8 @@ import Statement from '../../Step/Statement/Statement';
 import AssessHealthCondition from '../../Step/AssessHealthCondition/AssessHealthCondition';
 import AssessHealthConditionBreathEyes from '../../Step/AssessHealthConditionBreathEyes/AssessHealthConditionBreathEyes';
 import InjuryAssessment from '../../Step/InjuryAssessment/InjuryAssessment';
-
-import { useAppContext } from '../../../context/AppContext';
 import MeasuredParameters from '../../Step/MeasuredParameters/MeasuredParameters';
+import DiagnosisCode from '../../Step/DiagnosisCode/DiagnosisCode';
 
 interface FormProps {
   step: number;
@@ -40,6 +40,8 @@ const Form: React.FC<FormProps> = () => {
         return <MeasuredParameters />;
       case 7:
         return <InjuryAssessment />;
+      case 8:
+        return <DiagnosisCode />;
     }
   };
 

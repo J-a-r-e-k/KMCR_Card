@@ -1,0 +1,46 @@
+.wrapGlobal {
+  display: flex;
+  flex-direction: column;
+  margin: 5px 10px;
+  height: fit-content;
+  padding: 5px;
+  border: 1px #999 solid;
+  flex-grow: 1;
+}
+.wrapDiv {
+  display: flex;
+  margin: 10px 5px;
+  height: fit-content;
+  padding: 5px;
+  border: 1px #999 solid;
+}
+
+.textField {
+  flex-grow: 1;
+  font-size: 1.2rem;
+  line-height: 2em;
+  //   border-bottom: 1px #000 dotted;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.wrapCode {
+  position: relative;
+  width: 70px;
+  height: fit-content;
+  padding: 5px;
+  border: 1px #999 solid;
+}
+.codeField {
+  width: 100%;
+  font-size: 1.2rem;
+  line-height: 2em;
+  text-align: center;
+  cursor: pointer;
+}
+.textCode {
+  position: absolute;
+  top: 0;
+  left: 2;
+  font-size: 0.8rem;
+}
