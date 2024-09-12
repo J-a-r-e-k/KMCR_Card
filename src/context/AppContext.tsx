@@ -37,6 +37,8 @@ type PatientData = {
 type Statement = {
   patientRefusalDate: string;
   refusal: string;
+  withdrawalAidTime: string;
+  withdrawalAidDescription: string;
 };
 
 type Interview = {
@@ -50,6 +52,13 @@ type AssessHealthCondition = {
     reakcjaMotoryczna: string;
     sumGcs: number;
   };
+  rts: {
+    breath: string;
+    systolicBloodPressure: number;
+    gcs: number;
+  };
+};
+type AssessHealthConditionBreathEyes = {
   respiratorySystem: {
     dyspnea: string;
     cyanosis: string;
@@ -57,66 +66,60 @@ type AssessHealthCondition = {
 
     respiratoryRate: number;
     normalBreathSounds: {
-      left: string;
-      right: string;
+      left: boolean;
+      right: boolean;
     };
     wheezing: {
-      left: string;
-      right: string;
+      left: boolean;
+      right: boolean;
     };
     whistling: {
-      left: string;
-      right: string;
+      left: boolean;
+      right: boolean;
     };
     crepitation: {
-      left: string;
-      right: string;
+      left: boolean;
+      right: boolean;
     };
     rales: {
-      left: string;
-      right: string;
+      left: boolean;
+      right: boolean;
     };
     noBreathSounds: {
-      left: string;
-      right: string;
+      left: boolean;
+      right: boolean;
     };
     otherSounds: {
-      left: string;
-      right: string;
-      description: string;
+      left: boolean;
+      right: boolean;
+      description: boolean;
     };
     oxygenSaturation: number;
   };
-
-  rts: {
-    breath: string;
-    systolicBloodPressure: number;
-    gcs: number;
-  };
   pupil: {
     normal: {
-      left: string;
-      right: string;
+      left: boolean;
+      right: boolean;
     };
     slow: {
-      left: string;
-      right: string;
+      left: boolean;
+      right: boolean;
     };
     absent: {
-      left: string;
-      right: string;
+      left: boolean;
+      right: boolean;
     };
     regular: {
-      left: string;
-      right: string;
+      left: boolean;
+      right: boolean;
     };
     narrow: {
-      left: string;
-      right: string;
+      left: boolean;
+      right: boolean;
     };
     wide: {
-      left: string;
-      right: string;
+      left: boolean;
+      right: boolean;
     };
   };
   bloodPressure: {
@@ -125,12 +128,142 @@ type AssessHealthCondition = {
   };
   pulse: number;
   heartRhythm: string;
-};
-type AssessHealthConditionBreathEyes = {
-  gcs: {
-    bre: string;
+  symptomsClinical: {
+    shock: {
+      yes: string;
+      no: string;
+    };
+    cardiacArrest: {
+      yes: string;
+      no: string;
+    };
+    meningealSigns: {
+      yes: string;
+      no: string;
+    };
+    seizures: {
+      yes: string;
+      no: string;
+    };
+    aphasia: {
+      yes: string;
+      no: string;
+    };
+    vomiting: {
+      yes: string;
+      no: string;
+    };
+    diarrhea: {
+      yes: string;
+      no: string;
+    };
+    bleeding: {
+      yes: string;
+      no: string;
+    };
+    swelling: {
+      yes: string;
+      no: string;
+    };
+    syncope: {
+      yes: string;
+      no: string;
+    };
+    hypothermia: {
+      yes: string;
+      no: string;
+    };
+    electrocution: {
+      yes: string;
+      no: string;
+    };
+  };
+  skinAppearance: {
+    normal: boolean;
+    pale: boolean;
+    erythema: boolean;
+    jaundice: boolean;
+    peripheralCyanosis: boolean;
+    centralCyanosis: boolean;
+  };
+  skinMoisture: {
+    normal: boolean;
+    moist: boolean;
+    dry: boolean;
+  };
+  temperature: {
+    normal: boolean;
+    cool: boolean;
+    warm: boolean;
+    bodyTemperature: number;
   };
 };
+type MeasuredParameters = {
+  abdominalExamination: {
+    normal: boolean;
+    palpationTenderness: boolean;
+    noPeristalsis: boolean;
+    PeritonealSigns: boolean;
+  };
+  psychomotorEvaluation: {
+    normal: boolean;
+    slowed: boolean;
+    agitated: boolean;
+    aggressive: boolean;
+  };
+  heartTone: {
+    normal: boolean;
+    muffled: boolean;
+    other: boolean;
+  };
+  breathOdor: {
+    solvent: boolean;
+    alcohol: boolean;
+    other: boolean;
+  };
+  glucoseMonitoring: number;
+  paresis: {
+    paralysis: boolean;
+    upperLimb: {
+      left: string;
+      right: string;
+    };
+    lowerLimb: {
+      left: string;
+      right: string;
+    };
+  };
+  other: {
+    pregnancy: string;
+    delivery: string;
+    infectiousDisease: string;
+  };
+  ekg: {
+    sinusRhythm: boolean;
+    supraventricularTachycardia: boolean;
+    ventricularTachycardia: boolean;
+    atrialFibrillationFlutter: boolean;
+    avBlock: boolean;
+    sVES: boolean;
+    ves: boolean;
+    vfVt: boolean;
+    asystole: boolean;
+    pea: boolean;
+    pacemaker: boolean;
+    stemi: boolean;
+    myocardialInfarction: boolean;
+    other: string;
+  };
+};
+
+type InjuryAssessment = {
+  go: {
+    aa: string;
+  };
+};
+
+// DODAĆ DO OŚWIADCZENIA PACJENTA ELEMENT: ODSTĄPIENIE OD ŚWIADCZEŃ//
+//SEKCJA OPIS //
 
 export enum FormStep {
   IncidentData = 'IncidentData',
@@ -139,6 +272,8 @@ export enum FormStep {
   Interview = 'Interview',
   AssessHealthCondition = 'AssessHealthCondition',
   AssessHealthConditionBreathEyes = 'AssessHealthConditionBreathEyes',
+  MeasuredParameters = 'MeasuredParameters',
+  InjuryAssessment = 'InjuryAssessment',
 }
 
 type AppContextProps = {
@@ -160,6 +295,10 @@ type AppContextProps = {
   setAssessHealthConditionBreathEyes: (
     assessHealthConditionBreathEyes: AssessHealthConditionBreathEyes
   ) => void;
+  measuredParameters: MeasuredParameters;
+  setMeasuredParameters: (measuredParameters: MeasuredParameters) => void;
+  injuryAssessment: InjuryAssessment;
+  setInjuryAssessment: (injuryAssessment: InjuryAssessment) => void;
 
   steps: Array<{ id: number; type: FormStep; label: string }>; // { id: number; type: FormStep; label: string }[]
   currentStep: number;
@@ -171,7 +310,7 @@ export const AppContext = createContext<AppContextProps | undefined>(undefined);
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [userName, setUserName] = useState('Jarosław');
 
-  const [currentStep, setCurrentStep] = useState<number>(4);
+  const [currentStep, setCurrentStep] = useState<number>(2);
 
   const [incidentData, setIncidentData] = useState({
     nrIncident: '',
@@ -209,6 +348,8 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [statement, setStatement] = useState({
     patientRefusalDate: '',
     refusal: '',
+    withdrawalAidTime: '',
+    withdrawalAidDescription: '',
   });
 
   const [interview, setInterview] = useState({
@@ -227,83 +368,214 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
       systolicBloodPressure: NaN,
       gcs: NaN,
     },
-
-    respiratorySystem: {
-      dyspnea: '',
-      cyanosis: '',
-      apnea: '',
-
-      respiratoryRate: NaN,
-      normalBreathSounds: {
-        left: '',
-        right: '',
-      },
-      wheezing: {
-        left: '',
-        right: '',
-      },
-      whistling: {
-        left: '',
-        right: '',
-      },
-      crepitation: {
-        left: '',
-        right: '',
-      },
-      rales: {
-        left: '',
-        right: '',
-      },
-      noBreathSounds: {
-        left: '',
-        right: '',
-      },
-      otherSounds: {
-        left: '',
-        right: '',
-        description: '',
-      },
-      oxygenSaturation: 0,
-    },
-    pupil: {
-      normal: {
-        left: '',
-        right: '',
-      },
-      slow: {
-        left: '',
-        right: '',
-      },
-      absent: {
-        left: '',
-        right: '',
-      },
-      regular: {
-        left: '',
-        right: '',
-      },
-      narrow: {
-        left: '',
-        right: '',
-      },
-      wide: {
-        left: '',
-        right: '',
-      },
-    },
-    bloodPressure: {
-      systolic: NaN,
-      diastolic: NaN,
-    },
-    pulse: 0,
-    heartRhythm: '',
   });
   const [assessHealthConditionBreathEyes, setAssessHealthConditionBreathEyes] =
     useState({
-      gcs: {
-        bre: '',
+      respiratorySystem: {
+        dyspnea: '',
+        cyanosis: '',
+        apnea: '',
+
+        respiratoryRate: NaN,
+        normalBreathSounds: {
+          left: false,
+          right: false,
+        },
+        wheezing: {
+          left: false,
+          right: false,
+        },
+        whistling: {
+          left: false,
+          right: false,
+        },
+        crepitation: {
+          left: false,
+          right: false,
+        },
+        rales: {
+          left: false,
+          right: false,
+        },
+        noBreathSounds: {
+          left: false,
+          right: false,
+        },
+        otherSounds: {
+          left: false,
+          right: false,
+          description: false,
+        },
+        oxygenSaturation: NaN,
+      },
+      pupil: {
+        normal: {
+          left: false,
+          right: false,
+        },
+        slow: {
+          left: false,
+          right: false,
+        },
+        absent: {
+          left: false,
+          right: false,
+        },
+        regular: {
+          left: false,
+          right: false,
+        },
+        narrow: {
+          left: false,
+          right: false,
+        },
+        wide: {
+          left: false,
+          right: false,
+        },
+      },
+      bloodPressure: {
+        systolic: NaN,
+        diastolic: NaN,
+      },
+      pulse: 0,
+      heartRhythm: '',
+
+      symptomsClinical: {
+        shock: {
+          yes: '',
+          no: '',
+        },
+        cardiacArrest: {
+          yes: '',
+          no: '',
+        },
+        meningealSigns: {
+          yes: '',
+          no: '',
+        },
+        seizures: {
+          yes: '',
+          no: '',
+        },
+        aphasia: {
+          yes: '',
+          no: '',
+        },
+        vomiting: {
+          yes: '',
+          no: '',
+        },
+        diarrhea: {
+          yes: '',
+          no: '',
+        },
+        bleeding: {
+          yes: '',
+          no: '',
+        },
+        swelling: {
+          yes: '',
+          no: '',
+        },
+        syncope: {
+          yes: '',
+          no: '',
+        },
+        hypothermia: {
+          yes: '',
+          no: '',
+        },
+        electrocution: {
+          yes: '',
+          no: '',
+        },
+      },
+
+      skinAppearance: {
+        normal: false,
+        pale: false,
+        erythema: false,
+        jaundice: false,
+        peripheralCyanosis: false,
+        centralCyanosis: false,
+      },
+      skinMoisture: {
+        normal: false,
+        moist: false,
+        dry: false,
+      },
+      temperature: {
+        normal: false,
+        cool: false,
+        warm: false,
+        bodyTemperature: NaN,
       },
     });
+  const [measuredParameters, setMeasuredParameters] = useState({
+    abdominalExamination: {
+      normal: false,
+      palpationTenderness: false,
+      noPeristalsis: false,
+      PeritonealSigns: false,
+    },
+    psychomotorEvaluation: {
+      normal: false,
+      slowed: false,
+      agitated: false,
+      aggressive: false,
+    },
+    heartTone: {
+      normal: false,
+      muffled: false,
+      other: false,
+    },
+    breathOdor: {
+      solvent: false,
+      alcohol: false,
+      other: false,
+    },
+    glucoseMonitoring: NaN,
+    paresis: {
+      paralysis: false,
+      upperLimb: {
+        left: '',
+        right: '',
+      },
+      lowerLimb: {
+        left: '',
+        right: '',
+      },
+    },
+    other: {
+      pregnancy: '',
+      delivery: '',
+      infectiousDisease: '',
+    },
+    ekg: {
+      sinusRhythm: false,
+      supraventricularTachycardia: false,
+      ventricularTachycardia: false,
+      atrialFibrillationFlutter: false,
+      avBlock: false,
+      sVES: false,
+      ves: false,
+      vfVt: false,
+      asystole: false,
+      pea: false,
+      pacemaker: false,
+      stemi: false,
+      myocardialInfarction: false,
+      other: '',
+    },
+  });
+
+  const [injuryAssessment, setInjuryAssessment] = useState({
+    go: {
+      aa: 'string',
+    },
+  });
+
   const STEPS: { id: number; type: FormStep; label: string }[] = [
     {
       id: 0,
@@ -335,8 +607,18 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
       type: FormStep.AssessHealthConditionBreathEyes,
       label: 'Oddech',
     },
+    {
+      id: 6,
+      type: FormStep.MeasuredParameters,
+      label: 'Zmierzone parametry',
+    },
+    {
+      id: 7,
+      type: FormStep.InjuryAssessment,
+      label: 'Obrażenia',
+    },
   ];
-
+  // console.log(assessHealthConditionBreathEyes);
   return (
     <AppContext.Provider
       value={{
@@ -354,6 +636,11 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         setAssessHealthCondition: setAssessHealthCondition,
         assessHealthConditionBreathEyes: assessHealthConditionBreathEyes,
         setAssessHealthConditionBreathEyes: setAssessHealthConditionBreathEyes,
+        measuredParameters: measuredParameters,
+        setMeasuredParameters: setMeasuredParameters,
+        injuryAssessment: injuryAssessment,
+        setInjuryAssessment: setInjuryAssessment,
+
         steps: STEPS,
         currentStep: currentStep,
         setCurrentStep: setCurrentStep,

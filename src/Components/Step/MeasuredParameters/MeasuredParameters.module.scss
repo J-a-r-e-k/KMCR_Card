@@ -1,15 +1,13 @@
-.wrapGlasgow {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-around;
+.wrapGlobal {
   margin: 5px 10px;
+  height: fit-content;
   padding: 5px;
   border: 1px #999 solid;
+  flex-grow: 1;
 }
 
-.wrapList {
-  width: 100%;
+.wrap {
+  flex-grow: 1;
 }
 
 .wrapCheck {
@@ -17,10 +15,6 @@
   justify-content: space-between;
   align-items: center;
   padding: 1px;
-}
-
-.wrapCheck__parameters {
-  background-color: #fff;
 }
 
 .check {
@@ -33,9 +27,6 @@
   border-radius: 5px;
   border: 2px #999 solid;
   cursor: pointer;
-  appearance: none; //
-}
-.checkField {
   appearance: none;
 }
 
@@ -46,35 +37,33 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+.check:hover,
+.fieldNo:hover {
+  border: 2px blue solid;
+}
+.description {
+  margin: 5px auto 5px 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.wrapGlucose {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkField {
+  appearance: none;
+}
+
 .checkField:checked + .check {
   border: 2px #777 solid;
   background-color: #999;
   color: #fff;
 }
 
-.check:hover,
-.breathingRate:hover {
-  border: 2px blue solid;
-}
-.sumCheck {
-  margin: 0 5px;
-  text-align: center;
-  line-height: 2em;
-  border-radius: 5px;
-}
-.wrapSum {
-  align-self: end;
-  margin: 5px;
-  font-weight: bold;
-}
-.wrapBreathingRate {
-  margin: 5px 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: start;
-  font-weight: bold;
-}
-.breathingRate {
+.fieldNo {
   width: 40px;
   height: 25px;
   margin: 0 5px;
@@ -84,15 +73,11 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
 .wrapLungSide {
   display: flex;
   justify-content: end;
   align-items: center;
-}
-.description {
-  margin: 5px auto 5px 0;
-  font-size: 1.2rem;
-  font-weight: bold;
 }
 
 .lungSide {
@@ -101,21 +86,11 @@
   text-align: center;
 }
 
-.breathDifferent {
-  width: 100%;
+.textField {
+  flex-grow: 1;
   font-size: 1.2rem;
+  line-height: 2em;
   border-bottom: 1px #000 dotted;
   cursor: pointer;
-}
-
-.wrapPulse {
-  display: flex;
-  justify-content: space-around;
-}
-.wrapPulseCheck {
-  display: flex;
-  flex-direction: column;
-}
-.pulsText {
-  margin: 0 3px;
+  margin-left: 5px;
 }

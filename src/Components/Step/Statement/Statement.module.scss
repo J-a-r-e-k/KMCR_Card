@@ -1,10 +1,15 @@
 .wrapDiv {
   display: flex;
-  flex-wrap: wrap;
+  // flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
   margin: 5px;
   padding: 5px 10px;
   border: 1px black solid;
+  min-width: 0%;
+  flex-grow: 1;
+  // margin: 0 auto;
 }
 
 .contents {
@@ -16,12 +21,17 @@
   margin: 0 5px;
   padding: 5px;
   flex-grow: 1;
-  border-bottom: 1px solid black;
+  border-bottom: 1px dotted black;
+}
+.textBold {
+  font-weight: bold;
+  font-size: 1.4rem;
 }
 
-.statementDate {
-  flex-grow: 0;
-}
+// .statementDate {
+//   flex-grow: 0;
+//   background-color: red;
+// }
 
 .title {
   width: 100%;
@@ -44,7 +54,6 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-
   p {
     flex-grow: 1;
     flex-basis: 70%;
@@ -60,7 +69,6 @@
   border: solid #999 1px;
   cursor: pointer;
   appearance: none;
-
   img {
     position: absolute;
     top: 50%;
@@ -72,7 +80,7 @@
 .signature:hover {
   border: 1px blue solid;
 }
-//
+
 .check:checked {
   background-color: #022a61;
   background-image: url('../../../../public/icon-checkmark.svg');
@@ -126,8 +134,14 @@
   border-radius: 10px;
 }
 
-.radio {
-  background-color: red;
-  width: 50px;
-  height: 50px;
+.description {
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
+// .radio {
+//   background-color: red;
+//   width: 50px;
+//   height: 50px;
+// }

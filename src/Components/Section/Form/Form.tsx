@@ -5,8 +5,10 @@ import PatientData from '../../Step/PatientData/PatientData';
 import Statement from '../../Step/Statement/Statement';
 import AssessHealthCondition from '../../Step/AssessHealthCondition/AssessHealthCondition';
 import AssessHealthConditionBreathEyes from '../../Step/AssessHealthConditionBreathEyes/AssessHealthConditionBreathEyes';
+import InjuryAssessment from '../../Step/InjuryAssessment/InjuryAssessment';
 
 import { useAppContext } from '../../../context/AppContext';
+import MeasuredParameters from '../../Step/MeasuredParameters/MeasuredParameters';
 
 interface FormProps {
   step: number;
@@ -34,6 +36,10 @@ const Form: React.FC<FormProps> = () => {
         return <AssessHealthCondition />;
       case 5:
         return <AssessHealthConditionBreathEyes />;
+      case 6:
+        return <MeasuredParameters />;
+      case 7:
+        return <InjuryAssessment />;
     }
   };
 

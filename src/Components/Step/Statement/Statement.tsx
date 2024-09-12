@@ -28,15 +28,117 @@ const Statement = () => {
     );
   };
 
+  function statement() {
+    return (
+      <div className={Style.wrapDiv}>
+        <h2 className={Style.title}>OŚWIADCZENIE PACJENTA</h2>
+        <p className={Style.contents}>
+          Poinformowany, świadomy możliwości bezpośredniego zagrożenia zdrowia i
+          życia, nie wyrażam zgody na:
+        </p>
+        <div className={Style.wrapCheck}>
+          <Field
+            name="refusal"
+            type="radio"
+            value="providingAssistance"
+            className={`${Style.check}`}
+          />
+          <p className={Style.contents}>udzielenie świadczenia zdrowotnego</p>
+          <Field
+            className={`${Style.check}`}
+            name="refusal"
+            type="radio"
+            value="transportHospital"
+          />
+
+          <p className={Style.contents}>przewiezienie do szpitala</p>
+        </div>
+        <p className={Style.contents}>
+          Oświadczam również, że udzielono mi wyczerpujących informacji o stanie
+          zdrowia oraz uzyskałem odpowiedzi na zadawane przeze mnie pytania.
+        </p>
+
+        <div>
+          <label className={Style.contents}>Data i godzina odmowy:</label>
+          <Field className={Style.inputText} name="patientRefusalDate" />
+          <button
+            className={Style.btnAddDate}
+            onClick={() => {
+              const dateTime = today();
+              appContext.setStatement({
+                ...appContext.statement,
+                patientRefusalDate: dateTime,
+              });
+              console.log(dateTime);
+            }}
+            type="button"
+          >
+            <AddDate />
+          </button>
+        </div>
+        <div className={Style.wrapSignature}>
+          <p className={Style.contents}>
+            podpis pacjenta lub przedstawiciela ustawowego:
+          </p>
+          <div
+            className={Style.signature}
+            onClick={() => {
+              setWrapSignature(!wrapSignature);
+            }}
+          ></div>
+          {signature()}
+        </div>
+      </div>
+    );
+  }
   //Popieranie i zapisywanie bieżącej daty i godziny
   const today = () => {
     const [day, time] = new Date().toISOString().split('T');
     const dateFormat = `${day} / ${time.split('.')[0].slice(0, 5)}`;
-    appContext.setStatement({
-      ...appContext.statement,
-      patientRefusalDate: dateFormat,
-    });
+    return dateFormat;
+    // appContext.setStatement({
+    //   ...appContext.statement,
+    //   patientRefusalDate: dateFormat,
+    // });
   };
+
+  function withdrawalAid() {
+    return (
+      <div className={Style.wrapDiv}>
+        <p className={Style.textBold}>
+          Odstąpiono od udzielania świadczeń zdrowotnych:
+        </p>
+        <div>
+          <label className={Style.contents}>Data i godzina odmowy:</label>
+          <Field className={Style.inputText} name="withdrawalAidTime" />
+          <button
+            className={Style.btnAddDate}
+            onClick={() => {
+              const dateTime = today();
+              appContext.setStatement({
+                ...appContext.statement,
+                withdrawalAidTime: dateTime,
+              });
+              console.log(dateTime);
+            }}
+            type="button"
+          >
+            <AddDate />
+          </button>
+        </div>
+        <div className={Style.description}>
+          <label>Przyczyna odstąpienia:</label>
+          <Field
+            className={Style.inputText}
+            name="legalGuardianFirstName"
+            as="textarea"
+            rows="2"
+            placeholder="Powód nie podjęcia MCR"
+          />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -49,74 +151,8 @@ const Statement = () => {
       >
         {({ handleSubmit, submitForm }) => (
           <form onSubmit={handleSubmit}>
-            <div className={Style.wrapDiv}>
-              <h2 className={Style.title}>OŚWIADCZENIE PACJENTA</h2>
-              {/* <input onChange={(e) => appContext?.setUserName(e.target.value)} /> */}
-              <p className={Style.contents}>
-                Poinformowany, świadomy możliwości bezpośredniego zagrożenia
-                zdrowia i życia, nie wyrażam zgody na:
-              </p>
-              <div className={Style.wrapCheck}>
-                <Field
-                  name="refusal"
-                  type="radio"
-                  value="providingAssistance"
-                  className={`${Style.check}`}
-                />
-                {/* <div
-      className={`${Style.check} ${'activeExamination'}`}
-      onClick={() => {
-        // genderPatient('examination');
-      }}
-    ></div> */}
-                <p className={Style.contents}>
-                  udzielenie świadczenia zdrowotnego
-                </p>
-                <Field
-                  className={`${Style.check}`}
-                  name="refusal"
-                  type="radio"
-                  value="transportHospital"
-                />
-                {/* <div
-      className={`${Style.check} ${'activeTransport'}`}
-      onClick={() => {
-        // genderPatient('transport');
-      }}
-    ></div> */}
-                <p className={Style.contents}>przewiezienie do szpitala</p>
-              </div>
-              <p className={Style.contents}>
-                Oświadczam również, że udzielono mi wyczerpujących informacji o
-                stanie zdrowia oraz uzyskałem odpowiedzi na zadawane przeze mnie
-                pytania.
-              </p>
-
-              <div>
-                <label className={Style.contents}>Data i godzina odmowy:</label>
-                <Field className={Style.inputText} name="patientRefusalDate" />
-                <button
-                  className={Style.btnAddDate}
-                  onClick={() => today()}
-                  type="button"
-                >
-                  <AddDate />
-                </button>
-              </div>
-              <div className={Style.wrapSignature}>
-                <p className={Style.contents}>
-                  podpis pacjenta lub przedstawiciela ustawowego:
-                </p>
-                <div
-                  className={Style.signature}
-                  onClick={() => {
-                    setWrapSignature(!wrapSignature);
-                    console.log('ok');
-                  }}
-                ></div>
-                {signature()}
-              </div>
-            </div>
+            {statement()}
+            {withdrawalAid()}
             <FormNavigation onSaveForm={submitForm} />
           </form>
         )}

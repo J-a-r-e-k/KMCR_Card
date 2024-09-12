@@ -295,8 +295,10 @@ const AssessHealthCondition = () => {
 
   const sum = () => {
     const breathe =
-      appContext.assessHealthCondition.respiratorySystem.respiratoryRate;
-    const pressure = appContext.assessHealthCondition.bloodPressure.systolic;
+      appContext.assessHealthConditionBreathEyes.respiratorySystem
+        .respiratoryRate;
+    const pressure =
+      appContext.assessHealthConditionBreathEyes.bloodPressure.systolic;
 
     //
     const rtsBreath =
