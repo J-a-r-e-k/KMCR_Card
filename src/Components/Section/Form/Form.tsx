@@ -9,6 +9,7 @@ import AssessHealthConditionBreathEyes from '../../Step/AssessHealthConditionBre
 import InjuryAssessment from '../../Step/InjuryAssessment/InjuryAssessment';
 import MeasuredParameters from '../../Step/MeasuredParameters/MeasuredParameters';
 import DiagnosisCode from '../../Step/DiagnosisCode/DiagnosisCode';
+import DescriptionStudyForm from '../../Step/DescriptionStudyForm/DescriptionStudyForm';
 
 interface FormProps {
   step: number;
@@ -41,6 +42,8 @@ const Form: React.FC<FormProps> = () => {
       case 7:
         return <InjuryAssessment />;
       case 8:
+        return <DescriptionStudyForm />;
+      case 9:
         return <DiagnosisCode />;
     }
   };
@@ -51,5 +54,4 @@ const Form: React.FC<FormProps> = () => {
 export default Form;
 
 {
-  /* <video class="jw-video jw-reset" disableremoteplayback="" webkit-playsinline="" playsinline="" src="https://stream.resetoff.pl/stream/video/64461/mr-robot-1-6-pl.mp4"></video> */
 }

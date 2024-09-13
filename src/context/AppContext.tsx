@@ -255,11 +255,14 @@ type MeasuredParameters = {
     other: string;
   };
 };
-
 type InjuryAssessment = {
   go: {
     aa: string;
   };
+};
+
+type DescriptionStudy = {
+  description: string;
 };
 
 type DiagnosisCode = {
@@ -277,6 +280,7 @@ export enum FormStep {
   AssessHealthConditionBreathEyes = 'AssessHealthConditionBreathEyes',
   MeasuredParameters = 'MeasuredParameters',
   InjuryAssessment = 'InjuryAssessment',
+  DescriptionStudy = 'DescriptionStudy',
   DiagnosisCode = 'DiagnosisCode',
 }
 
@@ -303,6 +307,8 @@ type AppContextProps = {
   setMeasuredParameters: (measuredParameters: MeasuredParameters) => void;
   injuryAssessment: InjuryAssessment;
   setInjuryAssessment: (injuryAssessment: InjuryAssessment) => void;
+  descriptionStudy: DescriptionStudy;
+  setDescriptionStudy: (descriptionStudy: DescriptionStudy) => void;
   diagnosisCode: DiagnosisCode;
   setDiagnosisCode: (diagnosisCode: DiagnosisCode) => void;
 
@@ -316,7 +322,7 @@ export const AppContext = createContext<AppContextProps | undefined>(undefined);
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [userName, setUserName] = useState('Jarosław');
 
-  const [currentStep, setCurrentStep] = useState<number>(4);
+  const [currentStep, setCurrentStep] = useState<number>(8); //<<>>//
 
   const [incidentData, setIncidentData] = useState({
     nrIncident: '',
@@ -375,7 +381,6 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
       gcs: NaN,
     },
   });
-  console.log('statement', assessHealthCondition.gcs);
 
   const [assessHealthConditionBreathEyes, setAssessHealthConditionBreathEyes] =
     useState({
@@ -584,6 +589,10 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     },
   });
 
+  const [descriptionStudy, setDescriptionStudy] = useState({
+    description: '',
+  });
+
   const [diagnosisCode, setDiagnosisCode] = useState({
     cos: '',
   });
@@ -631,11 +640,16 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     },
     {
       id: 8,
+      type: FormStep.DescriptionStudy,
+      label: 'Opis',
+    },
+    {
+      id: 9,
       type: FormStep.DiagnosisCode,
       label: 'Rozpoznanie',
     },
   ];
-  // console.log(assessHealthConditionBreathEyes);
+
   return (
     <AppContext.Provider
       value={{
@@ -657,6 +671,9 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         setMeasuredParameters: setMeasuredParameters,
         injuryAssessment: injuryAssessment,
         setInjuryAssessment: setInjuryAssessment,
+        descriptionStudy: descriptionStudy,
+        setDescriptionStudy: setDescriptionStudy,
+
         diagnosisCode: diagnosisCode,
         setDiagnosisCode: setDiagnosisCode,
 

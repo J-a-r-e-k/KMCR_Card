@@ -11,8 +11,6 @@ const AssessHealthCondition = () => {
   const appContext = useAppContext();
 
   const Glasgow = (values: AssessHealthConditionType) => {
-    console.log(values.gcs);
-
     useEffect(() => {
       const { reactWords, openingEyes, reakcjaMotoryczna } = values.gcs;
       if (reactWords && openingEyes && reakcjaMotoryczna) {
