@@ -1,0 +1,16 @@
+.wrap {
+  height: 100%;
+}
+
+.active {
+  path {
+    fill: rgb(104, 232, 84);
+  }
+}
+
+.injuriesDiv {
+  position: absolute;
+  width: fit-content;
+  height: fit-content;
+  transform: translate(-50%, -50%);
+}

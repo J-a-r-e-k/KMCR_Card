@@ -256,6 +256,40 @@ type MeasuredParameters = {
   };
 };
 type InjuryAssessment = {
+  front: {
+    neck: string;
+    face: string;
+    rightFrontArm: string;
+    leftFrontArm: string;
+    rightAnteriorLeg: string;
+    leftAnteriorLeg: string;
+    chest: string;
+    belly: string;
+    reproductiveOrgans: string;
+    hypogastrium: string;
+    footRF: string;
+    footLF: string;
+    forearmLF: string;
+    forearmRF: string;
+    handLF: string;
+    handRP: string;
+    shoulderLF: string;
+    shoulderPF: string;
+    elbowLF: string;
+    elbowRF: string;
+    wristLF: string;
+    wristRF: string;
+    kneeRF: string;
+    kneeLF: string;
+    ankleLF: string;
+    ankleRF: string;
+    hipRF: string;
+    hipLF: string;
+    mouth: string;
+    nose: string;
+    rightEye: string;
+    leftEye: string;
+  };
   go: {
     aa: string;
   };
@@ -322,7 +356,7 @@ export const AppContext = createContext<AppContextProps | undefined>(undefined);
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [userName, setUserName] = useState('Jarosław');
 
-  const [currentStep, setCurrentStep] = useState<number>(8); //<<>>//
+  const [currentStep, setCurrentStep] = useState<number>(7); //<<>>//
 
   const [incidentData, setIncidentData] = useState({
     nrIncident: '',
@@ -584,6 +618,46 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   });
 
   const [injuryAssessment, setInjuryAssessment] = useState({
+    front: {
+      neck: '', //szyja
+      face: '', //twarz
+      rightFrontArm: '', //ramiePP
+      leftFrontArm: '', //ramieLP
+      rightAnteriorLeg: '', // nogaPP
+      leftAnteriorLeg: '', // nogaLP
+      chest: 'fsdfs', //klata
+      belly: '', // brzuch
+      reproductiveOrgans: '', //Narządy Rozrodcze
+      hypogastrium: '', // podbrzusze
+      footRF: '', // stopa PP
+      footLF: '', // stopa LP
+      forearmLF: '', // przedramieLF
+      forearmRF: '', //przedramiePF
+      handLF: '', // dłoń LP
+      handRP: '', // dłoń LP
+      shoulderLF: '', // barkLP
+      shoulderPF: '', // barkPP
+      elbowLF: '', // łokiećLP
+      elbowRF: '', // łokiećPP
+      wristLF: '', // nadgarstekLP
+      wristRF: '', // nadgarstekPP
+      kneeRF: '', //kolanoPP
+      kneeLF: '', //kolanoLP
+      ankleLF: '', // kostkaLP
+      ankleRF: '', // kostkaPP
+      hipRF: '', // biodro PP
+      hipLF: '', // biodro LP
+      mouth: '', // usta
+      nose: '', // nos
+      rightEye: '', // prawe oko
+      leftEye: '', // lewe oko
+    },
+
+    // back: {
+    //   xxx: '', //
+    //   xxx: '', //
+    // },
+
     go: {
       aa: 'string',
     },
