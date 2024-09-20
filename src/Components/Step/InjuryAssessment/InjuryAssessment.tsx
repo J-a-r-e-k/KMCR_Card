@@ -49,7 +49,7 @@ const InjuryAssessment = () => {
     newDiv.style.left = `${centerX}px`; // Ustawienie pozycji X
     newDiv.style.top = `${centerY}px`; // Ustawienie pozycji Y
 
-    document.body.appendChild(newDiv);
+    // document.body.appendChild(newDiv);
   }
   return (
     <div className={Style.wrap}>
@@ -2788,7 +2788,7 @@ const InjuryAssessment = () => {
           <g clip-path="url(#6874c65fb2)">
             <path
               fill="#ffffff"
-              d="M 551.152344 140.21875 L 565.460938 140.21875 L 565.460938 265.328125 L 551.152344 265.328125 Z M 551.152344 140.21875 "
+              d="M 551.152344 140.21875 L 565.460938 140.21875 L 565.460938 272.875 L 551.152344 272.875 Z M 551.152344 140.21875 "
               fill-opacity="1"
               fill-rule="nonzero"
             />

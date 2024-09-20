@@ -300,6 +300,12 @@ type DescriptionStudy = {
 };
 
 type DiagnosisCode = {
+  primaryDiagnosis: {
+    code: string;
+    description: string;
+  };
+  secondDiagnosis: { code: string; description: string };
+  thirdDiagnosis: { code: string; description: string };
   cos: string;
 };
 
@@ -356,7 +362,7 @@ export const AppContext = createContext<AppContextProps | undefined>(undefined);
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [userName, setUserName] = useState('Jarosław');
 
-  const [currentStep, setCurrentStep] = useState<number>(7); //<<>>//
+  const [currentStep, setCurrentStep] = useState<number>(9); //<<>>//
 
   const [incidentData, setIncidentData] = useState({
     nrIncident: '',
@@ -668,6 +674,9 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   });
 
   const [diagnosisCode, setDiagnosisCode] = useState({
+    primaryDiagnosis: { code: '', description: '' },
+    secondDiagnosis: { code: '', description: '' },
+    thirdDiagnosis: { code: '', description: '' },
     cos: '',
   });
 
