@@ -1,4 +1,9 @@
+g {
+  cursor: pointer;
+}
+
 .wrap {
+  display: flex;
   height: 100%;
 }
 
@@ -13,4 +18,37 @@
   width: fit-content;
   height: fit-content;
   transform: translate(-50%, -50%);
+}
+
+.btnPanel {
+  border: 1px #333 solid;
+  border-radius: 5px;
+  padding: 3px;
+}
+
+.wrapCheck {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1px;
+}
+.check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  margin: 0 3px;
+  border-radius: 5px;
+  border: 2px #999 solid;
+  cursor: pointer;
+  appearance: none; //
+}
+
+.check:checked {
+  color: transparent;
+  background-color: #999;
+  background-image: url('../../../../public/icon-checkmark.svg');
+  background-position: center;
+  background-repeat: no-repeat;
 }

@@ -362,7 +362,7 @@ export const AppContext = createContext<AppContextProps | undefined>(undefined);
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [userName, setUserName] = useState('Jarosław');
 
-  const [currentStep, setCurrentStep] = useState<number>(9); //<<>>//
+  const [currentStep, setCurrentStep] = useState<number>(7); //<<>>//
 
   const [incidentData, setIncidentData] = useState({
     nrIncident: '',
