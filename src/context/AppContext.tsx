@@ -257,7 +257,7 @@ type MeasuredParameters = {
 };
 type InjuryAssessment = {
   front: {
-    neck: string;
+    frontNeck: string;
     face: string;
     rightFrontArm: string;
     leftFrontArm: string;
@@ -626,7 +626,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [injuryAssessment, setInjuryAssessment] = useState({
     front: {
       neck: '', //szyja
-      face: '', //twarz
+      face: 'fsd', //twarz
       rightFrontArm: '', //ramiePP
       leftFrontArm: '', //ramieLP
       rightAnteriorLeg: '', // nogaPP
