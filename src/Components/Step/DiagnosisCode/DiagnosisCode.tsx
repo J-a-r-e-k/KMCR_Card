@@ -1,4 +1,3 @@
-// import React from 'react';
 import Style from './DiagnosisCode.module.scss';
 import { Formik, Field } from 'formik';
 import { useAppContext } from '../../../context/AppContext';
