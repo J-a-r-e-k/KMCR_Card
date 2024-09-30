@@ -256,43 +256,38 @@ type MeasuredParameters = {
   };
 };
 type InjuryAssessment = {
-  front: {
-    frontNeck: string;
-    face: string;
-    rightFrontArm: string;
-    leftFrontArm: string;
-    rightAnteriorLeg: string;
-    leftAnteriorLeg: string;
-    chest: string;
-    belly: string;
-    reproductiveOrgans: string;
-    hypogastrium: string;
-    footRF: string;
-    footLF: string;
-    forearmLF: string;
-    forearmRF: string;
-    handLF: string;
-    handRP: string;
-    shoulderLF: string;
-    shoulderPF: string;
-    elbowLF: string;
-    elbowRF: string;
-    wristLF: string;
-    wristRF: string;
-    kneeRF: string;
-    kneeLF: string;
-    ankleLF: string;
-    ankleRF: string;
-    hipRF: string;
-    hipLF: string;
-    mouth: string;
-    nose: string;
-    rightEye: string;
-    leftEye: string;
-  };
-  go: {
-    aa: string;
-  };
+  neck: string;
+  face: string;
+  rightFrontArm: string;
+  leftFrontArm: string;
+  rightAnteriorLeg: string;
+  leftAnteriorLeg: string;
+  chest: string;
+  belly: string;
+  reproductiveOrgans: string;
+  hypogastrium: string;
+  footRF: string;
+  footLF: string;
+  forearmLF: string;
+  forearmRF: string;
+  handLF: string;
+  handRP: string;
+  shoulderLF: string;
+  shoulderPF: string;
+  elbowLF: string;
+  elbowRF: string;
+  wristLF: string;
+  wristRF: string;
+  kneeRF: string;
+  kneeLF: string;
+  ankleLF: string;
+  ankleRF: string;
+  hipRF: string;
+  hipLF: string;
+  mouth: string;
+  nose: string;
+  rightEye: string;
+  leftEye: string;
 };
 
 type DescriptionStudy = {
@@ -624,51 +619,40 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   });
 
   const [injuryAssessment, setInjuryAssessment] = useState({
-    front: {
-      neck: '', //szyja
-      face: 'fsd', //twarz
-      rightFrontArm: '', //ramiePP
-      leftFrontArm: '', //ramieLP
-      rightAnteriorLeg: '', // nogaPP
-      leftAnteriorLeg: '', // nogaLP
-      chest: 'fsdfs', //klata
-      belly: '', // brzuch
-      reproductiveOrgans: '', //Narządy Rozrodcze
-      hypogastrium: '', // podbrzusze
-      footRF: '', // stopa PP
-      footLF: '', // stopa LP
-      forearmLF: '', // przedramieLF
-      forearmRF: '', //przedramiePF
-      handLF: '', // dłoń LP
-      handRP: '', // dłoń LP
-      shoulderLF: '', // barkLP
-      shoulderPF: '', // barkPP
-      elbowLF: '', // łokiećLP
-      elbowRF: '', // łokiećPP
-      wristLF: '', // nadgarstekLP
-      wristRF: '', // nadgarstekPP
-      kneeRF: '', //kolanoPP
-      kneeLF: '', //kolanoLP
-      ankleLF: '', // kostkaLP
-      ankleRF: '', // kostkaPP
-      hipRF: '', // biodro PP
-      hipLF: '', // biodro LP
-      mouth: '', // usta
-      nose: '', // nos
-      rightEye: '', // prawe oko
-      leftEye: '', // lewe oko
-    },
-
-    // back: {
-    //   xxx: '', //
-    //   xxx: '', //
-    // },
-
-    go: {
-      aa: 'string',
-    },
+    neck: '', //szyja
+    face: '', //twarz
+    rightFrontArm: '', //ramiePP
+    leftFrontArm: '', //ramieLP
+    rightAnteriorLeg: '', // nogaPP
+    leftAnteriorLeg: '', // nogaLP
+    chest: 'WWWWWWWWWW', //klata
+    belly: '', // brzuch
+    reproductiveOrgans: '', //Narządy Rozrodcze
+    hypogastrium: '', // podbrzusze
+    footRF: '', // stopa PP
+    footLF: '', // stopa LP
+    forearmLF: '', // przedramieLF
+    forearmRF: '', //przedramiePF
+    handLF: '', // dłoń LP
+    handRP: '', // dłoń LP
+    shoulderLF: '', // barkLP
+    shoulderPF: '', // barkPP
+    elbowLF: '', // łokiećLP
+    elbowRF: '', // łokiećPP
+    wristLF: '', // nadgarstekLP
+    wristRF: '', // nadgarstekPP
+    kneeRF: '', //kolanoPP
+    kneeLF: '', //kolanoLP
+    ankleLF: '', // kostkaLP
+    ankleRF: '', // kostkaPP
+    hipRF: '', // biodro PP
+    hipLF: '', // biodro LP
+    mouth: '', // usta
+    nose: '', // nos
+    rightEye: '', // prawe oko
+    leftEye: '', // lewe oko
   });
-
+  console.log(injuryAssessment);
   const [descriptionStudy, setDescriptionStudy] = useState({
     description: '',
   });
