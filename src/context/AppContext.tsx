@@ -260,10 +260,14 @@ type InjuryAssessment = {
   face: string;
   rightFrontArm: string;
   leftFrontArm: string;
-  rightAnteriorLeg: string;
-  leftAnteriorLeg: string;
-  chest: string;
-  belly: string;
+  thighRF: string;
+  thighLF: string;
+  shinRF: string;
+  shinLF: string;
+  chestL: string;
+  chestR: string;
+  bellyL: string;
+  bellyR: string;
   reproductiveOrgans: string;
   hypogastrium: string;
   footRF: string;
@@ -271,9 +275,9 @@ type InjuryAssessment = {
   forearmLF: string;
   forearmRF: string;
   handLF: string;
-  handRP: string;
+  handRF: string;
   shoulderLF: string;
-  shoulderPF: string;
+  shoulderRF: string;
   elbowLF: string;
   elbowRF: string;
   wristLF: string;
@@ -623,10 +627,14 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     face: '', //twarz
     rightFrontArm: '', //ramiePP
     leftFrontArm: '', //ramieLP
-    rightAnteriorLeg: '', // nogaPP
-    leftAnteriorLeg: '', // nogaLP
-    chest: 'WWWWWWWWWW', //klata
-    belly: '', // brzuch
+    thighRF: '', // udo PP
+    thighLF: '', // udo LP
+    shinRF: '', //goleń PP
+    shinLF: '', //goleń LP
+    chestL: '', //klata L
+    chestR: '', //klata P
+    bellyL: '', // brzuch
+    bellyR: '', // brzuch
     reproductiveOrgans: '', //Narządy Rozrodcze
     hypogastrium: '', // podbrzusze
     footRF: '', // stopa PP
@@ -634,9 +642,9 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     forearmLF: '', // przedramieLF
     forearmRF: '', //przedramiePF
     handLF: '', // dłoń LP
-    handRP: '', // dłoń LP
+    handRF: '', // dłoń PP
     shoulderLF: '', // barkLP
-    shoulderPF: '', // barkPP
+    shoulderRF: '', // barkPP
     elbowLF: '', // łokiećLP
     elbowRF: '', // łokiećPP
     wristLF: '', // nadgarstekLP
@@ -652,7 +660,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     rightEye: '', // prawe oko
     leftEye: '', // lewe oko
   });
-  console.log(injuryAssessment);
+
   const [descriptionStudy, setDescriptionStudy] = useState({
     description: '',
   });
