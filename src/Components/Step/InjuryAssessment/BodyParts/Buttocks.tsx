@@ -1,6 +1,6 @@
 import Style from '../InjuryAssessment.module.scss';
 
-export const ReproductiveOrgans = ({
+export const Buttocks = ({
   active,
   currentActiveElement,
   value,
@@ -11,34 +11,32 @@ export const ReproductiveOrgans = ({
 }) => {
   return (
     <>
-      <g clip-path="url(#10f8746748)">
+      <g clip-path="url(#f9bb4a4620)">
         <g
-          className={
-            currentActiveElement === 'reproductiveOrgans' ? Style.active : ''
-          }
-          clip-path="url(#226ea7b171)"
+          className={currentActiveElement === 'buttocks' ? Style.active : ''}
+          clip-path="url(#36c1f413dc)"
         >
           <path
             fill="#ffffff"
-            d="M 193.097656 327.601562 L 261.796875 327.601562 L 261.796875 360.292969 L 193.097656 360.292969 Z M 193.097656 327.601562 "
+            d="M 193.097656 327.886719 L 261.796875 327.886719 L 261.796875 360.578125 L 193.097656 360.578125 Z M 193.097656 327.886719 "
             fill-opacity="1"
             fill-rule="nonzero"
             onClick={() => {
-              active('reproductiveOrgans');
+              active('buttocks');
             }}
           />
         </g>
       </g>
       <g
-      //   clip-path="url(#2f97823a56)"
+      //    clip-path="url(#135a717519)"
       >
-        <g clip-path="url(#8965c22935)">
+        <g clip-path="url(#a5b20dc211)">
           <path
             stroke-linecap="butt"
-            transform="matrix(0.75, 0, 0, 0.75, 193.098654, 327.602965)"
+            transform="matrix(0.75, 0, 0, 0.75, 193.098654, 327.887819)"
             fill="none"
             stroke-linejoin="miter"
-            d="M 45.779924 43.576259 L 91.555971 -0.0018703 L -0.00133085 -0.0018703 Z M 45.779924 43.576259 "
+            d="M 45.779924 43.576663 L 91.555971 -0.00146675 L -0.00133085 -0.00146675 Z M 45.779924 43.576663 "
             stroke="#000000"
             stroke-width="6"
             stroke-opacity="1"

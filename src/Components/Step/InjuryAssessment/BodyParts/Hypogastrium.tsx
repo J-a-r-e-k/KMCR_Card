@@ -20,8 +20,8 @@ export const Hypogastrium = ({
           d="M 192.378906 293.953125 L 260.988281 293.953125 L 260.988281 330.621094 L 192.378906 330.621094 Z M 192.378906 293.953125 "
           fill-opacity="1"
           fill-rule="nonzero"
-          onClick={(e) => {
-            active(e, 'hypogastrium');
+          onClick={() => {
+            active('hypogastrium');
           }}
         />
       </g>

@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from 'react';
+import { number } from 'yup';
 
 type IncidentData = {
   nrIncident: string;
@@ -256,6 +257,19 @@ type MeasuredParameters = {
   };
 };
 type InjuryAssessment = {
+  noInjuries: boolean;
+  burns: {
+    first: {
+      degree: string;
+      percent: number;
+    };
+    second: {
+      degree: string;
+      percent: number;
+    };
+    inhalationBurn: boolean;
+  };
+
   neck: string;
   face: string;
   rightFrontArm: string;
@@ -292,6 +306,43 @@ type InjuryAssessment = {
   nose: string;
   rightEye: string;
   leftEye: string;
+
+  neckBack: string;
+  spineCervical: string;
+  spineThoracic: string;
+  spineLumbar: string;
+  sacrum: string;
+  head: string;
+  rightBackArm: string;
+  leftBackArm: string;
+  thighRB: string;
+  thighLB: string;
+  shinRB: string;
+  shinLB: string;
+  backR: string;
+  backL: string;
+  backLowerR: string;
+  backLowerL: string;
+  buttocks: string;
+  pelvis: string;
+  footRB: string;
+  footLB: string;
+  forearmLB: string;
+  forearmRB: string;
+  handLB: string;
+  handRB: string;
+  shoulderLB: string;
+  shoulderRB: string;
+  elbowLB: string;
+  elbowRB: string;
+  wristLB: string;
+  wristRB: string;
+  kneeRB: string;
+  kneeLB: string;
+  ankleLB: string;
+  ankleRB: string;
+  hipRB: string;
+  hipLB: string;
 };
 
 type DescriptionStudy = {
@@ -623,6 +674,19 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   });
 
   const [injuryAssessment, setInjuryAssessment] = useState({
+    noInjuries: false,
+    burns: {
+      first: {
+        degree: '',
+        percent: NaN,
+      },
+      second: {
+        degree: '',
+        percent: NaN,
+      },
+      inhalationBurn: false,
+    },
+
     neck: '', //szyja
     face: '', //twarz
     rightFrontArm: '', //ramiePP
@@ -659,8 +723,44 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     nose: '', // nos
     rightEye: '', // prawe oko
     leftEye: '', // lewe oko
+    neckBack: '', // głowa
+    spineCervical: '', // kręgosłup szyjny
+    spineThoracic: '', // kręgosłup piersiowy
+    spineLumbar: '', // kręgosłup Lędźwiowy
+    sacrum: '', // Kość krzyżowa
+    head: '', // głowa
+    rightBackArm: '', //ramiePT
+    leftBackArm: '', //ramieLT
+    thighRB: '', // udo PT
+    thighLB: '', // udo LT
+    shinRB: '', //goleń PT
+    shinLB: '', //goleń LT
+    backR: '', // plecy P
+    backL: '', // plecy L
+    backLowerR: '', //plecy P dół
+    backLowerL: '', // plecy L dól
+    buttocks: '', // pośladki
+    pelvis: '', // miednica
+    footRB: '', // stopa PT
+    footLB: '', // stopa LT
+    forearmLB: '', // przedramieLT
+    forearmRB: '', //przedramiePT
+    handLB: '', // dłoń LT
+    handRB: '', // dłoń PT
+    shoulderLB: '', // barkLT
+    shoulderRB: '', // barkPT
+    elbowLB: '', // łokiećLT
+    elbowRB: '', // łokiećPT
+    wristLB: '', // nadgarstekLT
+    wristRB: '', // nadgarstekPT
+    kneeRB: '', //kolanoPT
+    kneeLB: '', //kolanoLT
+    ankleLB: '', // kostkaLT
+    ankleRB: '', // kostkaPT
+    hipRB: '', // biodro PT
+    hipLB: '', // biodro LT
   });
-
+  console.log(injuryAssessment);
   const [descriptionStudy, setDescriptionStudy] = useState({
     description: '',
   });

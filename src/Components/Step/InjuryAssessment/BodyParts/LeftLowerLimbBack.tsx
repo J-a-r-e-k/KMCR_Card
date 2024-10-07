@@ -1,6 +1,5 @@
 import Style from '../InjuryAssessment.module.scss';
-
-export const LeftFrontShin = ({
+export const LeftBackShin = ({
   active,
   currentActiveElement,
   value,
@@ -11,34 +10,34 @@ export const LeftFrontShin = ({
 }) => {
   return (
     <>
-      <g clip-path="url(#bfce5fdb26)">
-        <g clip-path="url(#a5e191a53e)">
+      <g clip-path="url(#0a0bc0dae3)">
+        <g clip-path="url(#edfd278c91)">
           <g
-            className={currentActiveElement === 'shinLF' ? Style.active : ''}
-            clip-path="url(#ee64183833)"
+            className={currentActiveElement === 'shinLB' ? Style.active : ''}
+            clip-path="url(#f5a72c6769)"
           >
             <path
               fill="#ffffff"
-              d="M 197.503906 184.957031 L 257.808594 175.183594 L 315.546875 531.347656 L 255.242188 541.125 Z M 197.503906 184.957031 "
+              d="M 196.179688 175.46875 L 256.523438 184.984375 L 200.3125 541.394531 L 139.96875 531.878906 Z M 196.179688 175.46875 "
               fill-opacity="1"
               fill-rule="nonzero"
               onClick={() => {
-                active('shinLF');
+                active('shinLB');
               }}
             />
           </g>
         </g>
       </g>
-      <g clip-path="url(#0265f13a84)">
-        <g clip-path="url(#c2bb83e1cf)">
-          <g clip-path="url(#72a2b67871)">
-            <g clip-path="url(#46a859642a)">
+      <g clip-path="url(#347e6dc209)">
+        <g clip-path="url(#557f668edf)">
+          <g clip-path="url(#fb754d320c)">
+            <g clip-path="url(#c0a9c694b0)">
               <path
                 stroke-linecap="butt"
-                transform="matrix(0.740335, -0.120019, 0.120019, 0.740335, 197.504524, 184.960075)"
+                transform="matrix(0.740842, 0.116846, -0.116846, 0.740842, 196.180129, 175.468973)"
                 fill="none"
                 stroke-linejoin="miter"
-                d="M 40.727526 -0.0022666 L 81.451053 183.752405 L 65.895495 481.07391 L 15.55381 481.075261 L -0.0000177049 183.754636 Z M 40.727526 -0.0022666 "
+                d="M 40.725646 -0.00141965 L 81.454879 183.751086 L 65.898371 481.070829 L 15.555215 481.07556 L 0.00233033 183.753521 Z M 40.725646 -0.00141965 "
                 stroke="#000000"
                 stroke-width="8"
                 stroke-opacity="1"
@@ -48,7 +47,7 @@ export const LeftFrontShin = ({
           </g>
         </g>
         <foreignObject
-          x="250"
+          x="155"
           y="450"
           width="50"
           height="60"
@@ -63,7 +62,7 @@ export const LeftFrontShin = ({
   );
 };
 
-export const LeftFrontThigh = ({
+export const LeftBackThigh = ({
   active,
   currentActiveElement,
   value,
@@ -74,34 +73,34 @@ export const LeftFrontThigh = ({
 }) => {
   return (
     <>
-      <g clip-path="url(#f982b4314a)">
-        <g clip-path="url(#b1d8b4b6a4)">
+      <g clip-path="url(#76a51c9feb)">
+        <g clip-path="url(#698e556de3)">
           <g
-            className={currentActiveElement === 'thighLF' ? Style.active : ''}
-            clip-path="url(#41372f6f1c)"
+            className={currentActiveElement === 'thighLB' ? Style.active : ''}
+            clip-path="url(#c7951c1fc4)"
           >
             <path
               fill="#ffffff"
-              d="M 187.136719 164.605469 L 260.550781 152.707031 L 305.695312 431.164062 L 232.28125 443.066406 Z M 187.136719 164.605469 "
+              d="M 186.460938 184.046875 L 262.085938 195.972656 L 223.183594 442.632812 L 147.558594 430.707031 Z M 186.460938 184.046875 "
               fill-opacity="1"
               fill-rule="nonzero"
               onClick={() => {
-                active('thighLF');
+                active('thighLB');
               }}
             />
           </g>
         </g>
       </g>
-      <g clip-path="url(#ab168b20f8)">
-        <g clip-path="url(#22fef1893d)">
-          <g clip-path="url(#372ca21f6e)">
-            <g clip-path="url(#69071e9d12)">
+      <g clip-path="url(#20a7f359a5)">
+        <g clip-path="url(#83429ad880)">
+          <g clip-path="url(#f297614157)">
+            <g clip-path="url(#2fb654a7d5)">
               <path
                 stroke-linecap="butt"
-                transform="matrix(0.740335, -0.120019, 0.120019, 0.740335, 187.139054, 164.611727)"
+                transform="matrix(0.740842, 0.116846, -0.116846, 0.740842, 186.460305, 184.061731)"
                 fill="none"
                 stroke-linejoin="miter"
-                d="M 49.578776 -0.00157455 L 99.156193 143.621514 L 80.220025 376.002639 L 18.935419 376.002828 L -0.00136082 143.61831 Z M 49.578776 -0.00157455 "
+                d="M 51.030002 -0.00129656 L 102.063435 127.194846 L 82.571931 333.005022 L 19.494272 333.004074 L -0.000539318 127.194868 Z M 51.030002 -0.00129656 "
                 stroke="#000000"
                 stroke-width="8"
                 stroke-opacity="1"
@@ -111,7 +110,7 @@ export const LeftFrontThigh = ({
           </g>
         </g>
         <foreignObject
-          x="239"
+          x="170"
           y="350"
           width="45"
           height="60"
@@ -126,7 +125,7 @@ export const LeftFrontThigh = ({
   );
 };
 
-export const KneeFrontLeft = ({
+export const KneeBackLeft = ({
   active,
   currentActiveElement,
   value,
@@ -137,32 +136,32 @@ export const KneeFrontLeft = ({
 }) => {
   return (
     <>
-      <g clip-path="url(#1db4fc5999)">
+      <g clip-path="url(#44b692b698)">
         <g
-          className={currentActiveElement === 'kneeLF' ? Style.active : ''}
-          clip-path="url(#b1a4939643)"
+          className={currentActiveElement === 'kneeLB' ? Style.active : ''}
+          clip-path="url(#925c9bc6cf)"
         >
           <path
             fill="#ffffff"
-            d="M 245.007812 411.863281 L 286.035156 411.863281 L 286.035156 452.890625 L 245.007812 452.890625 Z M 245.007812 411.863281 "
+            d="M 164.578125 411.578125 L 205.609375 411.578125 L 205.609375 452.605469 L 164.578125 452.605469 Z M 164.578125 411.578125 "
             fill-opacity="1"
             fill-rule="nonzero"
             onClick={() => {
-              active('kneeLF');
+              active('kneeLB');
             }}
           />
         </g>
       </g>
       <g
-      // clip-path="url(#9746e649e2)"
+      //  clip-path="url(#97056328c5)"
       >
-        <g clip-path="url(#bdc44df25e)">
+        <g clip-path="url(#ecd3cca582)">
           <path
             stroke-linecap="butt"
-            transform="matrix(0.75, 0, 0, 0.75, 245.007602, 411.862802)"
+            transform="matrix(0.75, 0, 0, 0.75, 164.578776, 411.57797)"
             fill="none"
             stroke-linejoin="miter"
-            d="M 27.34924 0.00063843 C 12.245073 0.00063843 0.000280972 12.245431 0.000280972 27.349598 C 0.000280972 42.458974 12.245073 54.703766 27.34924 54.703766 C 42.458616 54.703766 54.703408 42.458974 54.703408 27.349598 C 54.703408 12.245431 42.458616 0.00063843 27.34924 0.00063843 Z M 27.34924 0.00063843 "
+            d="M 27.353299 0.000206081 C 12.243924 0.000206081 -0.000868537 12.244998 -0.000868537 27.349166 C -0.000868537 42.458541 12.243924 54.703333 27.353299 54.703333 C 42.457467 54.703333 54.702259 42.458541 54.702259 27.349166 C 54.702259 12.244998 42.457467 0.000206081 27.353299 0.000206081 Z M 27.353299 0.000206081 "
             stroke="#000000"
             stroke-width="8"
             stroke-opacity="1"
@@ -170,7 +169,7 @@ export const KneeFrontLeft = ({
           />
         </g>
         <foreignObject
-          x="240"
+          x="160"
           y="417"
           width="50"
           height="30"
@@ -185,7 +184,7 @@ export const KneeFrontLeft = ({
   );
 };
 
-export const AnkleFrontLeft = ({
+export const AnkleBackLeft = ({
   active,
   currentActiveElement,
   value,
@@ -196,32 +195,32 @@ export const AnkleFrontLeft = ({
 }) => {
   return (
     <>
-      <g clip-path="url(#4abafcf1ab)">
+      <g clip-path="url(#dd0a3258dc)">
         <g
-          className={currentActiveElement === 'ankleLF' ? Style.active : ''}
-          clip-path="url(#1c684d1209)"
+          className={currentActiveElement === 'ankleLB' ? Style.active : ''}
+          clip-path="url(#3190e81780)"
         >
           <path
             fill="#ffffff"
-            d="M 265.523438 507.070312 L 306.550781 507.070312 L 306.550781 548.101562 L 265.523438 548.101562 Z M 265.523438 507.070312 "
+            d="M 148.730469 507.722656 L 189.757812 507.722656 L 189.757812 548.753906 L 148.730469 548.753906 Z M 148.730469 507.722656 "
             fill-opacity="1"
             fill-rule="nonzero"
             onClick={() => {
-              active('ankleLF');
+              active('ankleLB');
             }}
           />
         </g>
       </g>
       <g
-      // clip-path="url(#adb256c0fa)"
+      //  clip-path="url(#cd884d3bcc)"
       >
-        <g clip-path="url(#ee72f07410)">
+        <g clip-path="url(#a5711eb2ec)">
           <path
             stroke-linecap="butt"
-            transform="matrix(0.75, 0, 0, 0.75, 265.522107, 507.07219)"
+            transform="matrix(0.75, 0, 0, 0.75, 148.729741, 507.724558)"
             fill="none"
             stroke-linejoin="miter"
-            d="M 27.350733 -0.00250382 C 12.246566 -0.00250382 0.00177361 12.247497 0.00177361 27.351664 C 0.00177361 42.455831 12.246566 54.700624 27.350733 54.700624 C 42.4549 54.700624 54.704901 42.455831 54.704901 27.351664 C 54.704901 12.247497 42.4549 -0.00250382 27.350733 -0.00250382 Z M 27.350733 -0.00250382 "
+            d="M 27.34993 -0.00253612 C 12.245762 -0.00253612 0.000970228 12.247464 0.000970228 27.351632 C 0.000970228 42.455799 12.245762 54.700591 27.34993 54.700591 C 42.459305 54.700591 54.704098 42.455799 54.704098 27.351632 C 54.704098 12.247464 42.459305 -0.00253612 27.34993 -0.00253612 Z M 27.34993 -0.00253612 "
             stroke="#000000"
             stroke-width="8"
             stroke-opacity="1"
@@ -229,7 +228,7 @@ export const AnkleFrontLeft = ({
           />
         </g>
         <foreignObject
-          x="257"
+          x="145"
           y="512"
           width="50"
           height="30"

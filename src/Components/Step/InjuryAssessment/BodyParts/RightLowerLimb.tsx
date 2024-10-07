@@ -11,7 +11,6 @@ export const RightFrontShin = ({
 }) => {
   return (
     <>
-      {' '}
       <g
       // clip-path="url(#b4bea59032)"
       >
@@ -27,8 +26,8 @@ export const RightFrontShin = ({
               d="M 196.179688 175.183594 L 256.523438 184.699219 L 200.3125 541.109375 L 139.96875 531.59375 Z M 196.179688 175.183594 "
               fill-opacity="1"
               fill-rule="nonzero"
-              onClick={(e) => {
-                active(e, 'shinRF');
+              onClick={() => {
+                active('shinRF');
               }}
             />
           </g>
@@ -67,7 +66,6 @@ export const RightFrontShin = ({
     </>
   );
 };
-
 export const RightFrontThigh = ({
   active,
   currentActiveElement,
@@ -90,8 +88,8 @@ export const RightFrontThigh = ({
               d="M 188.261719 179.117188 L 262.722656 190.863281 L 222.949219 443.042969 L 148.484375 431.296875 Z M 188.261719 179.117188 "
               fill-opacity="1"
               fill-rule="nonzero"
-              onClick={(e) => {
-                active(e, 'thighRF');
+              onClick={() => {
+                active('thighRF');
               }}
             />
           </g>
@@ -120,6 +118,122 @@ export const RightFrontThigh = ({
           y="350"
           width="45"
           height="60"
+          pointerEvents="none"
+        >
+          <div className={Style.svgInjuryText}>
+            <p>{value}</p>
+          </div>
+        </foreignObject>
+      </g>
+    </>
+  );
+};
+export const KneeFrontRight = ({
+  active,
+  currentActiveElement,
+  value,
+}: {
+  currentActiveElement?: string;
+  active: (part: string) => void;
+  value: string;
+}) => {
+  return (
+    <>
+      <g clip-path="url(#1fc430e116)">
+        <g
+          className={currentActiveElement === 'kneeRF' ? Style.active : ''}
+          clip-path="url(#60b60bdb35)"
+        >
+          <path
+            fill="#ffffff"
+            d="M 167.472656 411.863281 L 208.503906 411.863281 L 208.503906 452.890625 L 167.472656 452.890625 Z M 167.472656 411.863281 "
+            fill-opacity="1"
+            fill-rule="nonzero"
+            onClick={() => {
+              active('kneeRF');
+            }}
+          />
+        </g>
+      </g>
+      <g
+      // clip-path="url(#db35a512f8)"
+      >
+        <g clip-path="url(#7b234f2c6f)">
+          <path
+            stroke-linecap="butt"
+            transform="matrix(0.75, 0, 0, 0.75, 167.474511, 411.862802)"
+            fill="none"
+            stroke-linejoin="miter"
+            d="M 27.351695 0.00063843 C 12.247528 0.00063843 -0.00247257 12.245431 -0.00247257 27.349598 C -0.00247257 42.458974 12.247528 54.703766 27.351695 54.703766 C 42.455863 54.703766 54.700655 42.458974 54.700655 27.349598 C 54.700655 12.245431 42.455863 0.00063843 27.351695 0.00063843 Z M 27.351695 0.00063843 "
+            stroke="#000000"
+            stroke-width="8"
+            stroke-opacity="1"
+            stroke-miterlimit="4"
+          />
+        </g>
+        <foreignObject
+          x="160"
+          y="417"
+          width="50"
+          height="30"
+          pointerEvents="none"
+        >
+          <div className={Style.svgInjuryText}>
+            <p>{value}</p>
+          </div>
+        </foreignObject>
+      </g>
+    </>
+  );
+};
+export const AnkleFrontRight = ({
+  active,
+  currentActiveElement,
+  value,
+}: {
+  currentActiveElement?: string;
+  active: (part: string) => void;
+  value: string;
+}) => {
+  return (
+    <>
+      <g clip-path="url(#dfa9fe64ad)">
+        <g
+          className={currentActiveElement === 'ankleRF' ? Style.active : ''}
+          clip-path="url(#3aa5364e49)"
+        >
+          <path
+            fill="#ffffff"
+            d="M 148.730469 507.441406 L 189.757812 507.441406 L 189.757812 548.46875 L 148.730469 548.46875 Z M 148.730469 507.441406 "
+            fill-opacity="1"
+            fill-rule="nonzero"
+            onClick={() => {
+              active('ankleRF');
+            }}
+          />
+        </g>
+      </g>
+      <g
+      // clip-path="url(#50ae86f351)"
+      >
+        <g clip-path="url(#286e6b8010)">
+          <path
+            stroke-linecap="butt"
+            transform="matrix(0.75, 0, 0, 0.75, 148.729741, 507.43975)"
+            fill="none"
+            stroke-linejoin="miter"
+            d="M 27.34993 0.00220787 C 12.245762 0.00220787 0.000970228 12.247 0.000970228 27.351167 C 0.000970228 42.455335 12.245762 54.705335 27.34993 54.705335 C 42.459305 54.705335 54.704098 42.455335 54.704098 27.351167 C 54.704098 12.247 42.459305 0.00220787 27.34993 0.00220787 Z M 27.34993 0.00220787 "
+            stroke="#000000"
+            stroke-width="8"
+            stroke-opacity="1"
+            stroke-miterlimit="4"
+          />
+        </g>
+        <foreignObject
+          x="145"
+          y="512"
+          width="50"
+          height="30"
           pointerEvents="none"
         >
           <div className={Style.svgInjuryText}>

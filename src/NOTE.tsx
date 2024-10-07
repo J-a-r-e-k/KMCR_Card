@@ -4,8 +4,8 @@ className={
 
 
 
-  onClick={(e) => {
-    active(e, 'face');
+  onClick={() => {
+    active('face');
   }}
 
 
@@ -38,4 +38,10 @@ fill="none"
 
 className={`${Style.svgInjuryText} ${Style.referenceInjury}`}
 
+{value ? <p>{value}</p> : ''}
+
     {/* <LeftEye value={appContext.injuryAssessment.leftEye} active={active} currentActiveElement={currentActiveElement} /> */}
+
+
+
+    RightLowerLimbBack

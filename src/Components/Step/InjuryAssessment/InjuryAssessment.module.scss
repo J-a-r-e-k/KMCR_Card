@@ -1,7 +1,10 @@
 g {
   cursor: pointer;
 }
-
+.title {
+  position: absolute;
+  font-weight: bold;
+}
 .wrap {
   display: flex;
   height: 100%;
@@ -20,17 +23,70 @@ g {
 }
 
 .btnPanel {
-  border: 1px #333 solid;
+  align-self: center;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  // border: 1px #333 solid;
   border-radius: 5px;
   padding: 3px;
+}
+.btnInjury {
+  width: 100%;
+  margin: 3px;
+  border: 1px #333 solid;
+  border-radius: 3px;
+  padding: 5px;
+  background-color: #ccc;
+  text-align: start;
+  font-size: 1.2rem;
+  cursor: pointer;
+
+  span {
+    font-weight: bold;
+  }
 }
 
 .wrapCheck {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 1px;
+  margin-top: 5px;
+
+  p {
+    white-space: nowrap;
+  }
 }
+.btnInjury:hover,
+.selectField:hover,
+.numberField:hover,
+.check:hover {
+  border: blue 1px solid;
+}
+.numberField {
+  width: 40px;
+  height: 25px;
+  margin: 0 5px;
+  font-size: 1.2rem;
+  text-align: center;
+  border: 1px #777 solid;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.selectField {
+  margin: 0 5px;
+  width: 25px;
+  height: 30px;
+  border: 1px #777 solid;
+  border-radius: 5px;
+  text-align: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
 .check {
   display: flex;
   align-items: center;
@@ -51,20 +107,11 @@ g {
   background-position: center;
   background-repeat: no-repeat;
 }
-svg {
-  // background-color: red;
-}
-// .svgInjuryText {
-//   letter-spacing: 2px;
-//   // text-length: 10px;
-// }
 
 .svgInjuryText {
-  background-color: greenyellow;
   display: flex;
   justify-content: center;
   align-items: center;
-
   width: 100%;
   height: 100%;
 
@@ -82,6 +129,7 @@ svg {
     width: fit-content;
     max-width: 100%;
     border-bottom: #333 solid 1px;
+    padding: 0 3px;
   }
 }
 .referenceInjuryLeft {
@@ -89,7 +137,7 @@ svg {
 }
 
 .referenceInjuryBorder {
-  padding: 1px;
+  // padding: 1px;
   border: #333 solid 1px;
   border-radius: 4px;
 }

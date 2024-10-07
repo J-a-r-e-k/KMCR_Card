@@ -11,7 +11,6 @@ export const BellyLeft = ({
 }) => {
   return (
     <>
-      {' '}
       <g
         className={currentActiveElement === 'bellyL' ? Style.active : ''}
         clip-path="url(#65321abd1a)"
@@ -21,8 +20,8 @@ export const BellyLeft = ({
           d="M 225.109375 250.046875 L 282.722656 250.046875 L 282.722656 302.347656 L 225.109375 302.347656 Z M 225.109375 250.046875 "
           fill-opacity="1"
           fill-rule="nonzero"
-          onClick={(e) => {
-            active(e, 'bellyL');
+          onClick={() => {
+            active('bellyL');
           }}
         />
       </g>
@@ -74,8 +73,8 @@ export const BellyRight = ({
           d="M 173.839844 250.046875 L 228.171875 250.046875 L 228.171875 302.933594 L 173.839844 302.933594 Z M 173.839844 250.046875 "
           fill-opacity="1"
           fill-rule="nonzero"
-          onClick={(e) => {
-            active(e, 'bellyR');
+          onClick={() => {
+            active('bellyR');
           }}
         />
       </g>

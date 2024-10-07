@@ -78,8 +78,6 @@ const Statement = () => {
               // });
               setFieldValue('patientRefusalDate', dateTime);
               //save to formik
-
-              console.log(dateTime);
             }}
             type="button"
           >
@@ -130,7 +128,6 @@ const Statement = () => {
                 withdrawalAidTime: dateTime,
               });
               setFieldValue('withdrawalAidTime', dateTime);
-              console.log(dateTime);
             }}
             type="button"
           >

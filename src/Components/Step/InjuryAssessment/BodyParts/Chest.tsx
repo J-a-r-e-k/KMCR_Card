@@ -21,8 +21,8 @@ export const ChestLeft = ({
             d="M 139.96875 121.671875 L 315.703125 121.671875 L 315.703125 293.382812 L 139.96875 293.382812 Z M 139.96875 121.671875 "
             fill-opacity="1"
             fill-rule="nonzero"
-            onClick={(e) => {
-              active(e, 'chestL');
+            onClick={() => {
+              active('chestL');
             }}
           />
         </g>
@@ -42,9 +42,9 @@ export const ChestLeft = ({
           />
         </g>
         <foreignObject
-          x="220"
-          y="165"
-          width="55"
+          x="233"
+          y="160"
+          width="50"
           height="50"
           pointerEvents="none"
         >
@@ -57,7 +57,7 @@ export const ChestLeft = ({
   );
 };
 
-export const ChestRigjt = ({
+export const ChestRight = ({
   active,
   currentActiveElement,
   value,
@@ -83,15 +83,15 @@ export const ChestRigjt = ({
             stroke-width="6"
             stroke-opacity="1"
             stroke-miterlimit="4"
-            onClick={(e) => {
-              active(e, 'chestR');
+            onClick={() => {
+              active('chestR');
             }}
           />
         </g>
         <foreignObject
-          x="165"
-          y="165"
-          width="55"
+          x="170"
+          y="160"
+          width="50"
           height="50"
           pointerEvents="none"
         >

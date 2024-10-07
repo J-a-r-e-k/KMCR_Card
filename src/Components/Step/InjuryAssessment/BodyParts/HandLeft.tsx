@@ -25,8 +25,8 @@ export const ArmFrontLeft = ({
             d="M 281.125 154.507812 L 315.359375 144.253906 L 341.148438 230.371094 L 306.914062 240.625 Z M 281.125 154.507812 "
             fill-opacity="1"
             fill-rule="nonzero"
-            onClick={(e) => {
-              active(e, 'leftFrontArm');
+            onClick={() => {
+              active('leftFrontArm');
             }}
           />
         </g>
@@ -84,8 +84,8 @@ export const ForearmFrontLeft = ({
             d="M 306.550781 239.410156 L 340.785156 229.160156 L 367.214844 317.417969 L 332.980469 327.667969 Z M 306.550781 239.410156 "
             fill-opacity="1"
             fill-rule="nonzero"
-            onClick={(e) => {
-              active(e, 'forearmLF');
+            onClick={() => {
+              active('forearmLF');
             }}
           />
         </g>
@@ -143,8 +143,8 @@ export const HandFrontLeft = ({
             d="M 332.730469 326.832031 L 366.964844 316.578125 L 380.378906 361.378906 L 346.144531 371.628906 Z M 332.730469 326.832031 "
             fill-opacity="1"
             fill-rule="nonzero"
-            onClick={(e) => {
-              active(e, 'handLF');
+            onClick={() => {
+              active('handLF');
             }}
           />
         </g>
@@ -204,8 +204,8 @@ export const ShoulderFrontLeft = ({
             d="M 285.167969 117.980469 L 326.195312 117.980469 L 326.195312 159.011719 L 285.167969 159.011719 Z M 285.167969 117.980469 "
             fill-opacity="1"
             fill-rule="nonzero"
-            onClick={(e) => {
-              active(e, 'fashoulderLFce');
+            onClick={() => {
+              active('fashoulderLFce');
             }}
           />
         </g>
@@ -263,8 +263,8 @@ export const ElbowFrontLeft = ({
             d="M 305.683594 213.890625 L 346.710938 213.890625 L 346.710938 254.921875 L 305.683594 254.921875 Z M 305.683594 213.890625 "
             fill-opacity="1"
             fill-rule="nonzero"
-            onClick={(e) => {
-              active(e, 'elbowLF');
+            onClick={() => {
+              active('elbowLF');
             }}
           />
         </g>
@@ -322,8 +322,8 @@ export const WristFrontLeft = ({
             d="M 332.730469 303.109375 L 373.757812 303.109375 L 373.757812 344.136719 L 332.730469 344.136719 Z M 332.730469 303.109375 "
             fill-opacity="1"
             fill-rule="nonzero"
-            onClick={(e) => {
-              active(e, 'wristLF');
+            onClick={() => {
+              active('wristLF');
             }}
           />
         </g>

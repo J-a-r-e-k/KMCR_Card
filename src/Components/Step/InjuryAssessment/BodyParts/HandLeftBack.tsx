@@ -1,6 +1,6 @@
 import Style from '../InjuryAssessment.module.scss';
 
-export const ArmFrontRight = ({
+export const ArmBackLeft = ({
   active,
   currentActiveElement,
   value,
@@ -11,35 +11,31 @@ export const ArmFrontRight = ({
 }) => {
   return (
     <>
-      <g
-      //   clip-path="url(#f81d8f8d78)"
-      >
+      <g clip-path="url(#10d306f873)">
         <g
-          className={
-            currentActiveElement === 'rightFrontArm' ? Style.active : ''
-          }
-          //   clip-path="url(#cee6ae103d)"
+          className={currentActiveElement === 'leftBackArm' ? Style.active : ''}
+          clip-path="url(#5728b62d3f)"
         >
           <path
             fill="#ffffff"
-            d="M 138.230469 144.257812 L 172.296875 155.046875 L 145.191406 240.613281 L 111.125 229.820312 Z M 138.230469 144.257812 "
+            d="M 138.230469 144.542969 L 172.296875 155.332031 L 145.191406 240.898438 L 111.125 230.105469 Z M 138.230469 144.542969 "
             fill-opacity="1"
             fill-rule="nonzero"
             onClick={() => {
-              active( 'rightFrontArm');
+              active('leftBackArm');
             }}
           />
         </g>
       </g>
-      <g clip-path="url(#5ab9abb2a3)">
-        <g clip-path="url(#5f8c973f4f)">
-          <g clip-path="url(#c3329df140)">
+      <g clip-path="url(#17078d49f0)">
+        <g clip-path="url(#cb0d255898)">
+          <g clip-path="url(#1b7750cacf)">
             <path
               stroke-linecap="butt"
-              transform="matrix(0.714984, 0.226489, -0.226489, 0.714984, 138.228861, 144.260726)"
+              transform="matrix(0.714984, 0.226489, -0.226489, 0.714984, 138.228861, 144.545551)"
               fill="none"
               stroke-linejoin="miter"
-              d="M 0.00244372 0.0006146 L 47.642912 -0.000740802 L 47.64288 119.658782 L 0.00241118 119.660137 Z M 0.00244372 0.0006146 "
+              d="M 0.00257718 0.00103592 L 47.643046 -0.000319485 L 47.643013 119.659203 L 0.00254464 119.660558 Z M 0.00257718 0.00103592 "
               stroke="#000000"
               stroke-width="8"
               stroke-opacity="1"
@@ -63,7 +59,7 @@ export const ArmFrontRight = ({
   );
 };
 
-export const ForearmFrontRight = ({
+export const ForearmBackLeft = ({
   active,
   currentActiveElement,
   value,
@@ -74,31 +70,31 @@ export const ForearmFrontRight = ({
 }) => {
   return (
     <>
-      <g clip-path="url(#87ffa61dec)">
+      <g clip-path="url(#30139dddae)">
         <g
-          className={currentActiveElement === 'forearmRF' ? Style.active : ''}
-          clip-path="url(#fbe01f7a50)"
+          className={currentActiveElement === 'forearmLB' ? Style.active : ''}
+          clip-path="url(#e4c97590b1)"
         >
           <path
             fill="#ffffff"
-            d="M 111.332031 229.160156 L 145.398438 239.953125 L 117.621094 327.648438 L 83.554688 316.855469 Z M 111.332031 229.160156 "
+            d="M 111.332031 229.445312 L 145.398438 240.238281 L 117.621094 327.933594 L 83.554688 317.140625 Z M 111.332031 229.445312 "
             fill-opacity="1"
             fill-rule="nonzero"
             onClick={() => {
-              active( 'forearmRF');
+              active('forearmLB');
             }}
           />
         </g>
       </g>
-      <g clip-path="url(#4382a5d1f5)">
-        <g clip-path="url(#a74f500e30)">
-          <g clip-path="url(#70d99921ff)">
+      <g clip-path="url(#2bb1686d77)">
+        <g clip-path="url(#c852116fa6)">
+          <g clip-path="url(#2e995efffc)">
             <path
               stroke-linecap="butt"
-              transform="matrix(0.714984, 0.226489, -0.226489, 0.714984, 111.332969, 229.162349)"
+              transform="matrix(0.714984, 0.226489, -0.226489, 0.714984, 111.332969, 229.447232)"
               fill="none"
               stroke-linejoin="miter"
-              d="M -0.000502289 0.00255508 L 47.639966 0.00119968 L 47.640716 122.577933 L -0.00132544 122.574323 Z M -0.000502289 0.00255508 "
+              d="M -0.00196486 -0.00206199 L 47.640077 0.00154778 L 47.639253 122.573316 L -0.00121517 122.574671 Z M -0.00196486 -0.00206199 "
               stroke="#000000"
               stroke-width="8"
               stroke-opacity="1"
@@ -121,8 +117,7 @@ export const ForearmFrontRight = ({
     </>
   );
 };
-
-export const HandFrontRight = ({
+export const HandBackLeft = ({
   active,
   currentActiveElement,
   value,
@@ -133,33 +128,31 @@ export const HandFrontRight = ({
 }) => {
   return (
     <>
-      <g clip-path="url(#f0eae10290)">
+      <g clip-path="url(#b223723ab8)">
         <g
-          className={currentActiveElement === 'handRF' ? Style.active : ''}
-          clip-path="url(#e6ca78c450)"
+          className={currentActiveElement === 'handLB' ? Style.active : ''}
+          clip-path="url(#b91d05acdf)"
         >
           <path
             fill="#ffffff"
-            d="M 83.640625 316.582031 L 117.707031 327.371094 L 103.671875 371.6875 L 69.605469 360.894531 Z M 83.640625 316.582031 "
+            d="M 83.640625 316.867188 L 117.707031 327.65625 L 103.671875 371.972656 L 69.605469 361.179688 Z M 83.640625 316.867188 "
             fill-opacity="1"
             fill-rule="nonzero"
             onClick={() => {
-              active( 'handRF');
+              active('handLB');
             }}
           />
         </g>
       </g>
-      <g
-      // clip-path="url(#aa1e67aada)"
-      >
-        <g clip-path="url(#2a01777b34)">
-          <g clip-path="url(#90d001aa6b)">
+      <g clip-path="url(#51592d6cc6)">
+        <g clip-path="url(#719d5953df)">
+          <g clip-path="url(#9447ad0d17)">
             <path
               stroke-linecap="butt"
-              transform="matrix(0.714984, 0.226489, -0.226489, 0.714984, 83.641557, 316.581306)"
+              transform="matrix(0.714984, 0.226489, -0.226489, 0.714984, 83.641557, 316.866129)"
               fill="none"
               stroke-linejoin="miter"
-              d="M -0.000892392 0.00129636 L 47.639576 -0.0000590461 L 47.638612 61.982584 L -0.0018564 61.98394 Z M -0.000892392 0.00129636 "
+              d="M -0.000757963 0.00172072 L 47.639711 0.000365321 L 47.638747 61.983009 L -0.00172197 61.984364 Z M -0.000757963 0.00172072 "
               stroke="#000000"
               stroke-width="8"
               stroke-opacity="1"
@@ -183,7 +176,7 @@ export const HandFrontRight = ({
   );
 };
 
-export const ShoulderFrontRight = ({
+export const ShoulderBackLeft = ({
   active,
   currentActiveElement,
   value,
@@ -194,32 +187,30 @@ export const ShoulderFrontRight = ({
 }) => {
   return (
     <>
-      <g clip-path="url(#d5a4c652da)">
+      <g clip-path="url(#71595b8b9a)">
         <g
-          className={currentActiveElement === 'shoulderRF' ? Style.active : ''}
-          clip-path="url(#f0dd43d795)"
+          className={currentActiveElement === 'shoulderLB' ? Style.active : ''}
+          clip-path="url(#27559423f0)"
         >
           <path
             fill="#ffffff"
-            d="M 131.304688 117.980469 L 172.335938 117.980469 L 172.335938 159.011719 L 131.304688 159.011719 Z M 131.304688 117.980469 "
+            d="M 131.304688 118.265625 L 172.335938 118.265625 L 172.335938 159.296875 L 131.304688 159.296875 Z M 131.304688 118.265625 "
             fill-opacity="1"
             fill-rule="nonzero"
             onClick={() => {
-              active( 'shoulderRF');
+              active('shoulderLB');
             }}
           />
         </g>
       </g>
-      <g
-      // clip-path="url(#3155fe1c50)"
-      >
-        <g clip-path="url(#bf24b94474)">
+      <g clip-path="url(#8497cd58ef)">
+        <g clip-path="url(#faf38f62a3)">
           <path
             stroke-linecap="butt"
-            transform="matrix(0.75, 0, 0, 0.75, 131.306407, 117.981658)"
+            transform="matrix(0.75, 0, 0, 0.75, 131.306407, 118.266519)"
             fill="none"
             stroke-linejoin="miter"
-            d="M 27.351876 -0.00158589 C 12.247708 -0.00158589 -0.00229216 12.243206 -0.00229216 27.352582 C -0.00229216 42.456749 12.247708 54.701541 27.351876 54.701541 C 42.456043 54.701541 54.700835 42.456749 54.700835 27.352582 C 54.700835 12.243206 42.456043 -0.00158589 27.351876 -0.00158589 Z M 27.351876 -0.00158589 "
+            d="M 27.351876 -0.00119194 C 12.247708 -0.00119194 -0.00229216 12.2436 -0.00229216 27.352976 C -0.00229216 42.457143 12.247708 54.701935 27.351876 54.701935 C 42.456043 54.701935 54.700835 42.457143 54.700835 27.352976 C 54.700835 12.2436 42.456043 -0.00119194 27.351876 -0.00119194 Z M 27.351876 -0.00119194 "
             stroke="#000000"
             stroke-width="8"
             stroke-opacity="1"
@@ -242,7 +233,7 @@ export const ShoulderFrontRight = ({
   );
 };
 
-export const ElbowFrontRight = ({
+export const ElbowBackLeft = ({
   active,
   currentActiveElement,
   value,
@@ -253,32 +244,30 @@ export const ElbowFrontRight = ({
 }) => {
   return (
     <>
-      <g clip-path="url(#750023de58)">
+      <g clip-path="url(#7339cfd3ad)">
         <g
-          className={currentActiveElement === 'elbowRF' ? Style.active : ''}
-          clip-path="url(#44c6c83096)"
+          className={currentActiveElement === 'elbowLB' ? Style.active : ''}
+          clip-path="url(#0ecdaee281)"
         >
           <path
             fill="#ffffff"
-            d="M 106.519531 213.890625 L 147.546875 213.890625 L 147.546875 254.921875 L 106.519531 254.921875 Z M 106.519531 213.890625 "
+            d="M 106.519531 214.175781 L 147.546875 214.175781 L 147.546875 255.207031 L 106.519531 255.207031 Z M 106.519531 214.175781 "
             fill-opacity="1"
             fill-rule="nonzero"
             onClick={() => {
-              active( 'elbowRF');
+              active('elbowLB');
             }}
           />
         </g>
       </g>
-      <g
-      // clip-path="url(#0202d8ce53)"
-      >
-        <g clip-path="url(#7f4ce60ebf)">
+      <g clip-path="url(#3b1c227f82)">
+        <g clip-path="url(#8016b6702e)">
           <path
             stroke-linecap="butt"
-            transform="matrix(0.75, 0, 0, 0.75, 106.518204, 213.891736)"
+            transform="matrix(0.75, 0, 0, 0.75, 106.518204, 214.176572)"
             fill="none"
             stroke-linejoin="miter"
-            d="M 27.350729 -0.0014809 C 12.246561 -0.0014809 0.00176903 12.243311 0.00176903 27.352687 C 0.00176903 42.456854 12.246561 54.701646 27.350729 54.701646 C 42.454896 54.701646 54.704896 42.456854 54.704896 27.352687 C 54.704896 12.243311 42.454896 -0.0014809 27.350729 -0.0014809 Z M 27.350729 -0.0014809 "
+            d="M 27.350729 -0.00105495 C 12.246561 -0.00105495 0.00176903 12.243737 0.00176903 27.353113 C 0.00176903 42.45728 12.246561 54.702072 27.350729 54.702072 C 42.454896 54.702072 54.704896 42.45728 54.704896 27.353113 C 54.704896 12.243737 42.454896 -0.00105495 27.350729 -0.00105495 Z M 27.350729 -0.00105495 "
             stroke="#000000"
             stroke-width="8"
             stroke-opacity="1"
@@ -301,7 +290,7 @@ export const ElbowFrontRight = ({
   );
 };
 
-export const WristFrontRight = ({
+export const WristBackLeft = ({
   active,
   currentActiveElement,
   value,
@@ -312,32 +301,30 @@ export const WristFrontRight = ({
 }) => {
   return (
     <>
-      <g clip-path="url(#ffdda970b3)">
+      <g clip-path="url(#be197c3a24)">
         <g
-          className={currentActiveElement === 'wristRF' ? Style.active : ''}
-          clip-path="url(#10e5b7016d)"
+          className={currentActiveElement === 'wristLB' ? Style.active : ''}
+          clip-path="url(#c33a62af27)"
         >
           <path
             fill="#ffffff"
-            d="M 78.582031 302.917969 L 119.609375 302.917969 L 119.609375 343.949219 L 78.582031 343.949219 Z M 78.582031 302.917969 "
+            d="M 78.582031 303.203125 L 119.609375 303.203125 L 119.609375 344.234375 L 78.582031 344.234375 Z M 78.582031 303.203125 "
             fill-opacity="1"
             fill-rule="nonzero"
             onClick={() => {
-              active( 'wristRF');
+              active('wristLB');
             }}
           />
         </g>
       </g>
-      <g
-      // clip-path="url(#135f7ba77d)"
-      >
-        <g clip-path="url(#ec7a622e10)">
+      <g clip-path="url(#d9af3d6dbe)">
+        <g clip-path="url(#6297ff8117)">
           <path
             stroke-linecap="butt"
-            transform="matrix(0.75, 0, 0, 0.75, 78.58121, 302.918971)"
+            transform="matrix(0.75, 0, 0, 0.75, 78.58121, 303.203796)"
             fill="none"
             stroke-linejoin="miter"
-            d="M 27.350055 -0.00133643 C 12.245888 -0.00133643 0.00109544 12.243456 0.00109544 27.352831 C 0.00109544 42.456999 12.245888 54.701791 27.350055 54.701791 C 42.459431 54.701791 54.704223 42.456999 54.704223 27.352831 C 54.704223 12.243456 42.459431 -0.00133643 27.350055 -0.00133643 Z M 27.350055 -0.00133643 "
+            d="M 27.350055 -0.000894484 C 12.245888 -0.000894484 0.00109544 12.243898 0.00109544 27.353273 C 0.00109544 42.457441 12.245888 54.702233 27.350055 54.702233 C 42.459431 54.702233 54.704223 42.457441 54.704223 27.353273 C 54.704223 12.243898 42.459431 -0.000894484 27.350055 -0.000894484 Z M 27.350055 -0.000894484 "
             stroke="#000000"
             stroke-width="8"
             stroke-opacity="1"
