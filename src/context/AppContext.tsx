@@ -399,7 +399,7 @@ type AppliedDrugs = {
   unit: string;
 };
 type PatientRecommendations = {
-  cos: string;
+  recommendations: string;
 };
 
 //SEKCJA OPIS //
@@ -872,7 +872,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   ];
 
   const [patientRecommendations, setPatientRecommendations] = useState({
-    cos: '',
+    recommendations: '',
   });
   // console.log(appliedDrugs);
 

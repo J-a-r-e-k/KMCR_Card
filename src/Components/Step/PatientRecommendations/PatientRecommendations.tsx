@@ -1,4 +1,5 @@
-import { Formik } from 'formik';
+import Style from './PatientRecommendations.module.scss';
+import { Formik, Field } from 'formik';
 import { useAppContext } from '../../../context/AppContext';
 import { FormNavigation } from '../../Section/FormNavigation/FormNavigation';
 
@@ -14,7 +15,16 @@ const PatientRecommendations = () => {
     >
       {({ handleSubmit, submitForm }) => (
         <form onSubmit={handleSubmit}>
-          Zalecenia
+          <div className={Style.wrapRecommendations}>
+            <p className={Style.title}>ZALECENIA / UWAGI:</p>
+            <Field
+              className={Style.text}
+              name="recommendations"
+              as="textarea"
+              // rows="4"
+            />
+          </div>
+
           <FormNavigation onSaveForm={submitForm} />
         </form>
       )}

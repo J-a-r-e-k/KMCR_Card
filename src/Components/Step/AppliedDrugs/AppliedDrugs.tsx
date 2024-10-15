@@ -1,6 +1,6 @@
 //
 import Style from './AppliedDrugs.module.scss';
-// import { Formik } from 'formik';
+import { Formik, Field } from 'formik';
 import { useState } from 'react';
 import { useAppContext } from '../../../context/AppContext';
 import { FormNavigation } from '../../Section/FormNavigation/FormNavigation';
@@ -19,32 +19,11 @@ const AppliedDrugs = () => {
   const [currentItem, setCurrentItem] = useState<MedicineItem>({
     lb: 0,
     nameDrug: '',
-    quantity: 0,
+    quantity: NaN,
     unitOfMeasure: '',
     unit: '',
   });
   const AddMedicine = () => {
-    const addDrugToList = () => {
-      if (
-        !currentItem.nameDrug ||
-        !currentItem.quantity ||
-        !currentItem.unitOfMeasure ||
-        !currentItem.unit
-      )
-        return alert('Wypełnij wszystkie pola');
-
-      const nr = appContext.appliedDrugs.length + 1;
-      const newDrug: MedicineItem = {
-        lb: nr,
-        nameDrug: currentItem.nameDrug,
-        quantity: currentItem.quantity,
-        unitOfMeasure: currentItem.unitOfMeasure,
-        unit: currentItem.unit,
-      };
-
-      appContext.setAppliedDrugs((e) => [...e, newDrug]);
-    };
-
     const Select = () => {
       const styleName = btnNameDrug + 'Select';
 
@@ -122,7 +101,6 @@ const AppliedDrugs = () => {
               type="button"
               className={Style.btnSelect}
               onClick={() => {
-                console.log(e.name);
                 setCurrentItem({ ...currentItem, nameDrug: e.name });
               }}
             >
@@ -144,105 +122,124 @@ const AppliedDrugs = () => {
         </>
       );
     };
-    //WPISUJE PO JEDNEJ LITERCE . TRZEBA USTAWIĆ NA VALIU BY SIE UZUPEŁNIAŁO
 
     return (
-      <div>
-        <button className={`${Style.btn} ${Style.btnNoDrugs} `}>
-          Nie podano leków
-        </button>
-        <ul className={Style.wrapMedicine}>
-          <li className={Style.wrapNameDrugs}>
-            <label className={Style.description}>Nazwa leku</label>
-            <input
-              className={`${Style.textField}`}
-              type="text"
-              value={currentItem.nameDrug}
-              onChange={(e) => {
-                setCurrentItem({ ...currentItem, nameDrug: e.target.value });
-              }}
-            />
-            {btnNameDrug == 'nameDrug' ? <Select /> : ''}
-            <button
-              className={Style.btn}
-              onClick={() => setBtnNameDrug('nameDrug')}
-              type="button"
-            >
-              ...
+      <Formik
+        initialValues={currentItem}
+        enableReinitialize={true}
+        onSubmit={(values, { setSubmitting }) => {
+          setSubmitting(false);
+          setCurrentItem(values);
+          addDrugToList(values);
+        }}
+      >
+        {({ handleSubmit, submitForm }) => (
+          <form className={Style.wrapFormDrugs} onSubmit={handleSubmit}>
+            <button className={`${Style.btn} ${Style.btnNoDrugs} `}>
+              Nie podano leków
             </button>
-            <button className={Style.btn} onClick={() => setBtnNameDrug('')}>
-              X
-            </button>
-          </li>
-          <li>
-            <label className={Style.description}>ilość</label>
-            <input
-              className={`${Style.textField} ${Style.fieldQuantity}`}
-              type="number"
-              value={currentItem.quantity}
-              onChange={(e) =>
-                setCurrentItem({
-                  ...currentItem,
-                  quantity: Number(e.target.value),
-                })
-              }
-            />
-          </li>
-          <li>
-            <label className={Style.description}>j.m.</label>
-            <input
-              className={`${Style.textField} ${Style.fieldQuantity}`}
-              type="text"
-              value={currentItem.unitOfMeasure}
-              onChange={(e) =>
-                setCurrentItem({
-                  ...currentItem,
-                  unitOfMeasure: e.target.value,
-                })
-              }
-            />
-            <button
-              className={Style.btn}
-              onClick={() => setBtnNameDrug('unitOfMeasure')}
-            >
-              ...
-            </button>
-            {btnNameDrug == 'unitOfMeasure' ? <Select /> : ''}
-            <button className={Style.btn}>X</button>
-          </li>
-          <li>
-            <label className={Style.description}>Droga podania</label>
-            <input
-              className={Style.textField}
-              type="text"
-              value={currentItem.unit}
-              onChange={(e) =>
-                setCurrentItem({ ...currentItem, unit: e.target.value })
-              }
-            />
-            <button
-              className={Style.btn}
-              onClick={() => setBtnNameDrug('unit')}
-            >
-              ...
-            </button>
-            {btnNameDrug == 'unit' ? <Select /> : ''}
-            <button className={Style.btn}>X</button>
-          </li>
-          <button
-            className={`${Style.btn} ${Style.btnDrugs} `}
-            onClick={() => {
-              addDrugToList();
-            }}
-            type="button"
-          >
-            Dodaj
-          </button>
-        </ul>
-      </div>
+            <ul className={Style.wrapMedicine}>
+              <li className={Style.wrapNameDrugs}>
+                <label className={Style.description}>Nazwa leku</label>
+                <Field
+                  className={`${Style.textField}`}
+                  type="text"
+                  // value={currentItem.nameDrug}
+                  name="nameDrug"
+                />
+
+                {btnNameDrug == 'nameDrug' ? <Select /> : ''}
+                <button
+                  className={Style.btn}
+                  onClick={() => {
+                    setBtnNameDrug('nameDrug');
+                  }}
+                  type="button"
+                >
+                  ...
+                </button>
+                <button
+                  className={Style.btn}
+                  onClick={() => setBtnNameDrug('')}
+                >
+                  X
+                </button>
+              </li>
+              <li>
+                <label className={Style.description}>ilość</label>
+                <Field
+                  className={`${Style.textField} ${Style.fieldQuantity}`}
+                  type="number"
+                  // value={currentItem.nameDrug}
+                  name="quantity"
+                />
+              </li>
+              <li>
+                <label className={Style.description}>j.m.</label>
+                <Field
+                  className={`${Style.textField} ${Style.fieldQuantity}`}
+                  type="text"
+                  // value={currentItem.nameDrug}
+                  name="unitOfMeasure"
+                />
+
+                <button
+                  className={Style.btn}
+                  onClick={() => setBtnNameDrug('unitOfMeasure')}
+                >
+                  ...
+                </button>
+                {btnNameDrug == 'unitOfMeasure' ? <Select /> : ''}
+                <button className={Style.btn}>X</button>
+              </li>
+              <li>
+                <label className={Style.description}>Droga podania</label>
+                <Field
+                  className={Style.textField}
+                  type="text"
+                  // value={currentItem.nameDrug}
+                  name="unit"
+                />
+
+                <button
+                  className={Style.btn}
+                  onClick={() => setBtnNameDrug('unit')}
+                >
+                  ...
+                </button>
+                {btnNameDrug == 'unit' ? <Select /> : ''}
+                <button className={Style.btn}>X</button>
+              </li>
+              <button
+                className={`${Style.btn} ${Style.btnDrugs} `}
+                onClick={() => {
+                  submitForm();
+                }}
+                type="button"
+              >
+                Dodaj
+              </button>
+            </ul>
+          </form>
+        )}
+      </Formik>
     );
   };
+  const addDrugToList = (item: MedicineItem) => {
+    if (!item.nameDrug || !item.quantity || !item.unitOfMeasure || !item.unit)
+      return alert('Wypełnij wszystkie pola');
 
+    const nr = appContext.appliedDrugs.length + 1;
+    const newDrug: MedicineItem = {
+      lb: nr,
+      nameDrug: item.nameDrug,
+      quantity: item.quantity,
+      unitOfMeasure: item.unitOfMeasure,
+      unit: item.unit,
+    };
+
+    appContext.setAppliedDrugs((e) => [...e, newDrug]);
+  };
   const ShowMedicineList = () => {
     if (appContext.appliedDrugs.length == 0) return;
     const medicine = appContext.appliedDrugs.map((e, index) => {
@@ -278,27 +275,3 @@ const AppliedDrugs = () => {
 };
 
 export default AppliedDrugs;
-
-{
-  /* <Formik
-initialValues={appContext.appliedDrugs}
-onSubmit={(values, { setSubmitting }) => {
-  setSubmitting(false);
-  // appContext.setAppliedDrugs(values);
-}}
->
-{() => (
-  <form>
-    <h2>Zastosowane leki</h2>
-    <AddMedicine />
-    <div className={Style.wrapListMedicines}>
-      <p className={Style.listDescription}>
-        lp. nazwa ilość j.m. droga podania
-      </p>
-      <ShowMedicineList />
-    </div>
-    <FormNavigation />
-  </form>
-)}
-</Formik> */
-}
