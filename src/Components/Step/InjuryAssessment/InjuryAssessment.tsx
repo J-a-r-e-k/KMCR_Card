@@ -100,18 +100,19 @@ const InjuryAssessment = () => {
 
   const onRanaButtonClick = (type: string) => {
     if (!currentActiveElement) return;
-
-    // zapiszesz do app Contenxt
-    // currentActiveElement -> info o czesci ciala
-    // type -> typ rany
-    //frontAnkleRF
-    // appContext.setInjuryAssessment({
-    //   [currentActiveElement /* frontAnkleRF*/]: type
-    // })
-    appContext.setInjuryAssessment({
-      ...appContext.injuryAssessment,
-      [currentActiveElement]: `${type}`,
-    });
+    const element = appContext.injuryAssessment[currentActiveElement];
+    if (element.includes(type)) {
+      const nowe = element.replace(type, '');
+      appContext.setInjuryAssessment({
+        ...appContext.injuryAssessment,
+        [currentActiveElement]: nowe,
+      });
+    } else {
+      appContext.setInjuryAssessment({
+        ...appContext.injuryAssessment,
+        [currentActiveElement]: `${element}${type}`,
+      });
+    }
   };
 
   function active(nameClass: string) {
@@ -588,7 +589,7 @@ const InjuryAssessment = () => {
               </InjurySVGBack>
             </div>
             <div className={Style.btnPanel}>
-              <div>
+              <div className={Style.panelElement}>
                 {currentActiveElement && (
                   <ul>
                     <li>
@@ -685,7 +686,7 @@ const InjuryAssessment = () => {
                 )}
               </div>
 
-              <ul>
+              <ul className={Style.panelElement}>
                 <p>Oparzenia:</p>
                 <li className={`${Style.wrapCheck}`}>
                   <Field

@@ -1,0 +1,59 @@
+.wrapDiv {
+  margin-top: 10px;
+  border: 1px #777 solid;
+  border-radius: 5px;
+  padding: 5px 10px;
+  max-height: 80%;
+  width: 100%;
+}
+
+.wrapProvided {
+  display: flex;
+  flex-direction: column;
+  height: 95%;
+  flex-wrap: wrap;
+  overflow: scroll;
+  scrollbar-width: none;
+  // @media (max-width: 1000px) {
+  //   // flex-wrap: nowrap;
+  //   flex-direction: initial;
+  // }
+}
+
+.providedName {
+  margin: 5px 0;
+  font-weight: bold;
+}
+.wrapCheck {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  margin: 5px;
+  padding: 1px;
+  // width: 200px;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+  border-radius: 5px;
+  border: 2px #999 solid;
+  cursor: pointer;
+  appearance: none; //
+}
+
+.check:checked {
+  color: transparent;
+  background-color: #999;
+  background-image: url('../../../../public/icon-checkmark.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.check:hover {
+  border: 2px blue solid;
+}

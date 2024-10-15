@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from 'react';
-import { number } from 'yup';
+// import { number } from 'yup';
 
 type IncidentData = {
   nrIncident: string;
@@ -358,6 +358,49 @@ type DiagnosisCode = {
   thirdDiagnosis: { code: string; description: string };
   cos: string;
 };
+type ProvidedAssistanceActivities = {
+  suction: boolean;
+  bagValveMaskVentilation: boolean;
+  oropharyngeal: boolean;
+  intubation: boolean;
+  passiveOxygenTherapy: boolean;
+  lma: boolean;
+  capnometry: boolean;
+  pulseOximetry: boolean;
+  ecg: boolean;
+  cricothyrotomy: boolean;
+  woundDressing: boolean;
+  manualChestCompression: boolean;
+  mechanicalChestCompression: boolean;
+  defibrillation: boolean;
+  cardioversion: boolean;
+  patientMonitoring: boolean;
+  externalPacing: boolean;
+  carotidSinusMassage: boolean;
+  peripheralVenousAccess: boolean;
+  centralVenousAccess: boolean;
+  intraosseousAccess: boolean;
+  catheterization: boolean;
+  nasogastricTube: boolean;
+  gastricLavage: boolean;
+  cervicalCollar: boolean;
+  spineBoard: boolean;
+  vacuumMattress: boolean;
+  immobilization: boolean;
+  pelvicBinder: boolean;
+  immobilizationKED: boolean;
+  otherProcedures: boolean;
+};
+type AppliedDrugs = {
+  lb: number;
+  nameDrug: string;
+  quantity: number;
+  unitOfMeasure: string;
+  unit: string;
+};
+type PatientRecommendations = {
+  cos: string;
+};
 
 //SEKCJA OPIS //
 
@@ -372,6 +415,9 @@ export enum FormStep {
   InjuryAssessment = 'InjuryAssessment',
   DescriptionStudy = 'DescriptionStudy',
   DiagnosisCode = 'DiagnosisCode',
+  ProvidedAssistanceActivities = 'ProvidedAssistanceActivities',
+  AppliedDrugs = 'AppliedDrugs',
+  PatientRecommendations = 'PatientRecommendations',
 }
 
 type AppContextProps = {
@@ -401,7 +447,18 @@ type AppContextProps = {
   setDescriptionStudy: (descriptionStudy: DescriptionStudy) => void;
   diagnosisCode: DiagnosisCode;
   setDiagnosisCode: (diagnosisCode: DiagnosisCode) => void;
+  providedAssistanceActivities: ProvidedAssistanceActivities;
+  setProvidedAssistanceActivities: (
+    providedAssistanceActivities: ProvidedAssistanceActivities
+  ) => void;
+  appliedDrugs: AppliedDrugs[];
+  setAppliedDrugs: (appliedDrugs: AppliedDrugs[]) => void;
 
+  patientRecommendations: PatientRecommendations;
+  setPatientRecommendations: (
+    patientRecommendations: PatientRecommendations
+  ) => void;
+  drugs: Array<{ lb: number; name: string; jm: string }>;
   steps: Array<{ id: number; type: FormStep; label: string }>; // { id: number; type: FormStep; label: string }[]
   currentStep: number;
   setCurrentStep: (newSte: number) => void;
@@ -412,7 +469,7 @@ export const AppContext = createContext<AppContextProps | undefined>(undefined);
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [userName, setUserName] = useState('Jarosław');
 
-  const [currentStep, setCurrentStep] = useState<number>(7); //<<>>//
+  const [currentStep, setCurrentStep] = useState<number>(11); //<<>>//
 
   const [incidentData, setIncidentData] = useState({
     nrIncident: '',
@@ -760,7 +817,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     hipRB: '', // biodro PT
     hipLB: '', // biodro LT
   });
-  console.log(injuryAssessment);
+
   const [descriptionStudy, setDescriptionStudy] = useState({
     description: '',
   });
@@ -771,7 +828,55 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     thirdDiagnosis: { code: '', description: '' },
     cos: '',
   });
+  const [providedAssistanceActivities, setProvidedAssistanceActivities] =
+    useState({
+      suction: false, //odsysanie
+      bagValveMaskVentilation: false, // wentylacja workiem
+      oropharyngeal: false, //rurki (UG)
+      intubation: false, //intubacja
+      lma: false, //maska krtaniowa
+      passiveOxygenTherapy: false, //tlenoterapia bierna
+      capnometry: false, //kapnometria
+      pulseOximetry: false, //pulsoksymetria
+      ecg: false, //EKG
+      cricothyrotomy: false, //konikopunkcja
+      woundDressing: false, //opatrunek
+      manualChestCompression: false, //ręczny masaż serca
+      mechanicalChestCompression: false, //automatyczny masaż serca
+      defibrillation: false, // defibrylacja
+      cardioversion: false, // kardiowersja
+      patientMonitoring: false, //monitorowanie
+      externalPacing: false, //stymulacja zewnętrzna
+      carotidSinusMassage: false, // stymulacja zatoki szyjnej
+      peripheralVenousAccess: false, //linia żył obwodowych
+      centralVenousAccess: false, //linia żył centralnych
+      intraosseousAccess: false, //dostęp doszpikowy
+      catheterization: false, // cewnikowanie
+      nasogastricTube: false, // sonda żołądkowa
+      gastricLavage: false, // płukanie żołądka
+      cervicalCollar: false, //kołnierz ortopedyczny
+      spineBoard: false, // deska ortopedyczna
+      vacuumMattress: false, // materac próżniowy
+      immobilization: false, //unieruchomienie
+      pelvicBinder: false, // pas do stabilizacji miednicy
+      immobilizationKED: false, // kamizelka KED
+      otherProcedures: false, //inne
+    });
 
+  //
+  const [appliedDrugs, setAppliedDrugs] = useState([]);
+  const DRUGS: { lb: number; name: string; jm: string }[] = [
+    { lb: 1, name: 'cos', jm: 'mg' },
+    { lb: 2, name: 'cosa', jm: 'mg' },
+    { lb: 3, name: 'cosm', jm: 'mg' },
+  ];
+
+  const [patientRecommendations, setPatientRecommendations] = useState({
+    cos: '',
+  });
+  // console.log(appliedDrugs);
+
+  //
   const STEPS: { id: number; type: FormStep; label: string }[] = [
     {
       id: 0,
@@ -823,6 +928,21 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
       type: FormStep.DiagnosisCode,
       label: 'Rozpoznanie',
     },
+    {
+      id: 10,
+      type: FormStep.ProvidedAssistanceActivities,
+      label: 'Czynności',
+    },
+    {
+      id: 11,
+      type: FormStep.AppliedDrugs,
+      label: 'Zastosowane Leki',
+    },
+    {
+      id: 12,
+      type: FormStep.PatientRecommendations,
+      label: 'Postępowanie z pacjentem',
+    },
   ];
 
   return (
@@ -848,9 +968,15 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         setInjuryAssessment: setInjuryAssessment,
         descriptionStudy: descriptionStudy,
         setDescriptionStudy: setDescriptionStudy,
-
         diagnosisCode: diagnosisCode,
         setDiagnosisCode: setDiagnosisCode,
+        providedAssistanceActivities: providedAssistanceActivities,
+        setProvidedAssistanceActivities: setProvidedAssistanceActivities,
+        appliedDrugs: appliedDrugs,
+        setAppliedDrugs: setAppliedDrugs,
+        patientRecommendations: patientRecommendations,
+        setPatientRecommendations: setPatientRecommendations,
+        drugs: DRUGS,
 
         steps: STEPS,
         currentStep: currentStep,

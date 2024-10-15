@@ -10,6 +10,9 @@ import InjuryAssessment from '../../Step/InjuryAssessment/InjuryAssessment';
 import MeasuredParameters from '../../Step/MeasuredParameters/MeasuredParameters';
 import DiagnosisCode from '../../Step/DiagnosisCode/DiagnosisCode';
 import DescriptionStudyForm from '../../Step/DescriptionStudyForm/DescriptionStudyForm';
+import ProvidedAssistanceActivities from '../../Step/ProvidedAssistanceActivities/ProvidedAssistanceActivities';
+import AppliedDrugs from '../../Step/AppliedDrugs/AppliedDrugs';
+import PatientRecommendations from '../../Step/PatientRecommendations/PatientRecommendations';
 
 interface FormProps {
   step: number;
@@ -45,6 +48,12 @@ const Form: React.FC<FormProps> = () => {
         return <DescriptionStudyForm />;
       case 9:
         return <DiagnosisCode />;
+      case 10:
+        return <ProvidedAssistanceActivities />;
+      case 11:
+        return <AppliedDrugs />;
+      case 12:
+        return <PatientRecommendations />;
     }
   };
 
@@ -52,6 +61,3 @@ const Form: React.FC<FormProps> = () => {
 };
 
 export default Form;
-
-{
-}
