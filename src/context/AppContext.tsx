@@ -256,7 +256,7 @@ type MeasuredParameters = {
     other: string;
   };
 };
-type InjuryAssessment = {
+export type InjuryAssessment = {
   noInjuries: boolean;
   burns: {
     first: {
