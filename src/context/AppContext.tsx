@@ -1,5 +1,4 @@
 import { createContext, useContext, useState } from 'react';
-// import { number } from 'yup';
 
 type IncidentData = {
   nrIncident: string;
