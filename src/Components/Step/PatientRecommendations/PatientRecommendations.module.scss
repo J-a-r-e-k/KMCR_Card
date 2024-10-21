@@ -1,6 +1,9 @@
 .wrapRecommendations {
+  padding: 5px;
   width: 100%;
-  height: 80px;
+  margin-bottom: 10px;
+  border: 1px solid #999;
+  border-radius: 5px;
 }
 
 .title {
@@ -17,4 +20,134 @@
   font-size: 1.2rem;
   background-color: #eee;
   border-radius: 10px;
+}
+.patientManagement {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  // margin: 0 auto;
+  // width: fit-content;
+}
+.wrapCheck {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  margin: 5px;
+  padding: 1px;
+  // flex: 1;
+}
+
+.anotherWrapCheck {
+  flex-grow: 1;
+  min-width: 45%;
+}
+
+//
+.check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+  border-radius: 5px;
+  border: 2px #999 solid;
+  cursor: pointer;
+  appearance: none; //
+}
+.check:checked {
+  color: transparent;
+  background-color: #999;
+  background-image: url('../../../../public/icon-checkmark.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.check:hover {
+  border: 2px blue solid;
+}
+//
+
+.anotherText {
+  border-bottom: 1px black dotted;
+  // flex-grow: 2;
+  width: 50%;
+  padding-left: 5px;
+  cursor: pointer;
+}
+
+.wrapParamedicInfo {
+  display: flex;
+  justify-content: space-around;
+  margin: 5px 0;
+}
+.paramedicInfo {
+  width: fit-content;
+  margin: 5px;
+  padding: 3px 5px;
+  border: 1px solid #333;
+  border-radius: 5px;
+}
+.paramedicInfoAdd {
+  flex-grow: 1;
+}
+.dateSignature {
+  width: 100%;
+  font-size: 1.2rem;
+  line-height: 1.5em;
+}
+
+.signature {
+  margin: 0 auto;
+  height: 100px;
+  width: 95%;
+  border: 1px black solid;
+  background-color: #ddd;
+  cursor: pointer;
+}
+.wrapPanelSignature {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: #aaaaaac3;
+}
+
+.panelSignature {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 90%;
+}
+.signatureWrite {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 60%;
+  background-color: #eee;
+  border-radius: 10px;
+}
+
+.btn {
+  position: absolute;
+  bottom: 15px;
+  right: 5%;
+  width: 120px;
+  height: 45px;
+  border: 1px black solid;
+  border-radius: 7px;
+  font-size: 1.4rem;
+  background-color: #999;
+  cursor: pointer;
+}
+.btnClean {
+  bottom: auto;
+  top: 15px;
 }

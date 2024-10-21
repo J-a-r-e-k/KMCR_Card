@@ -85,9 +85,7 @@ const Statement = () => {
           </button>
         </div>
         <div className={Style.wrapSignature}>
-          <p className={Style.contents}>
-            podpis pacjenta lub przedstawiciela ustawowego:
-          </p>
+          <p>podpis pacjenta lub przedstawiciela ustawowego:</p>
           <div
             className={Style.signature}
             onClick={() => {

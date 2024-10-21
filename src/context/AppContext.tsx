@@ -400,6 +400,24 @@ type AppliedDrugs = {
 };
 type PatientRecommendations = {
   recommendations: string;
+  patientStatus: {
+    remainedAtScene: boolean;
+    transferredToEMS: boolean;
+    patientWent: boolean;
+    handedOverToPolice: boolean;
+    other: boolean;
+    otherText: string;
+  };
+  cardCopyIssued: {
+    patient: boolean;
+    healthcareProvider: boolean;
+  };
+  responderSignature: {
+    fullName: string;
+    licenseNumber: string;
+    title: string;
+    datetime: string;
+  };
 };
 
 //SEKCJA OPIS //
@@ -865,14 +883,32 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 
   //
   const [appliedDrugs, setAppliedDrugs] = useState([]);
-  const DRUGS: { lb: number; name: string; jm: string }[] = [
-    { lb: 1, name: 'cos', jm: 'mg' },
-    { lb: 2, name: 'cosa', jm: 'mg' },
-    { lb: 3, name: 'cosm', jm: 'mg' },
-  ];
+  // const DRUGS: { lb: number; name: string; jm: string }[] = [
+  //   { lb: 1, name: 'cos', jm: 'mg' },
+  //   { lb: 2, name: 'cosa', jm: 'mg' },
+  //   { lb: 3, name: 'cosm', jm: 'mg' },
+  // ];
 
   const [patientRecommendations, setPatientRecommendations] = useState({
     recommendations: '',
+    patientStatus: {
+      remainedAtScene: false, //Pozostał na miejscu
+      transferredToEMS: false, //przekazano ZRM
+      patientWent: false, //oddalił sie samodzielnie
+      handedOverToPolice: false, //przekazany Policji
+      other: false, // inne
+      otherText: '',
+    },
+    cardCopyIssued: {
+      patient: false,
+      healthcareProvider: false,
+    },
+    responderSignature: {
+      fullName: '',
+      licenseNumber: '',
+      title: '',
+      datetime: '',
+    },
   });
   // console.log(appliedDrugs);
 
@@ -976,7 +1012,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         setAppliedDrugs: setAppliedDrugs,
         patientRecommendations: patientRecommendations,
         setPatientRecommendations: setPatientRecommendations,
-        drugs: DRUGS,
+        // drugs: DRUGS,
 
         steps: STEPS,
         currentStep: currentStep,
