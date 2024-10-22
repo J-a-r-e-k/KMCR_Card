@@ -390,12 +390,16 @@ type ProvidedAssistanceActivities = {
   immobilizationKED: boolean;
   otherProcedures: boolean;
 };
-type AppliedDrugs = {
+interface Medicament {
   lb: number;
   nameDrug: string;
   quantity: number;
   unitOfMeasure: string;
   unit: string;
+}
+type AppliedDrugs = {
+  noDrugs: boolean;
+  medicaments: Medicament[];
 };
 type PatientRecommendations = {
   recommendations: string;
@@ -468,14 +472,14 @@ type AppContextProps = {
   setProvidedAssistanceActivities: (
     providedAssistanceActivities: ProvidedAssistanceActivities
   ) => void;
-  appliedDrugs: AppliedDrugs[];
-  setAppliedDrugs: (appliedDrugs: AppliedDrugs[]) => void;
+  appliedDrugs: AppliedDrugs;
+  setAppliedDrugs: (appliedDrugs: AppliedDrugs) => void;
 
   patientRecommendations: PatientRecommendations;
   setPatientRecommendations: (
     patientRecommendations: PatientRecommendations
   ) => void;
-  drugs: Array<{ lb: number; name: string; jm: string }>;
+
   steps: Array<{ id: number; type: FormStep; label: string }>; // { id: number; type: FormStep; label: string }[]
   currentStep: number;
   setCurrentStep: (newSte: number) => void;
@@ -881,7 +885,11 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     });
 
   //
-  const [appliedDrugs, setAppliedDrugs] = useState([]);
+
+  const [appliedDrugs, setAppliedDrugs] = useState<AppliedDrugs>({
+    noDrugs: false,
+    medicaments: [],
+  });
   // const DRUGS: { lb: number; name: string; jm: string }[] = [
   //   { lb: 1, name: 'cos', jm: 'mg' },
   //   { lb: 2, name: 'cosa', jm: 'mg' },
@@ -1011,7 +1019,6 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         setAppliedDrugs: setAppliedDrugs,
         patientRecommendations: patientRecommendations,
         setPatientRecommendations: setPatientRecommendations,
-        // drugs: DRUGS,
 
         steps: STEPS,
         currentStep: currentStep,
