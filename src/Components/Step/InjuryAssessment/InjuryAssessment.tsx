@@ -123,14 +123,12 @@ const InjuryAssessment = () => {
     }
   }
 
-  console.log(appContext.injuryAssessment);
-
   return (
     <Formik
       initialValues={appContext.injuryAssessment}
       onSubmit={(values, { setSubmitting }) => {
         setSubmitting(false);
-        console.log(values);
+
         appContext.setInjuryAssessment({
           ...appContext.injuryAssessment,
           burns: values.burns,

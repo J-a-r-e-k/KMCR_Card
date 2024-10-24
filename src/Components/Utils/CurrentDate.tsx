@@ -1,7 +1,6 @@
-// import { setFieldValue } from 'formik';
-const CurrentDate = () => {
-  const dateFormat = new Date().toISOString().split('T')[0];
+export const currentDate = () => {
+  const [day, time] = new Date().toISOString().split('T');
+  const dateFormat = `${day} / ${time.split('.')[0].slice(0, 5)}`;
+
   return dateFormat;
 };
-
-export default CurrentDate;

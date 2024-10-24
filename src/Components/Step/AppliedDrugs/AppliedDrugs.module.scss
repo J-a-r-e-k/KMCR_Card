@@ -46,21 +46,29 @@
   background-color: #ddd;
   padding: 5px;
   overflow: auto;
+  -webkit-transform: translateZ(0); /* lub translate3d(0,0,0) */
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeSpeed;
   max-height: 300px;
 
   li {
     width: 45%;
   }
 }
+.select::-webkit-scrollbar {
+  display: none;
+}
+
 .btnSelect {
   width: 100%;
   margin-top: 3px;
-  padding: 3px;
-  border: 1px solid #777;
-  border-radius: 5px;
-  font-size: 1.2rem;
-  text-align: center;
-  background-color: #bbb;
+  padding: 5px;
+  border-bottom: 1px solid #777;
+  font-size: 1.4rem;
+  text-align: start;
   cursor: pointer;
 }
 
@@ -68,19 +76,24 @@
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  min-width: 80%;
+  width: 40%;
+  width: 500px;
   li {
-    width: 30%;
+    width: 100%;
   }
 }
 .unitOfMeasureSelect {
   flex-direction: column;
   top: 100%;
   left: 50%;
-  transform: translateX(-50%);
   width: 50%;
+  transform: translateX(-50%);
+
   li {
     width: 100%;
+    button {
+      text-align: center;
+    }
   }
 }
 
@@ -88,7 +101,7 @@
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  width: 80%;
+  width: 100%;
 }
 
 .description {

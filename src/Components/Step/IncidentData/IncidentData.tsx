@@ -6,56 +6,64 @@ import AddForm from '../Icon/AddForm';
 import AddDate from '../Icon/AddDate';
 import { useAppContext } from '../../../context/AppContext';
 import { FormNavigation } from '../../Section/FormNavigation/FormNavigation';
+import { currentDate } from '../../Utils/CurrentDate';
 
 const IncidentData = () => {
   const appContext = useAppContext();
   const [addressField, setAddressField] = useState(false);
 
-  const today = () => {
-    const [day, time] = new Date().toISOString().split('T');
-    const dateFormat = `${day} / ${time.split('.')[0].slice(0, 5)}`;
+  const Address = () => {
+    const {
+      incidentData: {
+        incidentCity,
+        incidentPost,
+        incidentStreet,
+        incidentNr,
+        incidentNrApartment,
+      },
+    } = appContext;
 
-    appContext.setIncidentData({
-      ...appContext.incidentData,
-      incidentDate: dateFormat,
-    });
-  };
-
-  const address = () => {
-    if (!addressField) return;
-    return (
-      <div>
-        <div className={Style.address}>
-          <label className={Style.contents}> miejscowość:</label>
-          <Field className={Style.inputText} name="incidentCity" />
-          <label className={`${Style.contents}`}>kod pocztowy:</label>
-          <Field
-            className={`${Style.inputText} ${Style.post}`}
-            name="incidentPost"
-          />
+    if (
+      addressField ||
+      incidentCity ||
+      incidentPost ||
+      incidentStreet ||
+      incidentNr ||
+      incidentNrApartment
+    )
+      return (
+        <div>
+          <div className={Style.address}>
+            <label className={Style.contents}> miejscowość:</label>
+            <Field className={Style.inputText} name="incidentCity" />
+            <label className={`${Style.contents}`}>kod pocztowy:</label>
+            <Field
+              className={`${Style.inputText} ${Style.post}`}
+              name="incidentPost"
+            />
+          </div>
+          <div className={Style.address}>
+            <p>ul.</p>
+            <Field
+              className={Style.inputText}
+              name="incidentStreet"
+              placeholder="ulica"
+            />
+            <p>nr:</p>
+            <Field
+              className={`${Style.inputNR} ${Style.inputText}`}
+              name="incidentNr"
+              placeholder="budynku"
+            />
+            <p>m:</p>
+            <Field
+              className={`${Style.inputNR} ${Style.inputText}`}
+              name="incidentNrApartment"
+              placeholder="mieszkanie"
+            />
+          </div>
         </div>
-        <div className={Style.address}>
-          <p>ul.</p>
-          <Field
-            className={Style.inputText}
-            name="incidentStreet"
-            placeholder="ulica"
-          />
-          <p>nr:</p>
-          <Field
-            className={`${Style.inputNR} ${Style.inputText}`}
-            name="incidentNr"
-            placeholder="budynku"
-          />
-          <p>m:</p>
-          <Field
-            className={`${Style.inputNR} ${Style.inputText}`}
-            name="incidentNrApartment"
-            placeholder="mieszkanie"
-          />
-        </div>
-      </div>
-    );
+      );
   };
 
   return (
@@ -75,6 +83,7 @@ const IncidentData = () => {
           // handleBlur,
           handleSubmit,
           submitForm,
+          setFieldValue,
           // isSubmitting,
           // isValid,
           /* and other goodies */
@@ -99,11 +108,10 @@ const IncidentData = () => {
             component="div"
             className={Style.error}
           /> */}
-
               <button
                 className={Style.btnAddDate}
                 onClick={() => {
-                  today();
+                  setFieldValue('incidentDate', currentDate());
                 }}
                 type="button"
               >
@@ -121,7 +129,7 @@ const IncidentData = () => {
               <label className={Style.contents}>
                 Miejsce udzielenia swiadczenia zdrowotnego:
               </label>
-              {address()}
+              <Address />
               <Field
                 className={Style.inputText}
                 name="incidentPlace"

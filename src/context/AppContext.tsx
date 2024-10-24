@@ -401,7 +401,7 @@ type AppliedDrugs = {
   noDrugs: boolean;
   medicaments: Medicament[];
 };
-type PatientRecommendations = {
+export type PatientRecommendations = {
   recommendations: string;
   patientStatus: {
     remainedAtScene: boolean;
@@ -490,7 +490,7 @@ export const AppContext = createContext<AppContextProps | undefined>(undefined);
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [userName, setUserName] = useState('Jarosław');
 
-  const [currentStep, setCurrentStep] = useState<number>(11); //<<>>//
+  const [currentStep, setCurrentStep] = useState<number>(0); //<<>>//
 
   const [incidentData, setIncidentData] = useState({
     nrIncident: '',
@@ -890,11 +890,6 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     noDrugs: false,
     medicaments: [],
   });
-  // const DRUGS: { lb: number; name: string; jm: string }[] = [
-  //   { lb: 1, name: 'cos', jm: 'mg' },
-  //   { lb: 2, name: 'cosa', jm: 'mg' },
-  //   { lb: 3, name: 'cosm', jm: 'mg' },
-  // ];
 
   const [patientRecommendations, setPatientRecommendations] = useState({
     recommendations: '',
@@ -917,9 +912,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
       datetime: '',
     },
   });
-  // console.log(appliedDrugs);
 
-  //
   const STEPS: { id: number; type: FormStep; label: string }[] = [
     {
       id: 0,

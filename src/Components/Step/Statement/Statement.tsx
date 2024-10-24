@@ -7,6 +7,7 @@ import {
   Statement as StatementType,
 } from '../../../context/AppContext';
 import { FormNavigation } from '../../Section/FormNavigation/FormNavigation';
+import { currentDate } from '../../Utils/CurrentDate';
 
 const Statement = () => {
   const appContext = useAppContext();
@@ -71,13 +72,7 @@ const Statement = () => {
           <button
             className={Style.btnAddDate}
             onClick={() => {
-              const dateTime = today();
-              // appContext.setStatement({
-              //   ...appContext.statement,
-              //   patientRefusalDate: dateTime,
-              // });
-              setFieldValue('patientRefusalDate', dateTime);
-              //save to formik
+              setFieldValue('patientRefusalDate', currentDate());
             }}
             type="button"
           >
@@ -97,13 +92,6 @@ const Statement = () => {
       </div>
     );
   }
-  //Popieranie i zapisywanie bieżącej daty i godziny
-  const today = () => {
-    const [day, time] = new Date().toISOString().split('T');
-    const dateFormat = `${day} / ${time.split('.')[0].slice(0, 5)}`;
-    return dateFormat;
-  };
-
   function withdrawalAid({
     setFieldValue,
   }: {
@@ -118,14 +106,8 @@ const Statement = () => {
           <label className={Style.contents}>Data i godzina odmowy:</label>
           <Field className={Style.inputText} name="withdrawalAidTime" />
           <button
-            className={Style.btnAddDate}
             onClick={() => {
-              const dateTime = today();
-              appContext.setStatement({
-                ...appContext.statement,
-                withdrawalAidTime: dateTime,
-              });
-              setFieldValue('withdrawalAidTime', dateTime);
+              setFieldValue('withdrawalAidTime', currentDate());
             }}
             type="button"
           >

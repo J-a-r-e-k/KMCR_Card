@@ -3,10 +3,42 @@ import { useState } from 'react';
 import { Formik, Field } from 'formik';
 import { useAppContext } from '../../../context/AppContext';
 import { FormNavigation } from '../../Section/FormNavigation/FormNavigation';
+import { currentDate } from '../../Utils/CurrentDate';
+import AddDate from '../Icon/AddDate';
+
+const Select = ({ setFieldValue, setBtnTitle }) => {
+  const titles = ['Ratownik Medyczny', 'Pielęgniarka systemu', 'Lekarz'];
+
+  const selectionList = titles.map((title, index) => {
+    return (
+      <li
+        key={index}
+        className={Style.btnSelect}
+        onClick={() => {
+          setFieldValue('responderSignature.title', `${title}`);
+          setBtnTitle(false);
+        }}
+      >
+        {title}
+      </li>
+    );
+  });
+
+  return (
+    <>
+      <ul className={`${Style.select} `}>{selectionList}</ul>
+      <div
+        className={Style.wrapSelect}
+        onClick={() => setBtnTitle(false)}
+      ></div>
+    </>
+  );
+};
 
 const PatientRecommendations = () => {
   const appContext = useAppContext();
   const [wrapSignature, setWrapSignature] = useState(false);
+  const [btnTitle, setBtnTitle] = useState(false);
 
   //Panel Podpisu
   const signature = () => {
@@ -34,7 +66,7 @@ const PatientRecommendations = () => {
         appContext.setPatientRecommendations(values);
       }}
     >
-      {({ handleSubmit, submitForm }) => (
+      {({ handleSubmit, submitForm, setFieldValue }) => (
         <form onSubmit={handleSubmit}>
           <div className={Style.wrapRecommendations}>
             <p className={Style.title}>ZALECENIA / UWAGI:</p>
@@ -126,40 +158,56 @@ const PatientRecommendations = () => {
               <li
                 className={`${Style.paramedicInfo} ${Style.paramedicInfoAdd}`}
               >
-                <p>Imie Nazwisko</p>
                 <Field
-                  className={Style.dateSignature}
+                  className={Style.elementField}
                   name="responderSignature.fullName"
                   type="text"
+                  placeholder="Imie Nazwisko"
                 />
               </li>
 
               <li
                 className={`${Style.paramedicInfo} ${Style.paramedicInfoAdd}`}
               >
-                <p className={Style.contents}>Nr. dyplomu:</p>
                 <Field
-                  className={Style.dateSignature}
+                  className={Style.elementField}
                   name="responderSignature.licenseNumber"
                   type="text"
+                  placeholder="Nr. dyplomu"
                 />
               </li>
               <li className={Style.paramedicInfo}>
-                <p className={Style.contents}>
-                  Tytuł osoby udzielającej pomocy:
-                </p>
                 <Field
-                  className={Style.dateSignature}
+                  className={`${Style.titleField} ${Style.elementField}`}
                   name="responderSignature.title"
                   type="text"
+                  autoComplete="off"
+                  placeholder="Tytuł osoby udzielającej pomocy:"
+                  onFocus={() => setBtnTitle(true)}
                 />
+                {btnTitle ? (
+                  <Select
+                    setFieldValue={setFieldValue}
+                    setBtnTitle={setBtnTitle}
+                  />
+                ) : undefined}
               </li>
-              <li className={Style.paramedicInfo}>
+
+              <li className={`${Style.paramedicInfo} ${Style.dateField}`}>
                 <Field
-                  className={Style.dateSignature}
+                  className={` ${Style.elementField}`}
                   name="responderSignature.datetime"
-                  type="datetime-local"
+                  type="text"
+                  autoComplete="off"
+                  placeholder="data:"
                 />
+                <button
+                  onClick={() => {
+                    setFieldValue('responderSignature.datetime', currentDate());
+                  }}
+                >
+                  <AddDate />
+                </button>
               </li>
             </ul>
 
