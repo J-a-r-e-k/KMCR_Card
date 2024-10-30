@@ -14,108 +14,120 @@ const PatientData = () => {
   };
 
   const patientForm = () => {
-    //wybór płci w zależności od patientGender
-    const activeMan =
-      appContext.patientData.patientGender === 'man' ? Style.checkActive : '';
-    const activeWoman =
-      appContext.patientData.patientGender === 'woman' ? Style.checkActive : '';
-    //
-
     return (
       <div className={`${Style.wrapDiv} ${Style.wrapDivPatient}`}>
         <h2 className={Style.title}>DANE PACJENTA</h2>
-        <label className={Style.contents}>Imię (imiona):</label>
-        <Field
-          className={Style.inputText}
-          name="patientFirstName"
-          placeholder=" Imię (imiona)"
-        />
-        <label className={Style.contents}>Nazwisko:</label>
-        <Field
-          className={Style.inputText}
-          name="patientLastName"
-          placeholder="Nazwisko"
-        />
-        <div className={Style.address}>
-          <label className={Style.contents}> miejscowość:</label>
-          <Field
-            className={Style.inputText}
-            name="patientCity"
-            placeholder="Miejscowość"
-          />
-          <label className={`${Style.contents}`}>kod pocztowy:</label>
-          <Field
-            className={`${Style.inputText} ${Style.post}`}
-            name="patientPostalCod"
-            placeholder="00 - 000"
-          />
-        </div>
-        <div className={Style.address}>
-          <label className={Style.contents}>Adres zamieszkania:</label>
-          <p>ul.</p>
-          <Field
-            className={Style.inputText}
-            name="patientStreet"
-            placeholder="ulica"
-          />
-          <p>nr:</p>
-          <Field
-            className={`${Style.inputNR} ${Style.inputText}`}
-            name="patientIdNumber"
-            placeholder="budynku"
-          />
-          <p>m:</p>
-          <Field
-            className={`${Style.inputNR} ${Style.inputText}`}
-            name="patientNrApartment"
-            placeholder="mieszkanie"
-          />
-        </div>
-        <label className={Style.contents}>data urodzenia: </label>
-        <div className={Style.wrapBirthday}>
-          <Field
-            className={Style.inputText}
-            name="patientBirthDate"
-            placeholder="(rrrr-mm-dd)"
-          />
-          {/* <ErrorMessage
-            name="patientBirthDate"
-            component="div"
-            className={Style.error}
-          /> */}
-        </div>
+        <ul className={Style.address}>
+          <li className={Style.element}>
+            <label className={Style.contents}>Imię (imiona):</label>
+            <Field
+              className={Style.inputText}
+              name="patientFirstName"
+              type="text"
+              placeholder=" Imię (imiona)"
+            />
+          </li>
+          <li className={Style.element}>
+            <label className={Style.contents}>Nazwisko:</label>
+            <Field
+              className={Style.inputText}
+              name="patientLastName"
+              placeholder="Nazwisko"
+            />
+          </li>
+          <li className={Style.element}>
+            <label className={Style.contents}> miejscowość:</label>
+            <Field
+              className={Style.inputText}
+              name="patientCity"
+              placeholder="Miejscowość"
+            />
+          </li>
+          <li className={`${Style.element}`}>
+            <label className={`${Style.contents}`}>kod pocztowy:</label>
+            <Field
+              className={`${Style.inputPost}`}
+              autoComplete="off"
+              name="patientPostalCod.one"
+              placeholder="00"
+              type="number"
+            />
+            <p>-</p>
+            <Field
+              className={`${Style.inputPost}`}
+              name="patientPostalCod.two"
+              placeholder="000"
+              type="number"
+              autoComplete="off"
+            />
+          </li>
+          <p className={Style.contents}>Adres zamieszkania:</p>
+          <li className={Style.element}>
+            <label>ul.</label>
+            <Field
+              className={Style.inputText}
+              name="patientStreet"
+              placeholder="ulica"
+            />
+          </li>
+          <li className={`${Style.element} ${Style.inputNR}`}>
+            <label>nr:</label>
+            <Field
+              className={` ${Style.inputText}`}
+              name="patientIdNumber"
+              placeholder="budynku"
+            />
+          </li>
+          <li className={`${Style.element} ${Style.inputNR}`}>
+            <label>m:</label>
+            <Field
+              className={` ${Style.inputText}`}
+              name="patientNrApartment"
+              placeholder="mieszkanie"
+            />
+          </li>
+          <li className={Style.element}>
+            <label className={Style.contents}>data urodzenia: </label>
+            <Field
+              className={Style.inputText}
+              name="patientBirthDate"
+              placeholder="(rrrr-mm-dd)"
+            />
+          </li>
+          <li className={Style.element}>
+            <label className={Style.contents}>PESEL: </label>
+            <Field
+              className={Style.inputText}
+              name="patientPesel"
+              placeholder="Pesel"
+            />
+          </li>
+          <li className={Style.element}>
+            <p>Płeć: </p>
+            <p className={`${Style.contents}`}>K</p>
+            <Field
+              id="dyspneaYes"
+              className={Style.check}
+              name="patientGender"
+              type="radio"
+              value="woman"
+            />
+            <p className={`${Style.contents}`}>M</p>
+            <Field
+              id="dyspneaNO"
+              className={Style.check}
+              name="patientGender"
+              type="radio"
+              value="man"
+            />
+          </li>
+        </ul>
 
-        <label className={Style.contents}>PESEL: </label>
-        <Field
-          className={Style.inputText}
-          name="patientPesel"
-          placeholder="Pesel"
-        />
         {/* <ErrorMessage
           name="patientPesel"
           component="div"
           className={Style.error}
         /> */}
-
-        <div className={Style.wrapSex}>
-          <p className={Style.contents}>Płeć:</p>
-          <p className={`${Style.contents}`}>K</p>
-          <div
-            // ${activeWoman}
-            className={`${Style.check}  ${activeWoman}`}
-            onClick={() => {
-              genderPatient('woman');
-            }}
-          ></div>
-          <p className={Style.contents}>M</p>
-          <div
-            // ${activeMan}
-            className={`${Style.check} ${activeMan}`}
-            onClick={() => {
-              genderPatient('man');
-            }}
-          ></div>
-        </div>
       </div>
     );
   };
@@ -188,7 +200,7 @@ const PatientData = () => {
         {({ handleSubmit, submitForm }) => (
           <form onSubmit={handleSubmit}>
             {patientForm()}
-            {guardianDate()}
+            {/* {guardianDate()} */}
             <FormNavigation onSaveForm={submitForm} />
           </form>
         )}

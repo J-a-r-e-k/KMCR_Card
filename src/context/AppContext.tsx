@@ -16,7 +16,10 @@ type PatientData = {
   patientFirstName: string;
   patientLastName: string;
   patientCity: string;
-  patientPostalCod: string;
+  patientPostalCod: {
+    one: number;
+    two: number;
+  };
   patientStreet: string;
   patientIdNumber: string;
   patientNrApartment: string;
@@ -490,7 +493,7 @@ export const AppContext = createContext<AppContextProps | undefined>(undefined);
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [userName, setUserName] = useState('Jarosław');
 
-  const [currentStep, setCurrentStep] = useState<number>(0); //<<>>//
+  const [currentStep, setCurrentStep] = useState<number>(1); //<<>>//
 
   const [incidentData, setIncidentData] = useState({
     nrIncident: '',
@@ -508,7 +511,10 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     patientFirstName: '',
     patientLastName: '',
     patientCity: '',
-    patientPostalCod: '',
+    patientPostalCod: {
+      one: NaN,
+      two: NaN,
+    },
     patientStreet: '',
     patientIdNumber: '',
     patientNrApartment: '',
@@ -927,27 +933,27 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     {
       id: 2,
       type: FormStep.Statement,
-      label: 'Statemtns',
+      label: 'Oświadczenie Pacjenta',
     },
     {
       id: 3,
       type: FormStep.Interview,
-      label: 'Interview',
+      label: 'Wywiad',
     },
     {
       id: 4,
       type: FormStep.AssessHealthCondition,
-      label: 'Asse',
+      label: 'Ocena GCS',
     },
     {
       id: 5,
       type: FormStep.AssessHealthConditionBreathEyes,
-      label: 'Oddech',
+      label: 'Badanie fizykalne ',
     },
     {
       id: 6,
       type: FormStep.MeasuredParameters,
-      label: 'Zmierzone parametry',
+      label: 'Ocena parametrów',
     },
     {
       id: 7,

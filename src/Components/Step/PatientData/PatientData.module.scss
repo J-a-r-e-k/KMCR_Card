@@ -7,95 +7,141 @@
   border: 1px black solid;
   position: relative;
 }
-.address {
+.title {
   width: 100%;
   padding: 5px 0;
-  display: flex;
-  align-items: center;
+  font-size: 1.6rem;
 }
-
 .contents {
   font-size: 1.2rem;
   padding: 5px 2px;
+  margin-top: 5px;
 }
 .inputText {
   font-size: 1.2rem;
   margin: 0 5px;
   padding: 5px;
+  width: 40%;
   flex-grow: 1;
   border-bottom: 1px solid black;
 }
-.inputNR {
-  width: 60px;
-  flex-grow: 0;
-  text-align: center;
-}
 
-.post {
-  width: 100px;
-  flex-grow: 0;
-  text-align: center;
-}
-
-.title {
-  width: 100%;
-  padding: 5px 0;
-  font-size: 1.4rem;
-}
-.wrapSex {
+.address {
   display: flex;
+  flex-wrap: wrap;
+  // width: 100%;
+  // padding: 5px 0;
+  // align-items: center;
+}
+.element {
+  display: flex;
+  width: 100%;
   align-items: center;
 }
 
-.wrapBirthday {
-  position: relative;
+.inputNR {
+  width: 40%;
+
+  // width: 60px;
+  // flex-grow: 0;
+  // text-align: center;
 }
 
-.btnAddDate {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 20px;
-  height: 20px;
-  margin: 2px;
+.inputPost {
+  font-size: 1.2rem;
+  margin: 5px 5px 0;
+  padding: 5px;
+  border: 1px solid black;
+  text-align: center;
+  width: 50px;
   cursor: pointer;
+  // flex-grow: 0;
+  // text-align: center;
 }
+
+// .wrapSex {
+//   display: flex;
+//   align-items: center;
+// }
+
+// .wrapBirthday {
+//   position: relative;
+// }
+
+// .btnAddDate {
+//   position: absolute;
+//   right: 0;
+//   top: 0;
+//   width: 20px;
+//   height: 20px;
+//   margin: 2px;
+//   cursor: pointer;
+//   background-color: red;
+// }
+
+// .check {
+//   position: relative;
+//   margin: 5px 10px;
+//   height: 20px;
+//   width: 20px;
+//   border-radius: 5px;
+//   border: solid #999 1px;
+//   cursor: pointer;
+//   img {
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//   }
+// }
+// .check:hover {
+//   border: 1px blue solid;
+// }
+
+// .checkActive {
+//   background-color: #022a61;
+//   background-image: url('../../../../public/icon-checkmark.svg');
+//   background-position: center;
+//   background-repeat: no-repeat;
+// }
 
 .check {
-  position: relative;
-  margin: 5px 10px;
-  height: 20px;
-  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  margin: 0 3px;
   border-radius: 5px;
-  border: solid #999 1px;
+  border: 2px #999 solid;
   cursor: pointer;
-
-  img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+  appearance: none; //
 }
-.check:hover {
-  border: 1px blue solid;
+.checkField {
+  appearance: none;
 }
 
-.checkActive {
-  background-color: #022a61;
+.check:checked {
+  color: transparent;
+  background-color: #999;
   background-image: url('../../../../public/icon-checkmark.svg');
   background-position: center;
   background-repeat: no-repeat;
 }
-
-.error {
-  position: absolute;
-  bottom: -20px;
-  left: 0;
-  padding: 5px;
-  z-index: 1;
-  background-color: #ddd;
-  border: 1px solid black;
-  border-radius: 5px;
-  color: red;
+.checkField:checked + .check {
+  border: 2px #777 solid;
+  background-color: #999;
+  color: #fff;
 }
+
+// .error {
+//   position: absolute;
+//   bottom: -20px;
+//   left: 0;
+//   padding: 5px;
+//   z-index: 1;
+//   background-color: #ddd;
+//   border: 1px solid black;
+//   border-radius: 5px;
+//   color: red;
+// }

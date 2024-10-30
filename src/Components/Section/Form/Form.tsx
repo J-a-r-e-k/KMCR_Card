@@ -57,7 +57,7 @@ const Form: React.FC<FormProps> = () => {
     }
   };
 
-  return <div className={Style.form}>{getStepComponent()}</div>;
+  return <div className={Style.form}>{getStepComponent()} </div>;
 };
 
 export default Form;

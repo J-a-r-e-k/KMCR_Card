@@ -1,7 +1,10 @@
 import { useAppContext } from '../../../context/AppContext';
+import { useState } from 'react';
 import Style from './Nav.module.scss';
+import { ArrowLeft, ArrowRight } from '../../Step/Icon/Arrow';
 
 const Naw = () => {
+  const [navMobile, setNavMobile] = useState(false);
   //dodać zmienna klase nadajaca kolor elementowi który aktualnie jest aktwyny//
   // jeśli step jest == dodaj klase jesli nie to odejmij //
   // let activeStep =
@@ -14,6 +17,7 @@ const Naw = () => {
         <p
           onClick={() => {
             setCurrentStep(step.id);
+            setNavMobile(false);
           }}
           className={`${Style.text} ${
             currentStep == step.id ? Style.textActive : ''
@@ -26,9 +30,25 @@ const Naw = () => {
   });
 
   return (
-    <div className={Style.nav}>
-      <ul className={Style.wrapNav}>{nawList}</ul>
-    </div>
+    <>
+      <div className={`${Style.nav} ${navMobile ? Style.navActive : ''}`}>
+        {navMobile ? (
+          <div
+            onClick={() => setNavMobile(false)}
+            className={Style.wraNavActive}
+          ></div>
+        ) : (
+          ''
+        )}
+        <div
+          onClick={() => setNavMobile(!navMobile)}
+          className={Style.mobileNav}
+        >
+          {navMobile ? <ArrowLeft /> : <ArrowRight />}
+        </div>
+        <ul className={`${Style.wrapNav} `}>{nawList}</ul>
+      </div>
+    </>
   );
 };
 

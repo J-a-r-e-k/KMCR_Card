@@ -1,5 +1,5 @@
 .btn {
-  position: absolute;
+  position: fixed;
   bottom: 15px;
   right: 5%;
   width: 120px;
@@ -24,7 +24,10 @@
 
 .btnBack {
   right: auto;
-  left: 5%;
+  left: calc(5% + 200px);
+  @media (max-width: 720px) {
+    left: 5%;
+  }
 }
 .btnHome {
   top: 15px;
