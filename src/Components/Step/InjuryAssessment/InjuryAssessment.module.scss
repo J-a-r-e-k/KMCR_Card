@@ -1,14 +1,25 @@
-g {
-  cursor: pointer;
-}
+// g {
+//   cursor: pointer;
+//   background-color: red;
+// }
+
 .title {
   position: absolute;
   font-weight: bold;
 }
+
 .wrap {
   display: flex;
   height: 100%;
+  position: relative;
+
+  @media (max-width: 720px) {
+    flex-direction: column;
+  }
 }
+
+
+
 .active {
   path {
     fill: rgb(104, 232, 84);
@@ -31,15 +42,49 @@ g {
   min-height: 80%;
   max-height: 100%;
   padding: 3px;
+
+  @media (max-width:720px) {
+    margin-top: 10px;
+    order: -1;
+
+  }
 }
+
 .panelElement {
-  padding: 0 10px;
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  transform: translateY(-50%);
+  padding: 10px;
+  border-radius: 10px;
   width: fit-content;
   overflow-x: hidden;
   overflow-y: auto;
   scrollbar-width: none;
+  background-color: #ccc;
+
   // scrollbar-width: thin;
+  @media (max-width: 720px) {
+    position: fixed;
+    top: 0;
+    transform: translateY(0);
+    z-index: 1;
+
+    ul {
+      display: flex;
+      width: 100%;
+      flex-wrap: wrap;
+
+      li {
+        width: 50%;
+      }
+
+    }
+
+  }
 }
+
+
 .btnInjury {
   width: 100%;
   margin: 3px;
@@ -50,6 +95,7 @@ g {
   text-align: start;
   font-size: 1.2rem;
   cursor: pointer;
+
   span {
     font-weight: bold;
   }
@@ -65,12 +111,14 @@ g {
     white-space: nowrap;
   }
 }
+
 .btnInjury:hover,
 .selectField:hover,
 .numberField:hover,
 .check:hover {
   border: blue 1px solid;
 }
+
 .numberField {
   width: 40px;
   height: 25px;
@@ -81,6 +129,7 @@ g {
   border-radius: 5px;
   cursor: pointer;
 }
+
 .selectField {
   margin: 0 5px;
   width: 25px;
@@ -132,6 +181,7 @@ g {
 .referenceInjury {
   justify-content: start;
   align-items: end;
+
   p {
     width: fit-content;
     max-width: 100%;
@@ -139,6 +189,7 @@ g {
     padding: 0 3px;
   }
 }
+
 .referenceInjuryLeft {
   justify-content: end;
 }

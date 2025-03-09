@@ -6,17 +6,21 @@
   padding: 5px 10px;
   border: 1px black solid;
   position: relative;
+
 }
+
 .title {
   width: 100%;
   padding: 5px 0;
   font-size: 1.6rem;
 }
+
 .contents {
   font-size: 1.2rem;
   padding: 5px 2px;
   margin-top: 5px;
 }
+
 .inputText {
   font-size: 1.2rem;
   margin: 0 5px;
@@ -33,6 +37,7 @@
   // padding: 5px 0;
   // align-items: center;
 }
+
 .element {
   display: flex;
   width: 100%;
@@ -117,6 +122,7 @@
   cursor: pointer;
   appearance: none; //
 }
+
 .checkField {
   appearance: none;
 }
@@ -128,7 +134,8 @@
   background-position: center;
   background-repeat: no-repeat;
 }
-.checkField:checked + .check {
+
+.checkField:checked+.check {
   border: 2px #777 solid;
   background-color: #999;
   color: #fff;

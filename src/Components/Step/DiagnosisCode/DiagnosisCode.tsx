@@ -1,15 +1,27 @@
 import Style from './DiagnosisCode.module.scss';
-import { Formik, Field } from 'formik';
+import { Formik, Field, FieldProps } from 'formik';
 import { useAppContext } from '../../../context/AppContext';
 import { FormNavigation } from '../../Section/FormNavigation/FormNavigation';
-import Database from '../Icon/Database';
+import TextField from '@mui/material/TextField';
+import { SxProps, useMediaQuery } from '@mui/material';
+
+
+const textField: SxProps = {
+  marginRight: '5px',
+  flexGrow: 1,
+}
+const codeField: SxProps = {
+  width: 60
+}
+
 
 const DiagnosisCode = () => {
   const appContext = useAppContext();
-
+  const isMobile = useMediaQuery('(max-width:600px)');
   function findCode() {
     console.log('Kod ICD-10');
   }
+
   return (
     <Formik
       initialValues={appContext.diagnosisCode}
@@ -18,69 +30,71 @@ const DiagnosisCode = () => {
         appContext.setDiagnosisCode(values);
       }}
     >
-      {({ handleSubmit, submitForm }) => (
+      {({ handleSubmit }) => (
         <form onSubmit={handleSubmit}>
           <h2>III - ROZPOZNANIE</h2>
           <div className={Style.wrapGlobal}>
-            <div className={Style.wrapDiv}>
-              <label>Opis:</label>
+            <div className={Style.wrapIdentification}>
               <Field
-                className={Style.textField}
                 name="primaryDiagnosis.description"
-                type="text"
-              />
-              <div className={Style.wrapCode}>
-                <p className={Style.textCode}>KOD ICD10</p>
-                <Field
-                  className={Style.codeField}
-                  name="primaryDiagnosis.code"
-                  type="text"
-                />
-              </div>
-              <button onClick={() => findCode()}>
-                <Database nameClass={Style.btn} />
-              </button>
-            </div>
-            <div className={Style.wrapDiv}>
-              <label>Opis:</label>
+              >
+                {({ field }: FieldProps<string>) => (
+                  <TextField {...field} label="Opis" variant="outlined" multiline={isMobile} maxRows={isMobile ? 4 : 1} sx={textField}
+                  />
+                )}
+              </Field>
               <Field
-                className={Style.textField}
+                name="primaryDiagnosis.code"
+              >
+                {({ field }: FieldProps<string>) => (
+                  <TextField {...field} label="ICD10" variant="outlined" sx={codeField} />
+                )}
+              </Field>
+              {/* <button onClick={() => findCode()}>
+                <Database nameClass={Style.btn} />
+              </button> */}
+            </div>
+            <div className={Style.wrapIdentification}>
+              <Field
                 name="secondDiagnosis.description"
-                type="text"
-              />
-              <div className={Style.wrapCode}>
-                <p className={Style.textCode}>KOD ICD10</p>
-                <Field
-                  className={Style.codeField}
-                  name="secondDiagnosis.code"
-                  type="text"
-                />
-              </div>
-              <button onClick={() => findCode()}>
-                <Database nameClass={Style.btn} />
-              </button>
-            </div>
-            <div className={Style.wrapDiv}>
-              <label>Opis:</label>
+              >
+                {({ field }: FieldProps<string>) => (
+                  <TextField {...field} label="Opis" variant="outlined" multiline={isMobile} maxRows={isMobile ? 4 : 1} sx={textField} />
+                )}
+              </Field>
               <Field
-                className={Style.textField}
-                name="thirdDiagnosis.description"
-                type="text"
-              />
-              <div className={Style.wrapCode}>
-                <p className={Style.textCode}>KOD ICD10</p>
-                <Field
-                  className={Style.codeField}
-                  name="thirdDiagnosis.code"
-                  type="text"
-                />
-              </div>
-              <button onClick={() => findCode()}>
+                name="secondDiagnosis.code"
+              >
+                {({ field }: FieldProps<string>) => (
+                  <TextField  {...field} label="ICD10" variant="outlined" sx={codeField} />
+                )}
+              </Field>
+              {/* <button onClick={() => findCode()}>
                 <Database nameClass={Style.btn} />
-              </button>
+              </button> */}
             </div>
+            <div className={Style.wrapIdentification}>
+              <Field
+                name="thirdDiagnosis.description"
+              >
+                {({ field }: FieldProps<string>) => (
+                  <TextField {...field} label="Opis" variant="outlined" multiline={isMobile} maxRows={isMobile ? 4 : 1} sx={textField} />
+                )}
+              </Field>
+              <Field
+                name="thirdDiagnosis.code"
+              >
+                {({ field }: FieldProps<string>) => (
+                  <TextField {...field} label="ICD10" variant="outlined" sx={codeField} />
+                )}
+              </Field>
+              {/* <button onClick={() => findCode()}>
+                <Database nameClass={Style.btn} />
+              </button> */}
+            </div>
+
           </div>
-          <FormNavigation onSaveForm={submitForm} />
+          <FormNavigation />
         </form>
       )}
     </Formik>

@@ -82,14 +82,13 @@ const IncidentData = () => {
           // handleChange,
           // handleBlur,
           handleSubmit,
-          submitForm,
+          // submitForm,
           setFieldValue,
           // isSubmitting,
           // isValid,
           /* and other goodies */
         }) => (
           <>
-            {' '}
             <form onSubmit={handleSubmit}>
               <div className={`${Style.wrapDiv} ${Style.wrapDivPatient}`}>
                 <label className={Style.contents}>
@@ -150,8 +149,7 @@ const IncidentData = () => {
                   placeholder=""
                 />
               </div>
-              <FormNavigation onSaveForm={submitForm} />
-              {/* <FormNavigation isNextButtonDisabled={!isValid} /> */}
+              <FormNavigation />
             </form>
           </>
         )}

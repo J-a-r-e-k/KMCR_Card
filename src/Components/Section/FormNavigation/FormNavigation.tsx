@@ -1,45 +1,48 @@
 import { useAppContext } from '../../../context/AppContext';
+import { useFormikContext } from "formik";
 
 import Style from './FormNavigation.module.scss';
 
-export const FormNavigation = ({ onSaveForm }: { onSaveForm?: () => void }) => {
+export const FormNavigation = () => {
+  // const { submitForm } = useFormikContext();
+  const formik = useFormikContext();
   const { currentStep, setCurrentStep, steps } = useAppContext();
 
-  const Back = () => {
-    if (currentStep == 0) return;
-    return (
-      <button
-        className={`${Style.btn} ${Style.btnBack}`}
-        onClick={() => {
-          setCurrentStep(currentStep - 1);
-          onSaveForm?.();
-        }}
-        type="submit"
-      >
-        Wróć
-      </button>
-    );
+  const handleNavigation = async (direction: "prev" | "next") => {
+    if (formik) {
+      await formik.submitForm(); // Jeśli Formik istnieje, zapisujemy formularz
+    }
+    
+    setTimeout(() => {
+      if (direction === "prev" && currentStep > 0) {
+        setCurrentStep(currentStep - 1);
+      } else if (direction === "next" && currentStep < steps.length - 1) {
+        setCurrentStep(currentStep + 1);
+      }
+    }, 0);
   };
 
-  const Next = () => {
-    if (currentStep == steps.length - 1) return;
-    return (
-      <button
-        className={`${Style.btn} ${Style.btnNext}`}
-        type="submit"
-        onClick={() => {
-          setCurrentStep(currentStep + 1);
-          onSaveForm?.();
-        }}
-      >
-        Dalej
-      </button>
-    );
-  };
   return (
     <>
-      {<Back />}
-      {<Next />}
+      {currentStep > 0 && (
+        <button
+          className={`${Style.btn} ${Style.btnBack}`}
+          type="button"
+          onClick={() => handleNavigation("prev")}
+        >
+          Wróć
+        </button>
+      )}
+
+      {currentStep < steps.length - 1 && (
+        <button
+          className={`${Style.btn} ${Style.btnNext}`}
+          type="button"
+          onClick={() => handleNavigation("next")}
+        >
+          Dalej
+        </button>
+      )}
 
       <button type="submit" className={`${Style.btn} ${Style.btnHome}`}>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">

@@ -21,7 +21,7 @@ const Interview = () => {
               className={Style.text}
               name="interviewDescription"
               as="textarea"
-              // rows="4"
+            // rows="4"
             />
             <FormNavigation onSaveForm={submitForm} />
           </form>

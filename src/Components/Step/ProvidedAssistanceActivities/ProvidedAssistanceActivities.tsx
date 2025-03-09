@@ -13,7 +13,7 @@ const ProvidedAssistanceActivities = () => {
         appContext.setProvidedAssistanceActivities(values);
       }}
     >
-      {({ handleSubmit, submitForm }) => (
+      {({ handleSubmit }) => (
         <form onSubmit={handleSubmit}>
           <h2>IV - UDZIELONE ŚWIADCZENIE ZDROWOTNE</h2>
           <div className={Style.wrapDiv}>
@@ -257,7 +257,7 @@ const ProvidedAssistanceActivities = () => {
               </li>
             </ul>
           </div>
-          <FormNavigation onSaveForm={submitForm} />
+          <FormNavigation />
         </form>
       )}
     </Formik>

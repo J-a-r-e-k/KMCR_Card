@@ -1,10 +1,33 @@
 //
 import Style from './AppliedDrugs.module.scss';
-import { Formik, Field, FormikHelpers } from 'formik';
-import { useState } from 'react';
+import { Formik, Field, FormikHelpers, FieldProps } from 'formik';
+import React, { useState } from 'react';
 import { useAppContext } from '../../../context/AppContext';
 import { FormNavigation } from '../../Section/FormNavigation/FormNavigation';
 import { nameDrug, unit, unitOfMeasure } from './ButtonList';
+import TextField from '@mui/material/TextField';
+import { SxProps } from '@mui/material';
+// import { SxProps, useMediaQuery } from '@mui/material';
+
+
+
+const drugName: SxProps = {
+
+  margin: '5px',
+  flexGrow: 1,
+  '& .MuiOutlinedInput-root': {
+    backgroundColor: '#ddd',
+    fontSize: '1.2rem',
+  },
+  '& fieldset': {
+    borderColor: '#333',
+  },
+  '& .MuiInputBase-input': {
+    padding: '10px ',
+  }
+
+
+}
 
 interface MedicineItem {
   nameDrug: string;
@@ -22,6 +45,7 @@ const AddMedicine = () => {
   }: {
     setFieldValue: FormikHelpers<MedicineItem>['setFieldValue'];
   }) => {
+    // if (btnNameDrug === '') return
     const styleName = btnNameDrug + 'Select';
 
     interface SelectOption {
@@ -52,17 +76,21 @@ const AddMedicine = () => {
           >
             {e.name}
           </button>
-        </li>
+
+        </li >
       );
     });
 
     return (
       <>
-        <ul className={`${Style.select} ${Style[styleName]}`}>
-          {selectionList}
-        </ul>
+        <div className={`${Style.wrapSelect} ${Style[styleName]}`}>
+          <ul className={`${Style.select} `}>
+            {selectionList}
+          </ul>
+        </div>
+
         <div
-          className={Style.wrapSelect}
+          className={Style.offSelect}
           onClick={() => setBtnNameDrug('')}
         ></div>
       </>
@@ -86,6 +114,9 @@ const AddMedicine = () => {
       medicaments: [...appContext.appliedDrugs.medicaments, newDrug],
     });
   };
+
+
+
   return (
     <Formik
       initialValues={{
@@ -100,41 +131,36 @@ const AddMedicine = () => {
         resetForm();
       }}
     >
-      {({ handleSubmit, submitForm, setFieldValue }) => (
+      {({ handleSubmit, submitForm, setFieldValue, resetForm }) => (
         <form className={Style.wrapFormDrugs} onSubmit={handleSubmit}>
           <button
-            className={`${Style.btn} ${Style.btnNoDrugs} ${
-              appContext.appliedDrugs.noDrugs ? Style.btnNoDrugsActive : ''
-            } `}
+            className={`${Style.btn} ${Style.btnNoDrugs} ${appContext.appliedDrugs.noDrugs ? Style.btnNoDrugsActive : ''
+              } `}
             type="button"
             onClick={() => {
+              resetForm();
               appContext.setAppliedDrugs({
                 ...appContext.appliedDrugs,
                 noDrugs: !appContext.appliedDrugs.noDrugs,
                 medicaments: [],
               });
+
             }}
           >
             Nie podano leków
           </button>
 
-          <ul className={`${Style.wrapMedicine} `}>
-            {appContext.appliedDrugs.noDrugs ? (
-              <div className={Style.notActive}></div>
-            ) : undefined}
-            <li className={Style.wrapNameDrugs}>
-              <label className={Style.description}>Nazwa leku</label>
+          <ul className={`${Style.wrapMedicine}  ${appContext.appliedDrugs.noDrugs && Style.disabledElement}`} >
+            <li className={Style.wrapNameDrugs} >
               <Field
-                className={`${Style.textField}`}
-                type="text"
                 name="nameDrug"
-              />
+              >
+                {({ field }: FieldProps<string>) => (
+                  <TextField  {...field} label="Nazwa leku" variant="outlined" size={'small'} sx={drugName}
+                  />
+                )}
+              </Field>
 
-              {btnNameDrug == 'nameDrug' ? (
-                <Select setFieldValue={setFieldValue} />
-              ) : (
-                ''
-              )}
               <button
                 className={Style.btn}
                 onClick={() => {
@@ -143,56 +169,66 @@ const AddMedicine = () => {
                 type="button"
               >
                 ...
+
               </button>
+              {btnNameDrug == 'nameDrug' && <Select setFieldValue={setFieldValue} />}
             </li>
             <li>
-              <label className={Style.description}>ilość</label>
               <Field
-                className={`${Style.textField} ${Style.fieldQuantity}`}
-                type="number"
                 name="quantity"
-              />
+              >
+                {({ field }: FieldProps<string>) => (
+                  <TextField
+                    {...field} label="ilość" variant="outlined" type="number" size="small" sx={{ ...drugName, width: '60px' }}
+                  />
+                )}
+              </Field>
             </li>
             <li>
               <label className={Style.description}>j.m.</label>
               <Field
-                className={`${Style.textField} ${Style.fieldQuantity}`}
-                type="text"
                 name="unitOfMeasure"
-              />
+              >
+                {({ field }: FieldProps<string>) => (
+                  <TextField {...field} label="j.m." variant="outlined" size="small" sx={{ ...drugName, width: '60px' }}
+                    onFocus={() => setBtnNameDrug('unitOfMeasure')}
+                  />
+                )}
+              </Field>
 
-              <button
+              {/* <button
                 className={Style.btn}
                 onClick={() => setBtnNameDrug('unitOfMeasure')}
                 type="button"
               >
                 ...
-              </button>
-              {btnNameDrug == 'unitOfMeasure' ? (
-                <Select setFieldValue={setFieldValue} />
-              ) : (
-                ''
-              )}
+              </button> */}
+              {btnNameDrug == 'unitOfMeasure' && <Select setFieldValue={setFieldValue} />}
+
             </li>
             <li>
               <label className={Style.description}>Droga podania</label>
-              <Field className={Style.textField} type="text" name="unit" />
+              <Field
+                name="unit"
 
-              <button
+              >
+                {({ field }: FieldProps<string>) => (
+                  <TextField  {...field} label="Droga podania" variant="outlined" size="small" sx={{ ...drugName, width: '300px', maxWidth: '80%' }}
+                    onFocus={() => setBtnNameDrug('unit')}
+                  />
+                )}
+              </Field>
+              {/* <button
                 className={Style.btn}
                 onClick={() => setBtnNameDrug('unit')}
                 type="button"
               >
                 ...
-              </button>
-              {btnNameDrug == 'unit' ? (
-                <Select setFieldValue={setFieldValue} />
-              ) : (
-                ''
-              )}
+              </button> */}
+              {btnNameDrug == 'unit' && <Select setFieldValue={setFieldValue} />}
             </li>
             <button
-              className={`${Style.btn} ${Style.btnDrugs} `}
+              className={`${Style.btn} ${Style.btnAddDrugs} `}
               onClick={() => {
                 submitForm();
               }}
@@ -202,38 +238,39 @@ const AddMedicine = () => {
             </button>
           </ul>
         </form>
-      )}
-    </Formik>
+      )
+      }
+    </Formik >
+  );
+};
+
+
+const ShowMedicineList = () => {
+  const appContext = useAppContext();
+  if (appContext.appliedDrugs.noDrugs) return <p> Nie podano leków</p>;
+  if (appContext.appliedDrugs.medicaments.length === 0) return;
+  const medicine = appContext.appliedDrugs.medicaments.map((e, index) => {
+    return (
+      <li key={index}>
+        <p>
+          {e.lb}. {e.nameDrug} {e.quantity}
+          {e.unitOfMeasure} {e.unit}
+        </p>
+      </li>
+    );
+  });
+  return (
+    <>
+      <ul>{medicine}</ul>
+    </>
   );
 };
 
 const AppliedDrugs = () => {
-  const appContext = useAppContext();
-
-  const ShowMedicineList = () => {
-    if (appContext.appliedDrugs.noDrugs) return <p> Nie podano leków</p>;
-    if (appContext.appliedDrugs.medicaments.length === 0) return;
-    const medicine = appContext.appliedDrugs.medicaments.map((e, index) => {
-      return (
-        <li key={index}>
-          <p>
-            {e.lb}. {e.nameDrug} {e.quantity}
-            {e.unitOfMeasure} {e.unit}
-          </p>
-        </li>
-      );
-    });
-    return (
-      <>
-        <ul>{medicine}</ul>
-      </>
-    );
-  };
 
   return (
-    <form>
+    <form >
       <h2>Zastosowane leki</h2>
-
       <AddMedicine />
       <div className={Style.wrapListMedicines}>
         <p className={Style.listDescription}>

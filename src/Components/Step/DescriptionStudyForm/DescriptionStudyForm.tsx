@@ -15,7 +15,7 @@ const DescriptionStudyForm = () => {
         appContext.setDescriptionStudy(values);
       }}
     >
-      {({ handleSubmit, submitForm, setFieldValue }) => (
+      {({ handleSubmit, setFieldValue }) => (
         <form onSubmit={handleSubmit}>
           <h2 className={Style.title}>Opis:</h2>
           <button
@@ -30,10 +30,10 @@ const DescriptionStudyForm = () => {
             className={Style.text}
             name="description"
             as="textarea"
-            // rows="4"
+          // rows="4"
           />
 
-          <FormNavigation onSaveForm={submitForm} />
+          <FormNavigation />
         </form>
       )}
     </Formik>

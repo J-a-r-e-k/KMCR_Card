@@ -1,6 +1,5 @@
 #root {
   max-width: 1280px;
-
   margin: 0 auto;
   padding: 10px 20px;
 }
@@ -14,7 +13,12 @@
   background: none;
   border: none;
   font-family: ubuntu, Arial, Helvetica, sans-serif;
+
+  touch-action: manipulation;
+
 }
+
+
 
 .globalCard {
   position: absolute;
@@ -29,6 +33,7 @@
   border-radius: 10px;
   background-color: #cccc;
   overflow: hidden;
+
   @media screen and (orientation: landscape) and (max-width: 720px) {
     width: 100vh;
     height: 100vw;

@@ -12,7 +12,7 @@ export const Neck = ({
     <>
       <g
         className={currentActiveElement === 'neck' ? Style.active : ''}
-        // clip-path="url(#1e562fb9a3)"
+      // clip-path="url(#1e562fb9a3)"
       >
         <path
           fill="#ffffff"
@@ -65,7 +65,7 @@ export const NeckBack = ({
     <>
       <g
         className={currentActiveElement === 'neckBack' ? Style.active : ''}
-        // clip-path="url(#5e74fc53b2)"
+      // clip-path="url(#5e74fc53b2)"
       >
         <path
           fill="#ffffff"

@@ -12,7 +12,7 @@ const AssessHealthConditionBreathEyes = () => {
           <h2>UKŁAD ODDECHOWY</h2>
           <ul className={Style.wrapList}>
             <li className={`${Style.wrapCheck} ${Style.wrapBreathingRate}`}>
-              <label>częśtość oddechów</label>
+              <label>częstość oddechów</label>
               <Field
                 className={Style.breathingRate}
                 name="respiratorySystem.respiratoryRate"
@@ -224,14 +224,14 @@ const AssessHealthConditionBreathEyes = () => {
               <p> %</p>
             </li>
           </ul>
-        </div>
+        </div >
       </>
     );
   };
 
   const pupil = () => {
     return (
-      <div>
+      <div className={Style.wrapPupil}>
         <div className={Style.wrapGlasgow}>
           <h2>ŹRENICE</h2>
           <ul>
@@ -342,15 +342,15 @@ const AssessHealthConditionBreathEyes = () => {
               className={Style.breathingRate}
               name="bloodPressure.systolic"
               type="number"
-              // value="0"
+            // value="0"
             />
             <p>/</p>
             <Field
               className={Style.breathingRate}
               name="bloodPressure.diastolic"
               type="number"
-              // type="button"
-              // value="0"
+            // type="button"
+            // value="0"
             />
             <p> mm/Hg</p>
           </div>

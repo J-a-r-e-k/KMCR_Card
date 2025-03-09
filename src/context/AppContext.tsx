@@ -258,20 +258,7 @@ type MeasuredParameters = {
     other: string;
   };
 };
-export type InjuryAssessment = {
-  noInjuries: boolean;
-  burns: {
-    first: {
-      degree: string;
-      percent: number;
-    };
-    second: {
-      degree: string;
-      percent: number;
-    };
-    inhalationBurn: boolean;
-  };
-
+export type InjuryAssessmentBody = {
   neck: string;
   face: string;
   rightFrontArm: string;
@@ -345,7 +332,24 @@ export type InjuryAssessment = {
   ankleRB: string;
   hipRB: string;
   hipLB: string;
-};
+
+
+}
+export type InjuryAssessment = {
+  noInjuries: boolean;
+  burns: {
+    first: {
+      degree: string;
+      percent: number;
+    };
+    second: {
+      degree: string;
+      percent: number;
+    };
+    inhalationBurn: boolean;
+  };
+
+} & InjuryAssessmentBody;
 
 type DescriptionStudy = {
   description: string;
@@ -393,13 +397,13 @@ type ProvidedAssistanceActivities = {
   immobilizationKED: boolean;
   otherProcedures: boolean;
 };
-interface Medicament {
+type Medicament = {
   lb: number;
   nameDrug: string;
   quantity: number;
   unitOfMeasure: string;
   unit: string;
-}
+};
 type AppliedDrugs = {
   noDrugs: boolean;
   medicaments: Medicament[];
@@ -493,7 +497,7 @@ export const AppContext = createContext<AppContextProps | undefined>(undefined);
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [userName, setUserName] = useState('Jarosław');
 
-  const [currentStep, setCurrentStep] = useState<number>(1); //<<>>//
+  const [currentStep, setCurrentStep] = useState<number>(11); //<<>>//
 
   const [incidentData, setIncidentData] = useState({
     nrIncident: '',
@@ -770,7 +774,6 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
       },
       inhalationBurn: false,
     },
-
     neck: '', //szyja
     face: '', //twarz
     rightFrontArm: '', //ramiePP
@@ -844,6 +847,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     hipRB: '', // biodro PT
     hipLB: '', // biodro LT
   });
+
 
   const [descriptionStudy, setDescriptionStudy] = useState({
     description: '',

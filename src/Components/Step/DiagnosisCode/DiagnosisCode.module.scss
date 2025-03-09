@@ -7,51 +7,21 @@
   border: 1px #999 solid;
   flex-grow: 1;
 }
-.wrapDiv {
+
+.wrapIdentification {
   display: flex;
-  margin: 10px 5px;
-  height: fit-content;
-  padding: 5px;
-  border: 1px #999 solid;
-  border-radius: 5px;
-  background-color: #eee;
+  margin: 4px 0;
 }
 
-.textField {
-  flex-grow: 1;
-  font-size: 1.2rem;
-  line-height: 2em;
-  cursor: pointer;
-  margin: 0 5px;
-}
 
-.wrapCode {
-  position: relative;
-  width: 70px;
-  height: fit-content;
-  padding: 5px;
-  border: 1px #999 solid;
-}
-.codeField {
-  width: 100%;
-  font-size: 1.2rem;
-  line-height: 2em;
-  text-align: center;
-  cursor: pointer;
-}
-.textCode {
-  position: absolute;
-  top: 0;
-  left: 2;
-  font-size: 0.8rem;
-  padding: 1px;
-}
+// .btnICD {
 
-.btn {
-  margin: 2px;
-  width: 20px;
-  cursor: pointer;
-}
-.btn:hover {
-  fill: blue;
-}
+//   margin: 0px;
+//   width: 15px;
+//   cursor: pointer;
+//   align-self: flex-start;
+// }
+
+// .btn:hover {
+//   fill: blue;
+// }
