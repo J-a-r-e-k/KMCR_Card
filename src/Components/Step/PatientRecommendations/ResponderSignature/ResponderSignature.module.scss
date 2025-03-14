@@ -1,0 +1,92 @@
+.wrapRecommendations {
+    padding: 5px;
+    width: 100%;
+    margin-bottom: 10px;
+    border: 1px solid #999;
+    border-radius: 5px;
+
+}
+
+.wrapParamedicInfo {
+    display: flex;
+    justify-content: space-around;
+
+    margin: 5px 0;
+}
+
+.paramedicInfo {
+    align-content: center;
+    width: fit-content;
+    height: 30px;
+    margin: 5px;
+    padding: 3px 5px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    position: relative;
+}
+
+.paramedicInfoAdd {
+    flex-grow: 1;
+}
+
+.elementField {
+    width: 100%;
+    font-size: 1.2rem;
+    line-height: 1.5em;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+}
+
+.titleField {
+    min-width: 190px;
+}
+
+.dateField {
+    display: flex;
+}
+
+.signature {
+    margin: 0 auto;
+    height: 100px;
+    width: 95%;
+    border: 1px black solid;
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+/////////
+// .select {
+//     display: flex;
+//     flex-direction: column;
+//     width: 100%;
+//     position: absolute;
+//     top: 105%;
+//     left: 50%;
+//     transform: translateX(-50%);
+//     z-index: 2;
+//     border: 1px solid #333;
+//     border-radius: 10px;
+//     background-color: #ccc;
+//     padding: 5px;
+// }
+
+// .btnSelect {
+//     margin-top: 3px;
+//     padding: 5px;
+//     border-bottom: 1px solid #777;
+//     font-size: 1.2rem;
+//     text-align: center;
+//     font-weight: bold;
+//     color: #333;
+//     cursor: pointer;
+// }
+
+// .wrapSelect {
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     z-index: 1;
+// }

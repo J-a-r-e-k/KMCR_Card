@@ -1,7 +1,7 @@
 //
 import Style from './AppliedDrugs.module.scss';
 import { Formik, Field, FormikHelpers, FieldProps } from 'formik';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useAppContext } from '../../../context/AppContext';
 import { FormNavigation } from '../../Section/FormNavigation/FormNavigation';
 import { nameDrug, unit, unitOfMeasure } from './ButtonList';

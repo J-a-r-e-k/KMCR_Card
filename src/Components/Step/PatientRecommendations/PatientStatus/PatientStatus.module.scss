@@ -1,0 +1,55 @@
+.wrap {
+    padding: 5px;
+    width: 100%;
+    margin-bottom: 10px;
+    border: 1px solid #999;
+    border-radius: 5px;
+}
+
+.patientManagement {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.wrapCheck {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    margin: 5px;
+    padding: 1px;
+
+}
+
+.anotherWrapCheck {
+    flex-grow: 1;
+    min-width: 45%;
+}
+
+//
+.check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+    border-radius: 5px;
+    border: 2px #999 solid;
+    cursor: pointer;
+    appearance: none; //
+}
+
+.check:checked {
+    color: transparent;
+    background-color: #999;
+    background-image: url('../../../../public/icon-checkmark.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.check:hover {
+    border: 2px blue solid;
+}
