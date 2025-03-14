@@ -1,4 +1,4 @@
-.wrap {
+.wrapPatientManagement {
   padding: 5px;
   width: 100%;
   margin-bottom: 10px;
@@ -7,9 +7,13 @@
 }
 
 .patientManagement {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr 3fr;
   align-items: center;
+  @media (max-width: 720px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .wrapCheck {

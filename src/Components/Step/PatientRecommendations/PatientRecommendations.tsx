@@ -25,7 +25,7 @@ const PatientRecommendations = () => {
         <form onSubmit={handleSubmit}>
           <Recommendations />
           <PatientStatus />
-          <div className={Style.wrap}>
+          <div className={Style.wrapPatientManagement}>
             <ul className={Style.patientManagement}>
               <p>Kopię karty wydano:</p>
               <li className={`${Style.wrapCheck}`}>

@@ -7,7 +7,7 @@ const PatientStatus = () => {
         <div className={Style.wrap}>
             <p>Postępowanie z pacjentem:</p>
             <ul className={Style.patientManagement}>
-                <li className={`${Style.wrapCheck} ${Style.anotherWrapCheck} `}>
+                <li className={`${Style.wrapCheck} `}>
                     <Field
                         className={Style.check}
                         name="patientStatus.remainedAtScene"
@@ -40,7 +40,7 @@ const PatientStatus = () => {
                     />
                     <p>przekazano Policji</p>
                 </li>
-                <li className={`${Style.wrapCheck} ${Style.anotherWrapCheck} `}>
+                <li className={`${Style.wrapCheck}  `}>
                     <Field
                         className={Style.check}
                         name="patientStatus.other"
