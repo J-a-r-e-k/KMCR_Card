@@ -4,6 +4,7 @@
     margin-bottom: 10px;
     border: 1px solid #999;
 
+
     @media (min-width:720px) {
         border-radius: 5px;
     }
@@ -18,9 +19,10 @@ input:focus,
 
 .wrapParamedicInfo {
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: repeat(auto-fill, minmax(24%, 1fr));
     gap: 10px;
     margin: 5px 0;
+    width: 100%;
 
     @media (max-width: 720px) {
         width: 100%;
@@ -31,7 +33,6 @@ input:focus,
 }
 
 .paramedicInfo {
-
     align-content: center;
     padding: 3px 5px;
     border: 1px solid #333;
@@ -39,12 +40,8 @@ input:focus,
     position: relative;
 }
 
-// .paramedicInfoAdd {
-//     flex-grow: 1;
-// }
 
 .elementField {
-    // width: 100%;
     font-size: 1.2rem;
     line-height: 1.5em;
     font-weight: bold;
@@ -53,11 +50,13 @@ input:focus,
 }
 
 .titleField {
-    min-width: 190px;
+    width: 190px;
+    max-width: 100%;
 }
 
 .dateField {
     display: flex;
+
 }
 
 .signature {
@@ -67,4 +66,5 @@ input:focus,
     border: 1px black solid;
     background-color: #ddd;
     cursor: pointer;
+
 }

@@ -1,4 +1,3 @@
-
 import Style from './Signature.module.scss'
 
 export const Signature = ({ setWrapSignature }: { setWrapSignature: (value: boolean) => void }) => {

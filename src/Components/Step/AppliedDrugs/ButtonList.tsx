@@ -1,5 +1,3 @@
-//
-
 export const nameDrug = [
   { name: 'Adenozyna' },
   { name: 'Adenocor' },

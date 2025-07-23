@@ -3,22 +3,19 @@
   flex-grow: 1;
   width: 70%;
   height: 100%;
-  padding: 0 5%;
+  margin: 50px 10px;
   display: flex;
   align-items: center;
+  overflow-y: auto;
 }
 
 form {
   width: 100%;
-  max-height: calc(100% - 140px);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   justify-content: space-between;
   align-content: center;
-  overflow: auto;
-
-
 
   p {
     font-size: 1.2rem;

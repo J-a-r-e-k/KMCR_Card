@@ -21,7 +21,7 @@ const ResponderSignature = () => {
             </p>
             <ul className={Style.wrapParamedicInfo}>
                 <li
-                    className={`${Style.paramedicInfo} ${Style.paramedicInfoAdd}`}
+                    className={`${Style.paramedicInfo}`}
                 >
                     <Field
                         className={Style.elementField}
@@ -32,7 +32,7 @@ const ResponderSignature = () => {
                 </li>
 
                 <li
-                    className={`${Style.paramedicInfo} ${Style.paramedicInfoAdd}`}
+                    className={`${Style.paramedicInfo} `}
                 >
                     <Field
                         className={Style.elementField}

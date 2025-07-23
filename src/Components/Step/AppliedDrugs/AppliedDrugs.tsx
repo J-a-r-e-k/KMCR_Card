@@ -7,12 +7,8 @@ import { FormNavigation } from '../../Section/FormNavigation/FormNavigation';
 import { nameDrug, unit, unitOfMeasure } from './ButtonList';
 import TextField from '@mui/material/TextField';
 import { SxProps } from '@mui/material';
-// import { SxProps, useMediaQuery } from '@mui/material';
-
-
 
 const drugName: SxProps = {
-
   margin: '5px',
   flexGrow: 1,
   '& .MuiOutlinedInput-root': {
@@ -25,15 +21,15 @@ const drugName: SxProps = {
   '& .MuiInputBase-input': {
     padding: '10px ',
   }
-
-
 }
-
-interface MedicineItem {
+type MedicineItem = {
   nameDrug: string;
   quantity: number;
   unitOfMeasure: string;
   unit: string;
+}
+type SelectOption = {
+  name: string;
 }
 
 const AddMedicine = () => {
@@ -45,13 +41,7 @@ const AddMedicine = () => {
   }: {
     setFieldValue: FormikHelpers<MedicineItem>['setFieldValue'];
   }) => {
-    // if (btnNameDrug === '') return
     const styleName = btnNameDrug + 'Select';
-
-    interface SelectOption {
-      name: string;
-    }
-
     const arraySelect = (): SelectOption[] | undefined => {
       switch (btnNameDrug) {
         case 'nameDrug':
@@ -88,7 +78,6 @@ const AddMedicine = () => {
             {selectionList}
           </ul>
         </div>
-
         <div
           className={Style.offSelect}
           onClick={() => setBtnNameDrug('')}
@@ -100,7 +89,6 @@ const AddMedicine = () => {
   const addDrugToList = (item: MedicineItem) => {
     if (!item.nameDrug || !item.quantity || !item.unitOfMeasure || !item.unit)
       return alert('Wypełnij wszystkie pola');
-
     const newDrug = {
       lb: appContext.appliedDrugs.medicaments.length + 1,
       nameDrug: item.nameDrug,
@@ -108,14 +96,11 @@ const AddMedicine = () => {
       unitOfMeasure: item.unitOfMeasure,
       unit: item.unit,
     };
-
     appContext.setAppliedDrugs({
       ...appContext.appliedDrugs,
       medicaments: [...appContext.appliedDrugs.medicaments, newDrug],
     });
   };
-
-
 
   return (
     <Formik
@@ -195,22 +180,12 @@ const AddMedicine = () => {
                   />
                 )}
               </Field>
-
-              {/* <button
-                className={Style.btn}
-                onClick={() => setBtnNameDrug('unitOfMeasure')}
-                type="button"
-              >
-                ...
-              </button> */}
               {btnNameDrug == 'unitOfMeasure' && <Select setFieldValue={setFieldValue} />}
-
             </li>
             <li>
               <label className={Style.description}>Droga podania</label>
               <Field
                 name="unit"
-
               >
                 {({ field }: FieldProps<string>) => (
                   <TextField  {...field} label="Droga podania" variant="outlined" size="small" sx={{ ...drugName, width: '300px', maxWidth: '80%' }}
@@ -218,13 +193,6 @@ const AddMedicine = () => {
                   />
                 )}
               </Field>
-              {/* <button
-                className={Style.btn}
-                onClick={() => setBtnNameDrug('unit')}
-                type="button"
-              >
-                ...
-              </button> */}
               {btnNameDrug == 'unit' && <Select setFieldValue={setFieldValue} />}
             </li>
             <button
@@ -243,7 +211,6 @@ const AddMedicine = () => {
     </Formik >
   );
 };
-
 
 const ShowMedicineList = () => {
   const appContext = useAppContext();
@@ -267,7 +234,6 @@ const ShowMedicineList = () => {
 };
 
 const AppliedDrugs = () => {
-
   return (
     <form >
       <h2>Zastosowane leki</h2>
@@ -282,5 +248,4 @@ const AppliedDrugs = () => {
     </form>
   );
 };
-
 export default AppliedDrugs;

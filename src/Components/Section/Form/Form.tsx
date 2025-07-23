@@ -13,19 +13,15 @@ import DescriptionStudyForm from '../../Step/DescriptionStudyForm/DescriptionStu
 import ProvidedAssistanceActivities from '../../Step/ProvidedAssistanceActivities/ProvidedAssistanceActivities';
 import AppliedDrugs from '../../Step/AppliedDrugs/AppliedDrugs';
 import PatientRecommendations from '../../Step/PatientRecommendations/PatientRecommendations';
+import { FormNavigation } from '../FormNavigation/FormNavigation';
 
-interface FormProps {
+type FormProps = {
   step: number;
   stanStep: (stan: number) => void;
 }
 
 const Form: React.FC<FormProps> = () => {
-  // function click(nr: number) {
-  //   stanStep(step + nr);
-  // }
-
-  const { currentStep, steps, setCurrentStep } = useAppContext();
-
+  const { currentStep } = useAppContext();
   const getStepComponent = () => {
     switch (currentStep) {
       case 0:
@@ -56,8 +52,6 @@ const Form: React.FC<FormProps> = () => {
         return <PatientRecommendations />;
     }
   };
-
-  return <div className={Style.form}>{getStepComponent()} </div>;
+  return <div className={Style.form}> {getStepComponent()}   <FormNavigation />  </div>;
 };
-
 export default Form;

@@ -21,7 +21,6 @@ export const Select = ({ setBtnTitle }: {
             </li>
         );
     });
-
     return (
         <>
             <ul className={`${Style.select} `}>{selectionList}</ul>

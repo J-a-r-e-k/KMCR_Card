@@ -9,14 +9,17 @@
   font-size: 1.4rem;
   background-color: #999;
   cursor: pointer;
+
   svg {
     width: 100%;
     height: 100%;
   }
 }
+
 .btn:hover {
   border: 1px blue solid;
   background-color: #aaa;
+
   svg {
     fill: blue;
   }
@@ -25,10 +28,12 @@
 .btnBack {
   right: auto;
   left: calc(5% + 200px);
+
   @media (max-width: 720px) {
     left: 5%;
   }
 }
+
 .btnHome {
   top: 15px;
   bottom: auto;

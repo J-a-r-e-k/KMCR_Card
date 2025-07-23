@@ -1,18 +1,15 @@
 import { useAppContext } from '../../../context/AppContext';
 import { useFormikContext } from "formik";
-
 import Style from './FormNavigation.module.scss';
 
 export const FormNavigation = () => {
-  // const { submitForm } = useFormikContext();
   const formik = useFormikContext();
   const { currentStep, setCurrentStep, steps } = useAppContext();
 
   const handleNavigation = async (direction: "prev" | "next") => {
     if (formik) {
-      await formik.submitForm(); // Jeśli Formik istnieje, zapisujemy formularz
+      await formik.submitForm();
     }
-    
     setTimeout(() => {
       if (direction === "prev" && currentStep > 0) {
         setCurrentStep(currentStep - 1);

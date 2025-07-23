@@ -47,7 +47,7 @@ const PatientRecommendations = () => {
             </ul>
           </div>
           <ResponderSignature />
-          <FormNavigation />
+          {/* <FormNavigation /> */}
         </form>
       )}
     </Formik>

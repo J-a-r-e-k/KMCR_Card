@@ -5,10 +5,6 @@ import { ArrowLeft, ArrowRight } from '../../Step/Icon/Arrow';
 
 const Naw = () => {
   const [navMobile, setNavMobile] = useState(false);
-  //dodać zmienna klase nadajaca kolor elementowi który aktualnie jest aktwyny//
-  // jeśli step jest == dodaj klase jesli nie to odejmij //
-  // let activeStep =
-  // const appContext = useAppContext();
   const { currentStep, setCurrentStep, steps } = useAppContext();
 
   const nawList = steps.map((step) => {
@@ -19,9 +15,8 @@ const Naw = () => {
             setCurrentStep(step.id);
             setNavMobile(false);
           }}
-          className={`${Style.text} ${
-            currentStep == step.id ? Style.textActive : ''
-          }`}
+          className={`${Style.text} ${currentStep == step.id ? Style.textActive : ''
+            }`}
         >
           {step.label}
         </p>
@@ -51,5 +46,4 @@ const Naw = () => {
     </>
   );
 };
-
 export default Naw;

@@ -19,15 +19,12 @@
     position: relative;
     display: flex;
     align-items: center;
-
   }
-
 }
 
 .disabledElement {
   pointer-events: none;
   opacity: 0.5;
-
 }
 
 .wrapSelect {
@@ -48,8 +45,6 @@
     transform: translateX(50%);
     width: 100%;
   }
-
-
 }
 
 .offSelect {
@@ -68,7 +63,6 @@
   grid-template-columns: auto auto;
   gap: 10px;
 }
-
 
 .select::-webkit-scrollbar {
   display: none;
@@ -113,7 +107,6 @@
   z-index: 1;
   cursor: pointer;
   position: relative;
-
 }
 
 .btn:hover,
@@ -124,8 +117,6 @@
 .btnAddDrugs {
   flex-grow: 0.8;
   min-width: 120px;
-
-
 }
 
 .btnNoDrugs {
@@ -146,12 +137,10 @@
   border: 1px solid #333;
   border-radius: 10px;
   padding: 5px 10px;
-
 }
 
 .listDescription {
   margin-bottom: 5px;
   color: #666;
   font-weight: bold;
-
 }

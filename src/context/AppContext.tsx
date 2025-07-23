@@ -11,7 +11,6 @@ type IncidentData = {
   incidentNrApartment: string;
   companyName: string;
 };
-
 type PatientData = {
   patientFirstName: string;
   patientLastName: string;
@@ -26,7 +25,6 @@ type PatientData = {
   patientBirthDate: string;
   patientPesel: string;
   patientGender: string;
-
   legalGuardianFirstName: string;
   legalGuardianLastName: string;
   legalGuardianCity: string;
@@ -36,18 +34,15 @@ type PatientData = {
   legalGuardianNrApartment: string;
   legalGuardianTelephone: string;
 };
-
 export type Statement = {
   patientRefusalDate: string;
   refusal: string;
   withdrawalAidTime: string;
   withdrawalAidDescription: string;
 };
-
 type Interview = {
   interviewDescription: string;
 };
-
 export type AssessHealthCondition = {
   gcs: {
     openingEyes: string;
@@ -66,7 +61,6 @@ type AssessHealthConditionBreathEyes = {
     dyspnea: string;
     cyanosis: string;
     apnea: string;
-
     respiratoryRate: number;
     normalBreathSounds: {
       left: boolean;
@@ -295,7 +289,6 @@ export type InjuryAssessmentBody = {
   nose: string;
   rightEye: string;
   leftEye: string;
-
   neckBack: string;
   spineCervical: string;
   spineThoracic: string;
@@ -332,8 +325,6 @@ export type InjuryAssessmentBody = {
   ankleRB: string;
   hipRB: string;
   hipLB: string;
-
-
 }
 export type InjuryAssessment = {
   noInjuries: boolean;
@@ -348,13 +339,10 @@ export type InjuryAssessment = {
     };
     inhalationBurn: boolean;
   };
-
 } & InjuryAssessmentBody;
-
 type DescriptionStudy = {
   description: string;
 };
-
 type DiagnosisCode = {
   primaryDiagnosis: {
     code: string;
@@ -429,9 +417,6 @@ export type PatientRecommendations = {
     datetime: string;
   };
 };
-
-//SEKCJA OPIS //
-
 export enum FormStep {
   IncidentData = 'IncidentData',
   PatientData = 'PatientData',
@@ -447,10 +432,7 @@ export enum FormStep {
   AppliedDrugs = 'AppliedDrugs',
   PatientRecommendations = 'PatientRecommendations',
 }
-
 type AppContextProps = {
-  name: string;
-  setUserName: (name: string) => void;
   incidentData: IncidentData;
   setIncidentData: (data: IncidentData) => void;
   patientData: PatientData;
@@ -481,13 +463,12 @@ type AppContextProps = {
   ) => void;
   appliedDrugs: AppliedDrugs;
   setAppliedDrugs: (appliedDrugs: AppliedDrugs) => void;
-
   patientRecommendations: PatientRecommendations;
   setPatientRecommendations: (
     patientRecommendations: PatientRecommendations
   ) => void;
 
-  steps: Array<{ id: number; type: FormStep; label: string }>; // { id: number; type: FormStep; label: string }[]
+  steps: Array<{ id: number; type: FormStep; label: string }>;
   currentStep: number;
   setCurrentStep: (newSte: number) => void;
 };
@@ -495,10 +476,7 @@ type AppContextProps = {
 export const AppContext = createContext<AppContextProps | undefined>(undefined);
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
-  const [userName, setUserName] = useState('Jarosław');
-
-  const [currentStep, setCurrentStep] = useState<number>(11); //<<>>//
-
+  const [currentStep, setCurrentStep] = useState<number>(12);
   const [incidentData, setIncidentData] = useState({
     nrIncident: '',
     incidentDate: '',
@@ -510,7 +488,6 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     incidentNrApartment: '',
     companyName: '',
   });
-
   const [patientData, setPatientData] = useState({
     patientFirstName: '',
     patientLastName: '',
@@ -534,18 +511,15 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     legalGuardianNrApartment: '',
     legalGuardianTelephone: '',
   });
-
   const [statement, setStatement] = useState({
     patientRefusalDate: '',
     refusal: '',
     withdrawalAidTime: '',
     withdrawalAidDescription: '',
   });
-
   const [interview, setInterview] = useState({
     interviewDescription: '',
   });
-
   const [assessHealthCondition, setAssessHealthCondition] = useState({
     gcs: {
       openingEyes: '',
@@ -559,14 +533,12 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
       gcs: NaN,
     },
   });
-
   const [assessHealthConditionBreathEyes, setAssessHealthConditionBreathEyes] =
     useState({
       respiratorySystem: {
         dyspnea: '',
         cyanosis: '',
         apnea: '',
-
         respiratoryRate: NaN,
         normalBreathSounds: {
           left: false,
@@ -760,7 +732,6 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
       other: '',
     },
   });
-
   const [injuryAssessment, setInjuryAssessment] = useState({
     noInjuries: false,
     burns: {
@@ -774,85 +745,82 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
       },
       inhalationBurn: false,
     },
-    neck: '', //szyja
-    face: '', //twarz
-    rightFrontArm: '', //ramiePP
-    leftFrontArm: '', //ramieLP
-    thighRF: '', // udo PP
-    thighLF: '', // udo LP
-    shinRF: '', //goleń PP
-    shinLF: '', //goleń LP
-    chestL: '', //klata L
-    chestR: '', //klata P
-    bellyL: '', // brzuch
-    bellyR: '', // brzuch
-    reproductiveOrgans: '', //Narządy Rozrodcze
-    hypogastrium: '', // podbrzusze
-    footRF: '', // stopa PP
-    footLF: '', // stopa LP
-    forearmLF: '', // przedramieLF
-    forearmRF: '', //przedramiePF
-    handLF: '', // dłoń LP
-    handRF: '', // dłoń PP
-    shoulderLF: '', // barkLP
-    shoulderRF: '', // barkPP
-    elbowLF: '', // łokiećLP
-    elbowRF: '', // łokiećPP
-    wristLF: '', // nadgarstekLP
-    wristRF: '', // nadgarstekPP
-    kneeRF: '', //kolanoPP
-    kneeLF: '', //kolanoLP
-    ankleLF: '', // kostkaLP
-    ankleRF: '', // kostkaPP
-    hipRF: '', // biodro PP
-    hipLF: '', // biodro LP
-    mouth: '', // usta
-    nose: '', // nos
-    rightEye: '', // prawe oko
-    leftEye: '', // lewe oko
-    neckBack: '', // głowa
-    spineCervical: '', // kręgosłup szyjny
-    spineThoracic: '', // kręgosłup piersiowy
-    spineLumbar: '', // kręgosłup Lędźwiowy
-    sacrum: '', // Kość krzyżowa
-    head: '', // głowa
-    rightBackArm: '', //ramiePT
-    leftBackArm: '', //ramieLT
-    thighRB: '', // udo PT
-    thighLB: '', // udo LT
-    shinRB: '', //goleń PT
-    shinLB: '', //goleń LT
-    backR: '', // plecy P
-    backL: '', // plecy L
-    backLowerR: '', //plecy P dół
-    backLowerL: '', // plecy L dól
-    buttocks: '', // pośladki
-    pelvis: '', // miednica
-    footRB: '', // stopa PT
-    footLB: '', // stopa LT
-    forearmLB: '', // przedramieLT
-    forearmRB: '', //przedramiePT
-    handLB: '', // dłoń LT
-    handRB: '', // dłoń PT
-    shoulderLB: '', // barkLT
-    shoulderRB: '', // barkPT
-    elbowLB: '', // łokiećLT
-    elbowRB: '', // łokiećPT
-    wristLB: '', // nadgarstekLT
-    wristRB: '', // nadgarstekPT
-    kneeRB: '', //kolanoPT
-    kneeLB: '', //kolanoLT
-    ankleLB: '', // kostkaLT
-    ankleRB: '', // kostkaPT
-    hipRB: '', // biodro PT
-    hipLB: '', // biodro LT
+    neck: '',
+    face: '',
+    rightFrontArm: '',
+    leftFrontArm: '',
+    thighRF: '',
+    thighLF: '',
+    shinRF: '',
+    shinLF: '',
+    chestL: '',
+    chestR: '',
+    bellyL: '',
+    bellyR: '',
+    reproductiveOrgans: '',
+    hypogastrium: '',
+    footRF: '',
+    footLF: '',
+    forearmLF: '',
+    forearmRF: '',
+    handLF: '',
+    handRF: '',
+    shoulderLF: '',
+    shoulderRF: '',
+    elbowLF: '',
+    elbowRF: '',
+    wristLF: '',
+    wristRF: '',
+    kneeRF: '',
+    kneeLF: '',
+    ankleLF: '',
+    ankleRF: '',
+    hipRF: '',
+    hipLF: '',
+    mouth: '',
+    nose: '',
+    rightEye: '',
+    leftEye: '',
+    neckBack: '',
+    spineCervical: '',
+    spineThoracic: '',
+    spineLumbar: '',
+    sacrum: '',
+    head: '',
+    rightBackArm: '',
+    leftBackArm: '',
+    thighRB: '',
+    thighLB: '',
+    shinRB: '',
+    shinLB: '',
+    backR: '',
+    backL: '',
+    backLowerR: '',
+    backLowerL: '',
+    buttocks: '',
+    pelvis: '',
+    footRB: '',
+    footLB: '',
+    forearmLB: '',
+    forearmRB: '',
+    handLB: '',
+    handRB: '',
+    shoulderLB: '',
+    shoulderRB: '',
+    elbowLB: '',
+    elbowRB: '',
+    wristLB: '',
+    wristRB: '',
+    kneeRB: '',
+    kneeLB: '',
+    ankleLB: '',
+    ankleRB: '',
+    hipRB: '',
+    hipLB: '',
   });
-
-
   const [descriptionStudy, setDescriptionStudy] = useState({
     description: '',
   });
-
   const [diagnosisCode, setDiagnosisCode] = useState({
     primaryDiagnosis: { code: '', description: '' },
     secondDiagnosis: { code: '', description: '' },
@@ -861,54 +829,50 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   });
   const [providedAssistanceActivities, setProvidedAssistanceActivities] =
     useState({
-      suction: false, //odsysanie
-      bagValveMaskVentilation: false, // wentylacja workiem
-      oropharyngeal: false, //rurki (UG)
-      intubation: false, //intubacja
-      lma: false, //maska krtaniowa
-      passiveOxygenTherapy: false, //tlenoterapia bierna
-      capnometry: false, //kapnometria
-      pulseOximetry: false, //pulsoksymetria
-      ecg: false, //EKG
-      cricothyrotomy: false, //konikopunkcja
-      woundDressing: false, //opatrunek
-      manualChestCompression: false, //ręczny masaż serca
-      mechanicalChestCompression: false, //automatyczny masaż serca
-      defibrillation: false, // defibrylacja
-      cardioversion: false, // kardiowersja
-      patientMonitoring: false, //monitorowanie
-      externalPacing: false, //stymulacja zewnętrzna
-      carotidSinusMassage: false, // stymulacja zatoki szyjnej
-      peripheralVenousAccess: false, //linia żył obwodowych
-      centralVenousAccess: false, //linia żył centralnych
-      intraosseousAccess: false, //dostęp doszpikowy
-      catheterization: false, // cewnikowanie
-      nasogastricTube: false, // sonda żołądkowa
-      gastricLavage: false, // płukanie żołądka
-      cervicalCollar: false, //kołnierz ortopedyczny
-      spineBoard: false, // deska ortopedyczna
-      vacuumMattress: false, // materac próżniowy
-      immobilization: false, //unieruchomienie
-      pelvicBinder: false, // pas do stabilizacji miednicy
-      immobilizationKED: false, // kamizelka KED
-      otherProcedures: false, //inne
+      suction: false,
+      bagValveMaskVentilation: false,
+      oropharyngeal: false,
+      intubation: false,
+      lma: false,
+      passiveOxygenTherapy: false,
+      capnometry: false,
+      pulseOximetry: false,
+      ecg: false,
+      cricothyrotomy: false,
+      woundDressing: false,
+      manualChestCompression: false,
+      mechanicalChestCompression: false,
+      defibrillation: false,
+      cardioversion: false,
+      patientMonitoring: false,
+      externalPacing: false,
+      carotidSinusMassage: false,
+      peripheralVenousAccess: false,
+      centralVenousAccess: false,
+      intraosseousAccess: false,
+      catheterization: false,
+      nasogastricTube: false,
+      gastricLavage: false,
+      cervicalCollar: false,
+      spineBoard: false,
+      vacuumMattress: false,
+      immobilization: false,
+      pelvicBinder: false,
+      immobilizationKED: false,
+      otherProcedures: false,
     });
-
-  //
-
   const [appliedDrugs, setAppliedDrugs] = useState<AppliedDrugs>({
     noDrugs: false,
     medicaments: [],
   });
-
   const [patientRecommendations, setPatientRecommendations] = useState({
     recommendations: '',
     patientStatus: {
-      remainedAtScene: false, //Pozostał na miejscu
-      transferredToEMS: false, //przekazano ZRM
-      patientWent: false, //oddalił sie samodzielnie
-      handedOverToPolice: false, //przekazany Policji
-      other: false, // inne
+      remainedAtScene: false,
+      transferredToEMS: false,
+      patientWent: false,
+      handedOverToPolice: false,
+      other: false,
       otherText: '',
     },
     cardCopyIssued: {
@@ -922,7 +886,6 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
       datetime: '',
     },
   });
-
   const STEPS: { id: number; type: FormStep; label: string }[] = [
     {
       id: 0,
@@ -994,8 +957,6 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <AppContext.Provider
       value={{
-        name: userName,
-        setUserName: setUserName,
         incidentData: incidentData,
         setIncidentData: setIncidentData,
         patientData: patientData,
@@ -1022,7 +983,6 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         setAppliedDrugs: setAppliedDrugs,
         patientRecommendations: patientRecommendations,
         setPatientRecommendations: setPatientRecommendations,
-
         steps: STEPS,
         currentStep: currentStep,
         setCurrentStep: setCurrentStep,
@@ -1035,10 +995,8 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 
 export const useAppContext = () => {
   const context = useContext(AppContext);
-
   if (!context) {
     throw new Error('useAppContext must be used within AppContextProvider');
   }
-
   return context;
 };
