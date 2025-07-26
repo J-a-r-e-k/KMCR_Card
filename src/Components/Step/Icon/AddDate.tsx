@@ -27,5 +27,4 @@ const AddDate = ({ color = '#000000' }) => {
     </svg>
   );
 };
-
 export default AddDate;

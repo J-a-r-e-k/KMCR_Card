@@ -273,7 +273,6 @@ const MeasuredParameters = () => {
               <label htmlFor="deliveryYes" className={Style.check}>
                 TAK
               </label>
-
               <Field
                 id="deliveryNo"
                 className={Style.checkField}
@@ -302,7 +301,6 @@ const MeasuredParameters = () => {
               <label htmlFor="infectiousDiseaseYes" className={Style.check}>
                 TAK
               </label>
-
               <Field
                 id="infectiousDiseaseNo"
                 className={Style.checkField}
@@ -381,7 +379,6 @@ const MeasuredParameters = () => {
               type="checkbox"
             />
           </li>
-
           <li className={Style.wrapCheck}>
             <p>PEA</p>
             <Field className={Style.check} name="ekg.pea" type="checkbox" />
@@ -443,5 +440,4 @@ const MeasuredParameters = () => {
     </Formik>
   );
 };
-
 export default MeasuredParameters;

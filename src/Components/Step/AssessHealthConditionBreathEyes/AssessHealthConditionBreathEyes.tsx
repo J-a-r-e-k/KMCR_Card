@@ -342,15 +342,12 @@ const AssessHealthConditionBreathEyes = () => {
               className={Style.breathingRate}
               name="bloodPressure.systolic"
               type="number"
-            // value="0"
             />
             <p>/</p>
             <Field
               className={Style.breathingRate}
               name="bloodPressure.diastolic"
               type="number"
-            // type="button"
-            // value="0"
             />
             <p> mm/Hg</p>
           </div>
@@ -440,7 +437,6 @@ const AssessHealthConditionBreathEyes = () => {
               <label htmlFor="cardiacArrestYes" className={Style.check}>
                 TAK
               </label>
-
               <Field
                 id="cardiacArrestNo"
                 className={Style.checkField}
@@ -466,7 +462,6 @@ const AssessHealthConditionBreathEyes = () => {
               <label htmlFor="meningealSignsYes" className={Style.check}>
                 TAK
               </label>
-
               <Field
                 id="meningealSignsNo"
                 className={Style.checkField}
@@ -492,7 +487,6 @@ const AssessHealthConditionBreathEyes = () => {
               <label htmlFor="seizuresYes" className={Style.check}>
                 TAK
               </label>
-
               <Field
                 id="seizuresNo"
                 className={Style.checkField}
@@ -518,7 +512,6 @@ const AssessHealthConditionBreathEyes = () => {
               <label htmlFor="aphasiaYes" className={Style.check}>
                 TAK
               </label>
-
               <Field
                 id="aphasiaNo"
                 className={Style.checkField}
@@ -544,7 +537,6 @@ const AssessHealthConditionBreathEyes = () => {
               <label htmlFor="vomitingYes" className={Style.check}>
                 TAK
               </label>
-
               <Field
                 id="vomitingNo"
                 className={Style.checkField}
@@ -570,7 +562,6 @@ const AssessHealthConditionBreathEyes = () => {
               <label htmlFor="diarrheaYes" className={Style.check}>
                 TAK
               </label>
-
               <Field
                 id="diarrheaNo"
                 className={Style.checkField}
@@ -596,7 +587,6 @@ const AssessHealthConditionBreathEyes = () => {
               <label htmlFor="bleedingYes" className={Style.check}>
                 TAK
               </label>
-
               <Field
                 id="bleedingNo"
                 className={Style.checkField}
@@ -622,7 +612,6 @@ const AssessHealthConditionBreathEyes = () => {
               <label htmlFor="swellingYes" className={Style.check}>
                 TAK
               </label>
-
               <Field
                 id="swellingNo"
                 className={Style.checkField}
@@ -648,7 +637,6 @@ const AssessHealthConditionBreathEyes = () => {
               <label htmlFor="syncopeYes" className={Style.check}>
                 TAK
               </label>
-
               <Field
                 id="syncopeNo"
                 className={Style.checkField}
@@ -674,7 +662,6 @@ const AssessHealthConditionBreathEyes = () => {
               <label htmlFor="hypothermiaYes" className={Style.check}>
                 TAK
               </label>
-
               <Field
                 id="hypothermiaNo"
                 className={Style.checkField}
@@ -689,7 +676,7 @@ const AssessHealthConditionBreathEyes = () => {
           </li>
           <li className={Style.wrapCheck}>
             <div>
-              <p>Popażenie prądem </p>
+              <p>Porażenie prądem </p>
               <p>lub piorunem</p>
             </div>
             <div className={Style.wrapCheck}>
@@ -703,7 +690,6 @@ const AssessHealthConditionBreathEyes = () => {
               <label htmlFor="electrocutionYes" className={Style.check}>
                 TAK
               </label>
-
               <Field
                 id="electrocutionNo"
                 className={Style.checkField}
@@ -800,7 +786,6 @@ const AssessHealthConditionBreathEyes = () => {
               type="checkbox"
             />
           </li>
-
           <p className={Style.description}>Temperatura:</p>
           <li className={Style.wrapCheck}>
             <p>w normie</p>
@@ -860,5 +845,4 @@ const AssessHealthConditionBreathEyes = () => {
     </Formik>
   );
 };
-
 export default AssessHealthConditionBreathEyes;

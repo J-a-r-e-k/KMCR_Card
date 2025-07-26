@@ -1,6 +1,6 @@
 import {
   useAppContext,
-  AssessHealthCondition as AssessHealthConditionType, // zmiana nazwy na potrzebe funkcji as przypisuje nazwą używana w tym komponencie. //
+  AssessHealthCondition as AssessHealthConditionType,
 } from '../../../context/AppContext';
 import { FormNavigation } from '../../Section/FormNavigation/FormNavigation';
 import Style from './AssessHealthCondition.module.scss';
@@ -20,14 +20,14 @@ const AssessHealthCondition = () => {
           sumGcs >= 13 && sumGcs <= 15
             ? 4
             : sumGcs >= 9 && sumGcs <= 12
-            ? 3
-            : sumGcs >= 6 && sumGcs <= 8
-            ? 2
-            : sumGcs >= 4 && sumGcs <= 5
-            ? 1
-            : sumGcs == 3
-            ? 0
-            : NaN;
+              ? 3
+              : sumGcs >= 6 && sumGcs <= 8
+                ? 2
+                : sumGcs >= 4 && sumGcs <= 5
+                  ? 1
+                  : sumGcs == 3
+                    ? 0
+                    : NaN;
 
         appContext.setAssessHealthCondition({
           ...appContext.assessHealthCondition,

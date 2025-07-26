@@ -14,13 +14,9 @@ const codeField: SxProps = {
   width: 60
 }
 
-
 const DiagnosisCode = () => {
   const appContext = useAppContext();
   const isMobile = useMediaQuery('(max-width:600px)');
-  function findCode() {
-    console.log('Kod ICD-10');
-  }
 
   return (
     <Formik
@@ -50,9 +46,6 @@ const DiagnosisCode = () => {
                   <TextField {...field} label="ICD10" variant="outlined" sx={codeField} />
                 )}
               </Field>
-              {/* <button onClick={() => findCode()}>
-                <Database nameClass={Style.btn} />
-              </button> */}
             </div>
             <div className={Style.wrapIdentification}>
               <Field
@@ -69,9 +62,6 @@ const DiagnosisCode = () => {
                   <TextField  {...field} label="ICD10" variant="outlined" sx={codeField} />
                 )}
               </Field>
-              {/* <button onClick={() => findCode()}>
-                <Database nameClass={Style.btn} />
-              </button> */}
             </div>
             <div className={Style.wrapIdentification}>
               <Field
@@ -88,11 +78,7 @@ const DiagnosisCode = () => {
                   <TextField {...field} label="ICD10" variant="outlined" sx={codeField} />
                 )}
               </Field>
-              {/* <button onClick={() => findCode()}>
-                <Database nameClass={Style.btn} />
-              </button> */}
             </div>
-
           </div>
           <FormNavigation />
         </form>
@@ -100,5 +86,4 @@ const DiagnosisCode = () => {
     </Formik>
   );
 };
-
 export default DiagnosisCode;

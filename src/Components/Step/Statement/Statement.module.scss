@@ -1,6 +1,5 @@
 .wrapDiv {
   display: flex;
-  // flex-direction: column;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -9,13 +8,13 @@
   border: 1px black solid;
   min-width: 0%;
   flex-grow: 1;
-  // margin: 0 auto;
 }
 
 .contents {
   font-size: 1.2rem;
   padding: 5px 2px;
 }
+
 .inputText {
   font-size: 1.2rem;
   margin: 0 5px;
@@ -23,6 +22,7 @@
   flex-grow: 1;
   border-bottom: 1px dotted black;
 }
+
 .textBold {
   font-weight: bold;
   font-size: 1.4rem;
@@ -45,10 +45,12 @@
   background-color: #ddd;
   cursor: pointer;
 }
+
 .wrapCheck {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+
   p {
     flex-grow: 1;
     flex-basis: 70%;
@@ -64,6 +66,7 @@
   border: solid #999 1px;
   cursor: pointer;
   appearance: none;
+
   img {
     position: absolute;
     top: 50%;
@@ -71,6 +74,7 @@
     transform: translate(-50%, -50%);
   }
 }
+
 .check:hover,
 .signature:hover {
   border: 1px blue solid;
@@ -101,6 +105,7 @@
   width: 90%;
   height: 90%;
 }
+
 .btn {
   position: absolute;
   bottom: 15px;
@@ -113,6 +118,7 @@
   background-color: #999;
   cursor: pointer;
 }
+
 .btnClean {
   bottom: auto;
   top: 15px;

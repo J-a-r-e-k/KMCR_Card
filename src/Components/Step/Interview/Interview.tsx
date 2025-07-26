@@ -21,7 +21,6 @@ const Interview = () => {
               className={Style.text}
               name="interviewDescription"
               as="textarea"
-            // rows="4"
             />
             <FormNavigation onSaveForm={submitForm} />
           </form>
@@ -30,5 +29,4 @@ const Interview = () => {
     </Formik>
   );
 };
-
 export default Interview;

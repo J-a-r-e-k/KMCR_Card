@@ -4,12 +4,9 @@
     margin-bottom: 10px;
     border: 1px solid #999;
 
-
     @media (min-width:720px) {
         border-radius: 5px;
     }
-
-
 }
 
 input:focus,
@@ -27,9 +24,7 @@ input:focus,
     @media (max-width: 720px) {
         width: 100%;
         grid-template-columns: auto;
-
     }
-
 }
 
 .paramedicInfo {
@@ -39,7 +34,6 @@ input:focus,
     border-radius: 5px;
     position: relative;
 }
-
 
 .elementField {
     font-size: 1.2rem;
@@ -56,7 +50,6 @@ input:focus,
 
 .dateField {
     display: flex;
-
 }
 
 .signature {
@@ -66,5 +59,4 @@ input:focus,
     border: 1px black solid;
     background-color: #ddd;
     cursor: pointer;
-
 }

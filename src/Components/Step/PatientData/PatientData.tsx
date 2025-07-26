@@ -8,8 +8,8 @@ const PatientData = () => {
 
   const genderPatient = (sex: string) => {
     appContext.setPatientData({
-      ...appContext.patientData, // Zachowuje inne właściwości patientData
-      patientGender: sex, // Ustawia patientGender na wartość zmiennej sex
+      ...appContext.patientData, 
+      patientGender: sex,
     });
   };
 
@@ -122,12 +122,6 @@ const PatientData = () => {
             />
           </li>
         </ul>
-
-        {/* <ErrorMessage
-          name="patientPesel"
-          component="div"
-          className={Style.error}
-        /> */}
       </div>
     );
   };
@@ -182,7 +176,6 @@ const PatientData = () => {
             placeholder="mieszkanie"
           />
         </div>
-
         <label className={Style.contents}> Numer telefonu:</label>
         <Field className={Style.inputText} name="legalGuardianTelephone" />
       </div>
@@ -200,7 +193,6 @@ const PatientData = () => {
         {({ handleSubmit, submitForm }) => (
           <form onSubmit={handleSubmit}>
             {patientForm()}
-            {/* {guardianDate()} */}
             <FormNavigation onSaveForm={submitForm} />
           </form>
         )}
@@ -208,5 +200,4 @@ const PatientData = () => {
     </>
   );
 };
-
 export default PatientData;

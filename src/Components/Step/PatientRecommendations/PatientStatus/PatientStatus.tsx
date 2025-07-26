@@ -1,7 +1,6 @@
 import { Field } from 'formik';
 import Style from './PatientStatus.module.scss'
 
-
 const PatientStatus = () => {
     return (
         <div className={Style.wrap}>
@@ -31,7 +30,6 @@ const PatientStatus = () => {
                     />
                     <p>pacjent oddalił sie samodzielnie</p>
                 </li>
-
                 <li className={Style.wrapCheck}>
                     <Field
                         className={Style.check}
@@ -57,5 +55,4 @@ const PatientStatus = () => {
         </div>
     )
 }
-
 export default PatientStatus

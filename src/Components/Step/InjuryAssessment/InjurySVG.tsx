@@ -1,5 +1,3 @@
-// import { Children } from 'react';
-
 export const InjurySVG = ({ children }) => {
   return (
     <svg

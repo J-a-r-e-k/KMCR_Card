@@ -71,5 +71,4 @@ const AddForm = ({ color = '#000000' }) => {
     </svg>
   );
 };
-
 export default AddForm;

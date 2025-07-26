@@ -1,7 +1,6 @@
 import Style from './IncidentData.module.scss';
 import { useState } from 'react';
 import { Formik, Field } from 'formik';
-
 import AddForm from '../Icon/AddForm';
 import AddDate from '../Icon/AddDate';
 import { useAppContext } from '../../../context/AppContext';
@@ -76,17 +75,8 @@ const IncidentData = () => {
         }}
       >
         {({
-          // values,
-          // errors,
-          // touched,
-          // handleChange,
-          // handleBlur,
           handleSubmit,
-          // submitForm,
           setFieldValue,
-          // isSubmitting,
-          // isValid,
-          /* and other goodies */
         }) => (
           <>
             <form onSubmit={handleSubmit}>
@@ -97,18 +87,12 @@ const IncidentData = () => {
                 </label>
                 <Field className={Style.inputText} name="nrIncident" />
               </div>
-
               <div className={`${Style.wrapDiv} ${Style.wrapDate}`}>
                 <label className={Style.contents}>
                   Data i godzina udzielenia swiadczenia zdrowotnego (rrrr-mm-dd
                   gg:mm):
                 </label>
                 <Field className={Style.inputText} name="incidentDate" />
-                {/* <ErrorMessage
-          name="incidentDate"
-          component="div"
-          className={Style.error}
-        /> */}
                 <button
                   className={Style.btnAddDate}
                   onClick={() => {
@@ -157,5 +141,4 @@ const IncidentData = () => {
     </>
   );
 };
-
 export default IncidentData;

@@ -263,5 +263,4 @@ const ProvidedAssistanceActivities = () => {
     </Formik>
   );
 };
-
 export default ProvidedAssistanceActivities;

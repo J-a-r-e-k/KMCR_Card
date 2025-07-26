@@ -13,7 +13,6 @@ const Statement = () => {
   const appContext = useAppContext();
   const [wrapSignature, setWrapSignature] = useState(false);
 
-  //Panel Podpisu
   const signature = () => {
     if (!wrapSignature) return;
     return (
@@ -58,14 +57,12 @@ const Statement = () => {
             type="radio"
             value="transportHospital"
           />
-
           <p className={Style.contents}>przewiezienie do szpitala</p>
         </div>
         <p className={Style.contents}>
           Oświadczam również, że udzielono mi wyczerpujących informacji o stanie
           zdrowia oraz uzyskałem odpowiedzi na zadawane przeze mnie pytania.
         </p>
-
         <div>
           <label className={Style.contents}>Data i godzina odmowy:</label>
           <Field className={Style.inputText} name="patientRefusalDate" />
@@ -148,5 +145,4 @@ const Statement = () => {
     </>
   );
 };
-
 export default Statement;

@@ -1,7 +1,6 @@
 import { Field } from 'formik';
 import Style from './Recommendations.module.scss'
 
-
 const Recommendations = () => {
     return (
         <div className={Style.wrapRecommendations}>
@@ -10,10 +9,8 @@ const Recommendations = () => {
                 className={Style.text}
                 name="recommendations"
                 as="textarea"
-            // rows="4" x
             />
         </div>
     )
 }
-
 export default Recommendations

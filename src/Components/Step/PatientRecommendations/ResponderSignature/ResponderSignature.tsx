@@ -1,4 +1,3 @@
-
 import { Field } from 'formik';
 import Style from './ResponderSignature.module.scss'
 import { useState } from 'react';
@@ -7,8 +6,6 @@ import AddDate from '../../Icon/AddDate';
 import { useFormikContext } from 'formik';
 import { currentDate } from '../../../Utils/CurrentDate';
 import { Select } from '../../../Utils/Select/Select';
-
-
 
 const ResponderSignature = () => {
     const { setFieldValue } = useFormikContext();
@@ -30,7 +27,6 @@ const ResponderSignature = () => {
                         placeholder="Imie Nazwisko"
                     />
                 </li>
-
                 <li
                     className={`${Style.paramedicInfo} `}
                 >
@@ -52,7 +48,6 @@ const ResponderSignature = () => {
                     />
                     {btnTitle && <Select setBtnTitle={setBtnTitle} />}
                 </li>
-
                 <li className={`${Style.paramedicInfo} ${Style.dateField}`}>
                     <Field
                         className={` ${Style.elementField}`}
@@ -71,7 +66,6 @@ const ResponderSignature = () => {
                     </button>
                 </li>
             </ul>
-
             <div
                 className={Style.signature}
                 onClick={() => {
@@ -83,5 +77,4 @@ const ResponderSignature = () => {
 
     )
 }
-
 export default ResponderSignature

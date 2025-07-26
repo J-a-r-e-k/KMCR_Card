@@ -21,17 +21,14 @@
     display: flex;
     align-items: center;
     margin: 5px;
-
 }
 
 .anotherWrapCheck {
     @media (min-width: 720px) {
         grid-column: 2 / span 2;
     }
-
 }
 
-//
 .check {
     display: flex;
     flex-shrink: 0;
@@ -44,7 +41,6 @@
     border: 2px #999 solid;
     cursor: pointer;
     appearance: none;
-
 }
 
 .check:checked {
@@ -53,7 +49,6 @@
     background-image: url('../../../../public/icon-checkmark.svg');
     background-position: center;
     background-repeat: no-repeat;
-
 }
 
 .check:hover {

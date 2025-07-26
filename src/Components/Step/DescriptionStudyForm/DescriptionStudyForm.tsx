@@ -1,6 +1,4 @@
-// import React from 'react';
 import Style from './DescriptionStudyForm.module.scss';
-
 import { Formik, Field } from 'formik';
 import { useAppContext } from '../../../context/AppContext';
 import { FormNavigation } from '../../Section/FormNavigation/FormNavigation';
@@ -30,14 +28,11 @@ const DescriptionStudyForm = () => {
             className={Style.text}
             name="description"
             as="textarea"
-          // rows="4"
           />
-
           <FormNavigation />
         </form>
       )}
     </Formik>
   );
 };
-
 export default DescriptionStudyForm;

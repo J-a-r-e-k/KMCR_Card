@@ -1,18 +1,12 @@
 import Style from './PatientRecommendations.module.scss';
 import { Formik, Field } from 'formik';
 import { useAppContext } from '../../../context/AppContext';
-import { FormNavigation } from '../../Section/FormNavigation/FormNavigation';
 import Recommendations from './Recommendations/Recommendations';
 import PatientStatus from './PatientStatus/PatientStatus';
 import ResponderSignature from './ResponderSignature/ResponderSignature';
 
-
-
-
-
 const PatientRecommendations = () => {
   const appContext = useAppContext();
-
   return (
     <Formik
       initialValues={appContext.patientRecommendations}
@@ -47,11 +41,9 @@ const PatientRecommendations = () => {
             </ul>
           </div>
           <ResponderSignature />
-          {/* <FormNavigation /> */}
         </form>
       )}
     </Formik>
   );
 };
-
 export default PatientRecommendations;

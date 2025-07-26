@@ -1,4 +1,3 @@
-//
 import Style from './AppliedDrugs.module.scss';
 import { Formik, Field, FormikHelpers, FieldProps } from 'formik';
 import { useState } from 'react';
@@ -134,7 +133,6 @@ const AddMedicine = () => {
           >
             Nie podano leków
           </button>
-
           <ul className={`${Style.wrapMedicine}  ${appContext.appliedDrugs.noDrugs && Style.disabledElement}`} >
             <li className={Style.wrapNameDrugs} >
               <Field
