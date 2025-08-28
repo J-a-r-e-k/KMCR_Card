@@ -8,7 +8,7 @@ const PatientData = () => {
 
   const genderPatient = (sex: string) => {
     appContext.setPatientData({
-      ...appContext.patientData, 
+      ...appContext.patientData,
       patientGender: sex,
     });
   };

@@ -1,6 +1,6 @@
+import Style from './FormNavigation.module.scss';
 import { useAppContext } from '../../../context/AppContext';
 import { useFormikContext } from "formik";
-import Style from './FormNavigation.module.scss';
 
 export const FormNavigation = () => {
   const formik = useFormikContext();
