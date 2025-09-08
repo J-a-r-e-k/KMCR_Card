@@ -3,7 +3,6 @@
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin: 5px;
   padding: 5px 10px;
   border: 1px black solid;
   min-width: 0%;
@@ -21,11 +20,6 @@
   padding: 5px;
   flex-grow: 1;
   border-bottom: 1px dotted black;
-}
-
-.textBold {
-  font-weight: bold;
-  font-size: 1.4rem;
 }
 
 .title {
@@ -85,59 +79,4 @@
   background-image: url('../../../../public/icon-checkmark.svg');
   background-position: center;
   background-repeat: no-repeat;
-}
-
-.wrapPanelSignature {
-  position: fixed;
-  top: 0%;
-  left: 0%;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  background-color: #aaaaaac3;
-}
-
-.panelSignature {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
-  height: 90%;
-}
-
-.btn {
-  position: absolute;
-  bottom: 15px;
-  right: 5%;
-  width: 120px;
-  height: 45px;
-  border: 1px black solid;
-  border-radius: 7px;
-  font-size: 1.4rem;
-  background-color: #999;
-  cursor: pointer;
-}
-
-.btnClean {
-  bottom: auto;
-  top: 15px;
-}
-
-.signatureWrite {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 60%;
-  background-color: #eee;
-  border-radius: 10px;
-}
-
-.description {
-  margin: 5px;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
 }

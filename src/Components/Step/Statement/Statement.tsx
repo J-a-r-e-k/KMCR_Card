@@ -1,42 +1,17 @@
 import Style from './Statement.module.scss';
 import AddDate from '../Icon/AddDate';
 import { useState } from 'react';
-import { Formik, Field, FormikHelpers } from 'formik';
-import {
-  useAppContext,
-  Statement as StatementType,
-} from '../../../context/AppContext';
-import { FormNavigation } from '../../Section/FormNavigation/FormNavigation';
+import { Field, useFormikContext } from 'formik';
 import { currentDate } from '../../Utils/CurrentDate';
+import { Signature } from '../../Utils/Signature/Signature';
+import WithdrawalAid from './WithdrawalAid/WithdrawalAid';
 
 const Statement = () => {
-  const appContext = useAppContext();
+  const { setFieldValue } = useFormikContext();
   const [wrapSignature, setWrapSignature] = useState(false);
 
-  const signature = () => {
-    if (!wrapSignature) return;
-    return (
-      <div className={Style.wrapPanelSignature}>
-        <div className={Style.panelSignature}>
-          <button className={`${Style.btn} ${Style.btnClean}`}>Wyczyść </button>
-          <div className={Style.signatureWrite}></div>
-          <button
-            className={`${Style.btn}`}
-            onClick={() => setWrapSignature(!wrapSignature)}
-          >
-            Zapisz
-          </button>
-        </div>
-      </div>
-    );
-  };
-
-  function statement({
-    setFieldValue,
-  }: {
-    setFieldValue: FormikHelpers<StatementType>['setFieldValue'];
-  }) {
-    return (
+  return (
+    <>
       <div className={Style.wrapDiv}>
         <h2 className={Style.title}>OŚWIADCZENIE PACJENTA</h2>
         <p className={Style.contents}>
@@ -45,7 +20,7 @@ const Statement = () => {
         </p>
         <div className={Style.wrapCheck}>
           <Field
-            name="refusal"
+            name="statement.refusal"
             type="radio"
             value="providingAssistance"
             className={`${Style.check}`}
@@ -53,7 +28,7 @@ const Statement = () => {
           <p className={Style.contents}>udzielenie świadczenia zdrowotnego</p>
           <Field
             className={`${Style.check}`}
-            name="refusal"
+            name="statement.refusal"
             type="radio"
             value="transportHospital"
           />
@@ -65,11 +40,11 @@ const Statement = () => {
         </p>
         <div>
           <label className={Style.contents}>Data i godzina odmowy:</label>
-          <Field className={Style.inputText} name="patientRefusalDate" />
+          <Field className={Style.inputText} name="statement.patientRefusalDate" />
           <button
             className={Style.btnAddDate}
             onClick={() => {
-              setFieldValue('patientRefusalDate', currentDate());
+              setFieldValue('statement.patientRefusalDate', currentDate());
             }}
             type="button"
           >
@@ -84,64 +59,11 @@ const Statement = () => {
               setWrapSignature(!wrapSignature);
             }}
           ></div>
-          {signature()}
-        </div>
-      </div>
-    );
-  }
-  function withdrawalAid({
-    setFieldValue,
-  }: {
-    setFieldValue: FormikHelpers<StatementType>['setFieldValue'];
-  }) {
-    return (
-      <div className={Style.wrapDiv}>
-        <p className={Style.textBold}>
-          Odstąpiono od udzielania świadczeń zdrowotnych:
-        </p>
-        <div>
-          <label className={Style.contents}>Data i godzina odmowy:</label>
-          <Field className={Style.inputText} name="withdrawalAidTime" />
-          <button
-            onClick={() => {
-              setFieldValue('withdrawalAidTime', currentDate());
-            }}
-            type="button"
-          >
-            <AddDate />
-          </button>
-        </div>
-        <div className={Style.description}>
-          <label>Przyczyna odstąpienia:</label>
-          <Field
-            className={Style.inputText}
-            name="legalGuardianFirstName"
-            as="textarea"
-            rows="2"
-            placeholder="Powód nie podjęcia MCR"
-          />
-        </div>
-      </div>
-    );
-  }
+          {wrapSignature && <Signature setWrapSignature={setWrapSignature} />}
 
-  return (
-    <>
-      <Formik
-        initialValues={appContext.statement}
-        onSubmit={(value, { setSubmitting }) => {
-          setSubmitting(false);
-          appContext.setStatement(value);
-        }}
-      >
-        {({ handleSubmit, submitForm, setFieldValue }) => (
-          <form onSubmit={handleSubmit}>
-            {statement({ setFieldValue })}
-            {withdrawalAid({ setFieldValue })}
-            <FormNavigation onSaveForm={submitForm} />
-          </form>
-        )}
-      </Formik>
+        </div>
+      </div>
+      <WithdrawalAid />
     </>
   );
 };

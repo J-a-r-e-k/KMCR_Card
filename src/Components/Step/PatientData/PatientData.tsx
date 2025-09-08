@@ -1,20 +1,65 @@
-import { useAppContext } from '../../../context/AppContext';
-import { FormNavigation } from '../../Section/FormNavigation/FormNavigation';
 import Style from './PatientData.module.scss';
-import { Field, Formik } from 'formik';
+import { Field } from 'formik';
 
 const PatientData = () => {
-  const appContext = useAppContext();
-
-  const genderPatient = (sex: string) => {
-    appContext.setPatientData({
-      ...appContext.patientData,
-      patientGender: sex,
-    });
-  };
-
-  const patientForm = () => {
-    return (
+  // const guardianDate = () => {
+  //   return (
+  //     <div className={Style.wrapDiv}>
+  //       <h2 className={Style.title}>DANE PRZEDSTAWICIELA USTAWOWEGO:</h2>
+  //       <label className={Style.contents}>Imię (imiona):</label>
+  //       <Field
+  //         className={Style.inputText}
+  //         name="legalGuardianFirstName"
+  //         placeholder=" Imię (imiona)"
+  //       />
+  //       <label className={Style.contents}>Nazwisko:</label>
+  //       <Field
+  //         className={Style.inputText}
+  //         name="legalGuardianLastName"
+  //         placeholder="Nazwisko"
+  //       />
+  //       <div className={Style.address}>
+  //         <label className={Style.contents}> miejscowość:</label>
+  //         <Field
+  //           className={Style.inputText}
+  //           name="legalGuardianCity"
+  //           placeholder="Miejscowość"
+  //         />
+  //         <label className={`${Style.contents}`}>kod pocztowy:</label>
+  //         <Field
+  //           className={`${Style.inputText} ${Style.post}`}
+  //           name="legalGuardianPostalCod"
+  //           placeholder="00 - 000"
+  //         />
+  //       </div>
+  //       <div className={Style.address}>
+  //         <label className={Style.contents}>Adres zamieszkania:</label>
+  //         <p>ul.</p>
+  //         <Field
+  //           className={Style.inputText}
+  //           name="legalGuardianStreet"
+  //           placeholder="ulica"
+  //         />
+  //         <p>nr:</p>
+  //         <Field
+  //           className={`${Style.inputNR} ${Style.inputText}`}
+  //           name="legalGuardianIdNumber"
+  //           placeholder="budynku"
+  //         />
+  //         <p>m:</p>
+  //         <Field
+  //           className={`${Style.inputNR} ${Style.inputText}`}
+  //           name="legalGuardianNrApartment"
+  //           placeholder="mieszkanie"
+  //         />
+  //       </div>
+  //       <label className={Style.contents}> Numer telefonu:</label>
+  //       <Field className={Style.inputText} name="legalGuardianTelephone" />
+  //     </div>
+  //   );
+  // };
+  return (
+    <>
       <div className={`${Style.wrapDiv} ${Style.wrapDivPatient}`}>
         <h2 className={Style.title}>DANE PACJENTA</h2>
         <ul className={Style.address}>
@@ -22,7 +67,7 @@ const PatientData = () => {
             <label className={Style.contents}>Imię (imiona):</label>
             <Field
               className={Style.inputText}
-              name="patientFirstName"
+              name="patientData.patientFirstName"
               type="text"
               placeholder=" Imię (imiona)"
             />
@@ -31,7 +76,7 @@ const PatientData = () => {
             <label className={Style.contents}>Nazwisko:</label>
             <Field
               className={Style.inputText}
-              name="patientLastName"
+              name="patientData.patientLastName"
               placeholder="Nazwisko"
             />
           </li>
@@ -39,7 +84,7 @@ const PatientData = () => {
             <label className={Style.contents}> miejscowość:</label>
             <Field
               className={Style.inputText}
-              name="patientCity"
+              name="patientData.patientCity"
               placeholder="Miejscowość"
             />
           </li>
@@ -48,14 +93,14 @@ const PatientData = () => {
             <Field
               className={`${Style.inputPost}`}
               autoComplete="off"
-              name="patientPostalCod.one"
+              name="patientData.patientPostalCod.one"
               placeholder="00"
               type="number"
             />
             <p>-</p>
             <Field
               className={`${Style.inputPost}`}
-              name="patientPostalCod.two"
+              name="patientData.patientPostalCod.two"
               placeholder="000"
               type="number"
               autoComplete="off"
@@ -66,7 +111,7 @@ const PatientData = () => {
             <label>ul.</label>
             <Field
               className={Style.inputText}
-              name="patientStreet"
+              name="patientData.patientStreet"
               placeholder="ulica"
             />
           </li>
@@ -74,7 +119,7 @@ const PatientData = () => {
             <label>nr:</label>
             <Field
               className={` ${Style.inputText}`}
-              name="patientIdNumber"
+              name="patientData.patientIdNumber"
               placeholder="budynku"
             />
           </li>
@@ -82,7 +127,7 @@ const PatientData = () => {
             <label>m:</label>
             <Field
               className={` ${Style.inputText}`}
-              name="patientNrApartment"
+              name="patientData.patientNrApartment"
               placeholder="mieszkanie"
             />
           </li>
@@ -90,7 +135,7 @@ const PatientData = () => {
             <label className={Style.contents}>data urodzenia: </label>
             <Field
               className={Style.inputText}
-              name="patientBirthDate"
+              name="patientData.patientBirthDate"
               placeholder="(rrrr-mm-dd)"
             />
           </li>
@@ -98,7 +143,7 @@ const PatientData = () => {
             <label className={Style.contents}>PESEL: </label>
             <Field
               className={Style.inputText}
-              name="patientPesel"
+              name="patientData.patientPesel"
               placeholder="Pesel"
             />
           </li>
@@ -108,7 +153,7 @@ const PatientData = () => {
             <Field
               id="dyspneaYes"
               className={Style.check}
-              name="patientGender"
+              name="patientData.patientGender"
               type="radio"
               value="woman"
             />
@@ -116,87 +161,13 @@ const PatientData = () => {
             <Field
               id="dyspneaNO"
               className={Style.check}
-              name="patientGender"
+              name="patientData.patientGender"
               type="radio"
               value="man"
             />
           </li>
         </ul>
       </div>
-    );
-  };
-  const guardianDate = () => {
-    return (
-      <div className={Style.wrapDiv}>
-        <h2 className={Style.title}>DANE PRZEDSTAWICIELA USTAWOWEGO:</h2>
-        <label className={Style.contents}>Imię (imiona):</label>
-        <Field
-          className={Style.inputText}
-          name="legalGuardianFirstName"
-          placeholder=" Imię (imiona)"
-        />
-        <label className={Style.contents}>Nazwisko:</label>
-        <Field
-          className={Style.inputText}
-          name="legalGuardianLastName"
-          placeholder="Nazwisko"
-        />
-        <div className={Style.address}>
-          <label className={Style.contents}> miejscowość:</label>
-          <Field
-            className={Style.inputText}
-            name="legalGuardianCity"
-            placeholder="Miejscowość"
-          />
-          <label className={`${Style.contents}`}>kod pocztowy:</label>
-          <Field
-            className={`${Style.inputText} ${Style.post}`}
-            name="legalGuardianPostalCod"
-            placeholder="00 - 000"
-          />
-        </div>
-        <div className={Style.address}>
-          <label className={Style.contents}>Adres zamieszkania:</label>
-          <p>ul.</p>
-          <Field
-            className={Style.inputText}
-            name="legalGuardianStreet"
-            placeholder="ulica"
-          />
-          <p>nr:</p>
-          <Field
-            className={`${Style.inputNR} ${Style.inputText}`}
-            name="legalGuardianIdNumber"
-            placeholder="budynku"
-          />
-          <p>m:</p>
-          <Field
-            className={`${Style.inputNR} ${Style.inputText}`}
-            name="legalGuardianNrApartment"
-            placeholder="mieszkanie"
-          />
-        </div>
-        <label className={Style.contents}> Numer telefonu:</label>
-        <Field className={Style.inputText} name="legalGuardianTelephone" />
-      </div>
-    );
-  };
-  return (
-    <>
-      <Formik
-        initialValues={appContext.patientData}
-        onSubmit={(value, { setSubmitting }) => {
-          setSubmitting(false);
-          appContext.setPatientData(value);
-        }}
-      >
-        {({ handleSubmit, submitForm }) => (
-          <form onSubmit={handleSubmit}>
-            {patientForm()}
-            <FormNavigation />
-          </form>
-        )}
-      </Formik>
     </>
   );
 };
