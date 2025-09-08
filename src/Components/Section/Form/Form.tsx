@@ -14,14 +14,11 @@ import ProvidedAssistanceActivities from '../../Step/ProvidedAssistanceActivitie
 import AppliedDrugs from '../../Step/AppliedDrugs/AppliedDrugs';
 import PatientRecommendations from '../../Step/PatientRecommendations/PatientRecommendations';
 import { FormNavigation } from '../FormNavigation/FormNavigation';
+import FormikWrap from '../../Utils/FormikWrap/FormikWrap';
 
-type FormProps = {
-  step: number;
-  stanStep: (stan: number) => void;
-}
+const Form: React.FC = () => {
+  const { currentStep, allFormData, setAllFormData } = useAppContext();
 
-const Form: React.FC<FormProps> = () => {
-  const { currentStep } = useAppContext();
   const getStepComponent = () => {
     switch (currentStep) {
       case 0:
@@ -52,6 +49,12 @@ const Form: React.FC<FormProps> = () => {
         return <PatientRecommendations />;
     }
   };
-  return <div className={Style.form}> {getStepComponent()}   <FormNavigation />  </div>;
+
+  return <div className={Style.form}>
+    <FormikWrap initialValues={allFormData} onSubmit={(value) => setAllFormData(value)}>
+      {getStepComponent()}
+    </FormikWrap>
+    <FormNavigation />
+  </div>;
 };
 export default Form;

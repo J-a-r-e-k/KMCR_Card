@@ -11,12 +11,11 @@ const TimeIncident = () => {
                 Data i godzina udzielenia swiadczenia zdrowotnego (rrrr-mm-dd
                 gg:mm):
             </label>
-            <Field className={Style.inputText} name="incidentDate" />
-            {/* <Field className={Style.inputText} name="incidentDate" type="datetime-local" /> */}
+            <Field className={Style.inputText} name="incidentData.incidentDate" />
             <button
                 className={Style.btnAddDate}
                 onClick={() => {
-                    setFieldValue('incidentDate', currentDate());
+                    setFieldValue('incidentData.incidentDate', currentDate());
                 }}
                 type="button"
             >

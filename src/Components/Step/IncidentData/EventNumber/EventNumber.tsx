@@ -8,7 +8,7 @@ const EventNumber = () => {
                 Numer karty nadany przez podmiot udzielający świadczeń
                 zdrowotnych:
             </label>
-            <Field className={Style.inputText} name="nrIncident" />
+            <Field className={Style.inputText} name="incidentData.nrIncident" />
         </div>
     )
 }

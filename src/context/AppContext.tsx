@@ -433,6 +433,8 @@ export enum FormStep {
   PatientRecommendations = 'PatientRecommendations',
 }
 type AppContextProps = {
+  allFormData: FullFormData;
+  setAllFormData: (data: FullFormData) => void;
   incidentData: IncidentData;
   setIncidentData: (data: IncidentData) => void;
   patientData: PatientData;
@@ -473,10 +475,445 @@ type AppContextProps = {
   setCurrentStep: (newSte: number) => void;
 };
 
+export interface FullFormData {
+  incidentData: IncidentData;
+  patientData: PatientData;
+  statement: Statement;
+  interview: Interview;
+  assessHealthCondition: AssessHealthCondition;
+  assessHealthConditionBreathEyes: AssessHealthConditionBreathEyes;
+  measuredParameters: MeasuredParameters;
+  injuryAssessment: InjuryAssessment;
+  descriptionStudy: DescriptionStudy;
+  diagnosisCode: DiagnosisCode;
+  providedAssistanceActivities: ProvidedAssistanceActivities;
+  appliedDrugs: AppliedDrugs;
+  patientRecommendations: PatientRecommendations;
+}
+// interface AppContextType {
+//   currentStep: number;
+//   setCurrentStep: (step: number) => void;
+//   allFormData: FullFormData;
+//   setAllFormData: (data: FullFormData) => void;
+// }
+
+const fullFormInitialData: FullFormData = {
+  incidentData: {
+    nrIncident: '',
+    incidentDate: '',
+    incidentPlace: '',
+    incidentCity: '',
+    incidentPost: '',
+    incidentStreet: '',
+    incidentNr: '',
+    incidentNrApartment: '',
+    companyName: '',
+  },
+  patientData: {
+    patientFirstName: '',
+    patientLastName: '',
+    patientCity: '',
+    patientPostalCod: {
+      one: NaN,
+      two: NaN,
+    },
+    patientStreet: '',
+    patientIdNumber: '',
+    patientNrApartment: '',
+    patientBirthDate: '',
+    patientPesel: '',
+    patientGender: 'man',
+    legalGuardianFirstName: '',
+    legalGuardianLastName: '',
+    legalGuardianCity: '',
+    legalGuardianPostalCod: '',
+    legalGuardianStreet: '',
+    legalGuardianIdNumber: '',
+    legalGuardianNrApartment: '',
+    legalGuardianTelephone: '',
+  },
+  statement: {
+    patientRefusalDate: '',
+    refusal: '',
+    withdrawalAidTime: '',
+    withdrawalAidDescription: '',
+  },
+  interview: {
+    interviewDescription: '',
+  },
+  assessHealthCondition: {
+    gcs: {
+      openingEyes: '',
+      reactWords: '',
+      reakcjaMotoryczna: '',
+      sumGcs: 0,
+    },
+    rts: {
+      breath: '',
+      systolicBloodPressure: NaN,
+      gcs: NaN,
+    },
+  },
+  assessHealthConditionBreathEyes: {
+    respiratorySystem: {
+      dyspnea: '',
+      cyanosis: '',
+      apnea: '',
+      respiratoryRate: NaN,
+      normalBreathSounds: {
+        left: false,
+        right: false,
+      },
+      wheezing: {
+        left: false,
+        right: false,
+      },
+      whistling: {
+        left: false,
+        right: false,
+      },
+      crepitation: {
+        left: false,
+        right: false,
+      },
+      rales: {
+        left: false,
+        right: false,
+      },
+      noBreathSounds: {
+        left: false,
+        right: false,
+      },
+      otherSounds: {
+        left: false,
+        right: false,
+        description: false,
+      },
+      oxygenSaturation: NaN,
+    },
+    pupil: {
+      normal: {
+        left: false,
+        right: false,
+      },
+      slow: {
+        left: false,
+        right: false,
+      },
+      absent: {
+        left: false,
+        right: false,
+      },
+      regular: {
+        left: false,
+        right: false,
+      },
+      narrow: {
+        left: false,
+        right: false,
+      },
+      wide: {
+        left: false,
+        right: false,
+      },
+    },
+    bloodPressure: {
+      systolic: NaN,
+      diastolic: NaN,
+    },
+    pulse: 0,
+    heartRhythm: '',
+
+    symptomsClinical: {
+      shock: {
+        yes: '',
+        no: '',
+      },
+      cardiacArrest: {
+        yes: '',
+        no: '',
+      },
+      meningealSigns: {
+        yes: '',
+        no: '',
+      },
+      seizures: {
+        yes: '',
+        no: '',
+      },
+      aphasia: {
+        yes: '',
+        no: '',
+      },
+      vomiting: {
+        yes: '',
+        no: '',
+      },
+      diarrhea: {
+        yes: '',
+        no: '',
+      },
+      bleeding: {
+        yes: '',
+        no: '',
+      },
+      swelling: {
+        yes: '',
+        no: '',
+      },
+      syncope: {
+        yes: '',
+        no: '',
+      },
+      hypothermia: {
+        yes: '',
+        no: '',
+      },
+      electrocution: {
+        yes: '',
+        no: '',
+      },
+    },
+
+    skinAppearance: {
+      normal: false,
+      pale: false,
+      erythema: false,
+      jaundice: false,
+      peripheralCyanosis: false,
+      centralCyanosis: false,
+    },
+    skinMoisture: {
+      normal: false,
+      moist: false,
+      dry: false,
+    },
+    temperature: {
+      normal: false,
+      cool: false,
+      warm: false,
+      bodyTemperature: NaN,
+    },
+  },
+  measuredParameters: {
+    abdominalExamination: {
+      normal: false,
+      palpationTenderness: false,
+      noPeristalsis: false,
+      PeritonealSigns: false,
+    },
+    psychomotorEvaluation: {
+      normal: false,
+      slowed: false,
+      agitated: false,
+      aggressive: false,
+    },
+    heartTone: {
+      normal: false,
+      muffled: false,
+      other: false,
+    },
+    breathOdor: {
+      solvent: false,
+      alcohol: false,
+      other: false,
+    },
+    glucoseMonitoring: NaN,
+    paresis: {
+      paralysis: false,
+      upperLimb: {
+        left: '',
+        right: '',
+      },
+      lowerLimb: {
+        left: '',
+        right: '',
+      },
+    },
+    other: {
+      pregnancy: '',
+      delivery: '',
+      infectiousDisease: '',
+    },
+    ekg: {
+      sinusRhythm: false,
+      supraventricularTachycardia: false,
+      ventricularTachycardia: false,
+      atrialFibrillationFlutter: false,
+      avBlock: false,
+      sVES: false,
+      ves: false,
+      vfVt: false,
+      asystole: false,
+      pea: false,
+      pacemaker: false,
+      stemi: false,
+      myocardialInfarction: false,
+      other: '',
+    },
+  },
+  injuryAssessment: {
+    noInjuries: false,
+    burns: {
+      first: {
+        degree: '',
+        percent: NaN,
+      },
+      second: {
+        degree: '',
+        percent: NaN,
+      },
+      inhalationBurn: false,
+    },
+    neck: '',
+    face: '',
+    rightFrontArm: '',
+    leftFrontArm: '',
+    thighRF: '',
+    thighLF: '',
+    shinRF: '',
+    shinLF: '',
+    chestL: '',
+    chestR: '',
+    bellyL: '',
+    bellyR: '',
+    reproductiveOrgans: '',
+    hypogastrium: '',
+    footRF: '',
+    footLF: '',
+    forearmLF: '',
+    forearmRF: '',
+    handLF: '',
+    handRF: '',
+    shoulderLF: '',
+    shoulderRF: '',
+    elbowLF: '',
+    elbowRF: '',
+    wristLF: '',
+    wristRF: '',
+    kneeRF: '',
+    kneeLF: '',
+    ankleLF: '',
+    ankleRF: '',
+    hipRF: '',
+    hipLF: '',
+    mouth: '',
+    nose: '',
+    rightEye: '',
+    leftEye: '',
+    neckBack: '',
+    spineCervical: '',
+    spineThoracic: '',
+    spineLumbar: '',
+    sacrum: '',
+    head: '',
+    rightBackArm: '',
+    leftBackArm: '',
+    thighRB: '',
+    thighLB: '',
+    shinRB: '',
+    shinLB: '',
+    backR: '',
+    backL: '',
+    backLowerR: '',
+    backLowerL: '',
+    buttocks: '',
+    pelvis: '',
+    footRB: '',
+    footLB: '',
+    forearmLB: '',
+    forearmRB: '',
+    handLB: '',
+    handRB: '',
+    shoulderLB: '',
+    shoulderRB: '',
+    elbowLB: '',
+    elbowRB: '',
+    wristLB: '',
+    wristRB: '',
+    kneeRB: '',
+    kneeLB: '',
+    ankleLB: '',
+    ankleRB: '',
+    hipRB: '',
+    hipLB: '',
+  },
+  descriptionStudy: {
+    description: '',
+  },
+
+  diagnosisCode: {
+    primaryDiagnosis: { code: '', description: '' },
+    secondDiagnosis: { code: '', description: '' },
+    thirdDiagnosis: { code: '', description: '' },
+    cos: '',
+  },
+  providedAssistanceActivities: {
+    suction: false,
+    bagValveMaskVentilation: false,
+    oropharyngeal: false,
+    intubation: false,
+    lma: false,
+    passiveOxygenTherapy: false,
+    capnometry: false,
+    pulseOximetry: false,
+    ecg: false,
+    cricothyrotomy: false,
+    woundDressing: false,
+    manualChestCompression: false,
+    mechanicalChestCompression: false,
+    defibrillation: false,
+    cardioversion: false,
+    patientMonitoring: false,
+    externalPacing: false,
+    carotidSinusMassage: false,
+    peripheralVenousAccess: false,
+    centralVenousAccess: false,
+    intraosseousAccess: false,
+    catheterization: false,
+    nasogastricTube: false,
+    gastricLavage: false,
+    cervicalCollar: false,
+    spineBoard: false,
+    vacuumMattress: false,
+    immobilization: false,
+    pelvicBinder: false,
+    immobilizationKED: false,
+    otherProcedures: false,
+  },
+  appliedDrugs: {
+    noDrugs: false,
+    medicaments: [],
+  },
+  patientRecommendations: {
+    recommendations: '',
+    patientStatus: {
+      remainedAtScene: false,
+      transferredToEMS: false,
+      patientWent: false,
+      handedOverToPolice: false,
+      other: false,
+      otherText: '',
+    },
+    cardCopyIssued: {
+      patient: false,
+      healthcareProvider: false,
+    },
+    responderSignature: {
+      fullName: '',
+      licenseNumber: '',
+      title: '',
+      datetime: '',
+    },
+  }
+}
+
 export const AppContext = createContext<AppContextProps | undefined>(undefined);
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
-  const [currentStep, setCurrentStep] = useState<number>(12);
+  const [currentStep, setCurrentStep] = useState<number>(1);
+  const [allFormData, setAllFormData] = useState<FullFormData>(fullFormInitialData);
+
   const [incidentData, setIncidentData] = useState({
     nrIncident: '',
     incidentDate: '',
@@ -957,6 +1394,9 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <AppContext.Provider
       value={{
+        allFormData: allFormData,
+        setAllFormData: setAllFormData,
+
         incidentData: incidentData,
         setIncidentData: setIncidentData,
         patientData: patientData,

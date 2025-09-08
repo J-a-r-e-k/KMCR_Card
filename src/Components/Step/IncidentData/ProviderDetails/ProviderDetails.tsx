@@ -9,7 +9,7 @@ const ProviderDetails = () => {
                 organizacyjnej, w której udzielono świadczeń zdrowotnych:
             </p>
             <Field
-                name="companyName"
+                name="incidentData.companyName"
                 className={Style.inputText}
                 type="text"
                 placeholder=""

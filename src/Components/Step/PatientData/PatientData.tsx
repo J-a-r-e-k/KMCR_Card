@@ -193,7 +193,7 @@ const PatientData = () => {
         {({ handleSubmit, submitForm }) => (
           <form onSubmit={handleSubmit}>
             {patientForm()}
-            <FormNavigation onSaveForm={submitForm} />
+            <FormNavigation />
           </form>
         )}
       </Formik>

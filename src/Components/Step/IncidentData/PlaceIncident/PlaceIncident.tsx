@@ -21,7 +21,7 @@ const PlaceIncident = () => {
             <Address addressField={addressField} />
             <Field
                 className={Style.inputText}
-                name="incidentPlace"
+                name="incidentData.incidentPlace"
                 placeholder="Miejsce zdarzenia"
             />
         </div>

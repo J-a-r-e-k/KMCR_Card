@@ -1,51 +1,42 @@
-import { useAppContext } from '../../../../context/AppContext';
+import { FullFormData } from '../../../../context/AppContext';
 import Style from './PlaceIncident.module.scss'
-import { Field } from 'formik';
+import { Field, useFormikContext } from 'formik';
 
 const Address = ({ addressField }: { addressField: boolean }) => {
-    const appContext = useAppContext();
-    const {
-        incidentData: {
-            incidentCity,
-            incidentPost,
-            incidentStreet,
-            incidentNr,
-            incidentNrApartment,
-        },
-    } = appContext;
+    const { values } = useFormikContext<FullFormData>();
+    const { incidentData } = values;
+    const hasAnyAddersData =
+        incidentData.incidentCity ||
+        incidentData.incidentPost ||
+        incidentData.incidentStreet ||
+        incidentData.incidentNr ||
+        incidentData.incidentNrApartment
 
-    if (
-        addressField ||
-        incidentCity ||
-        incidentPost ||
-        incidentStreet ||
-        incidentNr ||
-        incidentNrApartment
-    )
+    if (addressField || hasAnyAddersData)
         return (
             <div className={Style.wrapAddress}>
                 <label className={`${Style.address} ${Style.city}`}>
                     miejscowość:
-                    <Field className={`${Style.inputText}`} name="incidentCity" />
+                    <Field className={`${Style.inputText}`} name="incidentData.incidentCity" />
                 </label>
                 <label className={Style.address}>kod pocztowy:
                     <Field
                         className={`${Style.inputText} ${Style.post}`}
-                        name="incidentPost"
+                        name="incidentData.incidentPost"
                     />
                 </label>
                 <label className={`${Style.address} ${Style.street}`}>
                     ul.
                     <Field
                         className={`${Style.inputText} ${Style.city}`}
-                        name="incidentStreet"
+                        name="incidentData.incidentStreet"
                         placeholder="ulica"
                     />
                 </label>
                 <label className={Style.address}>nr:
                     <Field
                         className={`${Style.inputText}`}
-                        name="incidentNr"
+                        name="incidentData.incidentNr"
                         placeholder="budynku"
                     />
                 </label>
@@ -53,7 +44,7 @@ const Address = ({ addressField }: { addressField: boolean }) => {
                     m:
                     <Field
                         className={`${Style.inputText}`}
-                        name="incidentNrApartment"
+                        name="incidentData.incidentNrApartment"
                         placeholder="mieszkanie"
                     />
                 </label>
