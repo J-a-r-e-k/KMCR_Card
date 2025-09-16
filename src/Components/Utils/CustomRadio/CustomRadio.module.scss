@@ -1,0 +1,27 @@
+.check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    margin: 0 3px;
+    border-radius: 5px;
+    border: 2px #999 solid;
+    cursor: pointer;
+    appearance: none;
+}
+
+.checkField {
+    appearance: none;
+}
+
+.checkField:checked+.check {
+    border: 2px #777 solid;
+    background-color: #999;
+    color: #fff;
+}
+
+.check:hover,
+.breathingRate:hover {
+    border: 2px blue solid;
+}

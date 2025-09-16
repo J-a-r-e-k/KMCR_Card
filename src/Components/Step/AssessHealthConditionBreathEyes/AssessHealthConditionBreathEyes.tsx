@@ -2,6 +2,7 @@ import Style from './AssessHealthConditionBreathEyes.module.scss';
 import { useAppContext } from '../../../context/AppContext';
 import { FormNavigation } from '../../Section/FormNavigation/FormNavigation';
 import { Formik, Field } from 'formik';
+import CustomRadio from '../../Utils/CustomRadio/CustomRadio';
 
 const AssessHealthConditionBreathEyes = () => {
   const appContext = useAppContext();
@@ -23,7 +24,9 @@ const AssessHealthConditionBreathEyes = () => {
             <li className={Style.wrapCheck}>
               <p>duszność</p>
               <div className={Style.wrapCheck}>
-                <Field
+                <CustomRadio name="respiratorySystem.dyspnea" value="yes" id="dyspneaYes" >TAK</CustomRadio>
+                <CustomRadio name="respiratorySystem.dyspnea" value="no" id="dyspneaNo" >NIE</CustomRadio>
+                {/* <Field
                   id="dyspneaYes"
                   className={Style.checkField}
                   name="respiratorySystem.dyspnea"
@@ -43,7 +46,7 @@ const AssessHealthConditionBreathEyes = () => {
                 />
                 <label htmlFor="dyspneaNO" className={Style.check}>
                   NIE
-                </label>
+                </label> */}
               </div>
             </li>
             <li className={Style.wrapCheck}>
