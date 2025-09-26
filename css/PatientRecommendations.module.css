@@ -1,0 +1,67 @@
+.wrapPatientManagement {
+  padding: 5px;
+  width: 100%;
+  margin-bottom: 10px;
+  border: 1px solid #999;
+  border-radius: 5px;
+}
+
+.patientManagement {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr 3fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+@media (max-width: 720px) {
+  .patientManagement {
+    grid-template-columns: 1fr;
+  }
+}
+
+.wrapCheck {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  white-space: nowrap;
+  margin: 5px;
+  padding: 1px;
+}
+
+.check {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+  border-radius: 5px;
+  border: 2px #999 solid;
+  cursor: pointer;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.check:checked {
+  color: transparent;
+  background-color: #999;
+  background-image: url("../../../../public/icon-checkmark.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.check:hover {
+  border: 2px blue solid;
+}/*# sourceMappingURL=PatientRecommendations.module.css.map */

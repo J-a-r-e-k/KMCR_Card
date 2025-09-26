@@ -1,0 +1,67 @@
+.wrapRecommendations {
+  padding: 5px;
+  width: 100%;
+  margin-bottom: 10px;
+  border: 1px solid #999;
+}
+@media (min-width: 720px) {
+  .wrapRecommendations {
+    border-radius: 5px;
+  }
+}
+
+input:focus,
+.field:focus {
+  backdrop-filter: none !important;
+}
+
+.wrapParamedicInfo {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(24%, 1fr));
+  gap: 10px;
+  margin: 5px 0;
+  width: 100%;
+}
+@media (max-width: 720px) {
+  .wrapParamedicInfo {
+    width: 100%;
+    grid-template-columns: auto;
+  }
+}
+
+.paramedicInfo {
+  -ms-flex-line-pack: center;
+      align-content: center;
+  padding: 3px 5px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  position: relative;
+}
+
+.elementField {
+  font-size: 1.2rem;
+  line-height: 1.5em;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+
+.titleField {
+  width: 190px;
+  max-width: 100%;
+}
+
+.dateField {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.signature {
+  margin: 0 auto;
+  height: 100px;
+  width: 95%;
+  border: 1px black solid;
+  background-color: #ddd;
+  cursor: pointer;
+}/*# sourceMappingURL=ResponderSignature.module.css.map */

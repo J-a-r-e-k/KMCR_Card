@@ -1,4 +1,4 @@
-import CustomRadio from '../../Utils/CustomRadio/CustomRadio';
+import CustomRadio from '../../Shared/CustomRadio/CustomRadio';
 import Style from './AssessHealthCondition.module.scss'
 
 type GcsOption = {

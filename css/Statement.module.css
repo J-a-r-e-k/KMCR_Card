@@ -1,0 +1,103 @@
+.wrapDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 5px 10px;
+  border: 1px black solid;
+  min-width: 0%;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.contents {
+  font-size: 1.2rem;
+  padding: 5px 2px;
+}
+
+.inputText {
+  font-size: 1.2rem;
+  margin: 0 5px;
+  padding: 5px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  border-bottom: 1px dotted black;
+}
+
+.title {
+  width: 100%;
+  padding: 5px 0;
+  font-size: 1.4rem;
+}
+
+.wrapSignature {
+  margin: 5px auto;
+  width: 90%;
+}
+
+.signature {
+  height: 100px;
+  border: 1px black solid;
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+.wrapCheck {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.wrapCheck p {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -ms-flex-preferred-size: 70%;
+      flex-basis: 70%;
+}
+
+.check {
+  position: relative;
+  margin: 5px 30px;
+  height: 20px;
+  width: 20px;
+  border-radius: 5px;
+  border: solid #999 1px;
+  cursor: pointer;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+.check img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.check:hover,
+.signature:hover {
+  border: 1px blue solid;
+}
+
+.check:checked {
+  background-color: #022a61;
+  background-image: url("../../../../public/icon-checkmark.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+}/*# sourceMappingURL=Statement.module.css.map */

@@ -1,0 +1,187 @@
+.wrapGlasgow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin: 5px 10px;
+  padding: 5px;
+  border: 1px #999 solid;
+}
+@media (max-width: 720px) {
+  .wrapGlasgow {
+    margin: 5px auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 720px) {
+  .wrapPupil {
+    margin: 5px auto;
+    width: 100%;
+  }
+}
+
+.wrapList {
+  width: 100%;
+}
+
+.wrapCheck {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1px;
+}
+
+.wrapCheck__parameters {
+  background-color: #fff;
+}
+
+.check {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 30px;
+  height: 30px;
+  margin: 0 3px;
+  border-radius: 5px;
+  border: 2px #999 solid;
+  cursor: pointer;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.checkField {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.check:checked {
+  color: transparent;
+  background-color: #999;
+  background-image: url("../../../../public/icon-checkmark.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.checkField:checked + .check {
+  border: 2px #777 solid;
+  background-color: #999;
+  color: #fff;
+}
+
+.check:hover,
+.breathingRate:hover {
+  border: 2px blue solid;
+}
+
+.sumCheck {
+  margin: 0 5px;
+  text-align: center;
+  line-height: 2em;
+  border-radius: 5px;
+}
+
+.wrapSum {
+  -ms-flex-item-align: end;
+      align-self: end;
+  margin: 5px;
+  font-weight: bold;
+}
+
+.wrapBreathingRate {
+  margin: 5px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  font-weight: bold;
+}
+
+.breathingRate {
+  width: 40px;
+  height: 25px;
+  margin: 0 5px;
+  font-size: 1.2rem;
+  text-align: center;
+  border: 1px #777 solid;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.wrapLungSide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.description {
+  margin: 5px auto 5px 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.lungSide {
+  width: 30px;
+  margin: 0 5px;
+  text-align: center;
+}
+
+.breathDifferent {
+  width: 100%;
+  font-size: 1.2rem;
+  border-bottom: 1px #000 dotted;
+  cursor: pointer;
+}
+
+.wrapPulse {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.wrapPulseCheck {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.pulsText {
+  margin: 0 3px;
+}/*# sourceMappingURL=AssessHealthConditionBreathEyes.module.css.map */

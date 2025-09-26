@@ -1,5 +1,5 @@
 import { Formik, FormikHelpers } from 'formik';
-import { FormNavigation } from '../../Section/FormNavigation/FormNavigation';
+import { FormNavigation } from '../../FormNavigation/FormNavigation';
 
 interface FormikWrapProps<T> {
     initialValues: T;

@@ -1,0 +1,37 @@
+.check {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 30px;
+  height: 30px;
+  margin: 0 3px;
+  border-radius: 5px;
+  border: 2px #999 solid;
+  cursor: pointer;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.checkField {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.checkField:checked + .check {
+  border: 2px #777 solid;
+  background-color: #999;
+  color: #fff;
+}
+
+.check:hover,
+.breathingRate:hover {
+  border: 2px blue solid;
+}/*# sourceMappingURL=CustomRadio.module.css.map */

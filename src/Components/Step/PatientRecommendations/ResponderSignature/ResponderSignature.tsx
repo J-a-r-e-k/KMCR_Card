@@ -1,7 +1,7 @@
 import { Field } from 'formik';
 import Style from './ResponderSignature.module.scss'
 import { useState } from 'react';
-import { Signature } from '../../../Utils/Signature/Signature';
+import { Signature } from '../../../Shared/Signature/Signature';
 import AddDate from '../../Icon/AddDate';
 import { useFormikContext } from 'formik';
 import { currentDate } from '../../../Utils/CurrentDate';

@@ -510,7 +510,7 @@ const fullFormInitialData: FullFormData = {
     companyName: '',
   },
   patientData: {
-    patientFirstName: '',
+    patientFirstName: 'jkasld',
     patientLastName: '',
     patientCity: '',
     patientPostalCod: {
@@ -556,10 +556,10 @@ const fullFormInitialData: FullFormData = {
   },
   assessHealthConditionBreathEyes: {
     respiratorySystem: {
-      dyspnea: '',
+      dyspnea: 'yes',
       cyanosis: '',
       apnea: '',
-      respiratoryRate: NaN,
+      respiratoryRate: 3,
       normalBreathSounds: {
         left: false,
         right: false,
@@ -911,7 +911,7 @@ const fullFormInitialData: FullFormData = {
 export const AppContext = createContext<AppContextProps | undefined>(undefined);
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
-  const [currentStep, setCurrentStep] = useState<number>(1);
+  const [currentStep, setCurrentStep] = useState<number>(5);
   const [allFormData, setAllFormData] = useState<FullFormData>(fullFormInitialData);
 
   const [incidentData, setIncidentData] = useState({

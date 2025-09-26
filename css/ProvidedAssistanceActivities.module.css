@@ -1,0 +1,59 @@
+.wrapDiv {
+  margin-top: 10px;
+  border: 1px #777 solid;
+  border-radius: 5px;
+  padding: 5px 10px;
+  max-height: 80%;
+  width: 100%;
+}
+
+.wrapProvided {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  row-gap: 10px;
+}
+@media (max-width: 720px) {
+  .wrapProvided {
+    grid-template-columns: auto auto;
+  }
+}
+
+.wrapCheck {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.check {
+  width: 30px;
+  height: 30px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  margin: 0 10px;
+  border-radius: 5px;
+  border: 2px #999 solid;
+  cursor: pointer;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.providedName {
+  margin: 5px 0;
+  font-weight: bold;
+}
+
+.check:checked {
+  color: transparent;
+  background-color: #999;
+  background-image: url("../../../../public/icon-checkmark.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.check:hover {
+  border: 2px blue solid;
+}/*# sourceMappingURL=ProvidedAssistanceActivities.module.css.map */

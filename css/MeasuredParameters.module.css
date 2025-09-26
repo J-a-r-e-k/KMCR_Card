@@ -1,0 +1,134 @@
+.wrapGlobal {
+  margin: 5px 10px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 5px;
+  border: 1px #999 solid;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.wrap {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.wrapCheck {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1px;
+}
+
+.check {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 30px;
+  height: 30px;
+  margin: 0 3px;
+  border-radius: 5px;
+  border: 2px #999 solid;
+  cursor: pointer;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.check:checked {
+  color: transparent;
+  background-color: #999;
+  background-image: url("../../../../public/icon-checkmark.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.check:hover,
+.fieldNo:hover {
+  border: 2px blue solid;
+}
+
+.description {
+  margin: 5px auto 5px 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.wrapGlucose {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.checkField {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.checkField:checked + .check {
+  border: 2px #777 solid;
+  background-color: #999;
+  color: #fff;
+}
+
+.fieldNo {
+  width: 40px;
+  height: 25px;
+  margin: 0 5px;
+  font-size: 1.2rem;
+  text-align: center;
+  border: 1px #777 solid;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.wrapLungSide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.lungSide {
+  width: 30px;
+  margin: 0 5px;
+  text-align: center;
+}
+
+.textField {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  font-size: 1.2rem;
+  line-height: 2em;
+  border-bottom: 1px #000 dotted;
+  cursor: pointer;
+  margin-left: 5px;
+}/*# sourceMappingURL=MeasuredParameters.module.css.map */

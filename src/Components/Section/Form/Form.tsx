@@ -14,7 +14,7 @@ import ProvidedAssistanceActivities from '../../Step/ProvidedAssistanceActivitie
 import AppliedDrugs from '../../Step/AppliedDrugs/AppliedDrugs';
 import PatientRecommendations from '../../Step/PatientRecommendations/PatientRecommendations';
 import { FormNavigation } from '../FormNavigation/FormNavigation';
-import FormikWrap from '../../Utils/FormikWrap/FormikWrap';
+import FormikWrap from './FormikWrap/FormikWrap';
 
 const Form: React.FC = () => {
   const { currentStep, allFormData, setAllFormData } = useAppContext();

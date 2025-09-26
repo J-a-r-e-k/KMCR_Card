@@ -13,6 +13,8 @@
 
 .checkField {
     appearance: none;
+    position: absolute;
+    opacity: 0;
 }
 
 .checkField:checked+.check {

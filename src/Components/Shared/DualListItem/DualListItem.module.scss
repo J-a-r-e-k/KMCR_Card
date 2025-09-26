@@ -1,0 +1,13 @@
+.wrapDualList {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    padding: 1px;
+    align-items: center;
+    list-style: none;
+}
+
+.name {
+    max-width: 120px;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}

@@ -3,7 +3,7 @@ import AddDate from '../Icon/AddDate';
 import { useState } from 'react';
 import { Field, useFormikContext } from 'formik';
 import { currentDate } from '../../Utils/CurrentDate';
-import { Signature } from '../../Utils/Signature/Signature';
+import { Signature } from '../../Shared/Signature/Signature';
 import WithdrawalAid from './WithdrawalAid/WithdrawalAid';
 
 const Statement = () => {
