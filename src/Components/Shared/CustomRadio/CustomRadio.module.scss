@@ -23,7 +23,7 @@
     color: #fff;
 }
 
-.checkIcon {
+.checkField:checked+.check.checkIcon {
     color: transparent;
     background-color: #999;
     background-image: url('../../../../public/icon-checkmark.svg');
