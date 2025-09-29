@@ -1,27 +1,14 @@
-import React from 'react'
-import Style from '../AssessHealthConditionBreathEyes.module.scss'
-import { Field } from 'formik';
+import NumberInput from '../../../Shared/NumberInput/NumberInput';
+import WrapList from '../../../Shared/WrapList/WrapList';
 
 const BloodPressure = () => {
     return (
-        <div className={`${Style.wrapGlasgow}`}>
-            <h2>CIŚNIENIE TĘTNICZE</h2>
-            <div className={`${Style.wrapCheck} ${Style.wrapBreathingRate}`}>
-                <Field
-                    className={Style.breathingRate}
-                    name="bloodPressure.systolic"
-                    type="number"
-                />
-                <p>/</p>
-                <Field
-                    className={Style.breathingRate}
-                    name="bloodPressure.diastolic"
-                    type="number"
-                />
-                <p> mm/Hg</p>
-            </div>
-        </div>
+        <WrapList title="CIŚNIENIE TĘTNICZE">
+            <li>
+                <NumberInput name='assessHealthConditionBreathEyes.bloodPressure.systolic' id='bloodPressure1' adornment='/' />
+                <NumberInput name='assessHealthConditionBreathEyes.bloodPressure.diastolic' id='bloodPressure2' adornment='mm/Hg' />
+            </li>
+        </WrapList>
     )
 }
-
 export default BloodPressure
