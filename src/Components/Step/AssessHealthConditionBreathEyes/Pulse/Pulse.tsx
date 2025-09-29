@@ -1,46 +1,21 @@
-import Style from '../AssessHealthConditionBreathEyes.module.scss'
-import { Field } from 'formik';
+import CustomRadio from '../../../Shared/CustomRadio/CustomRadio';
+import NumberInput from '../../../Shared/NumberInput/NumberInput';
+import WrapList from '../../../Shared/WrapList/WrapList';
+import RadioNodeList from '../../../Shared/RadioListItem/RadioListItem';
 
 const Pulse = () => {
     return (
-        <div className={Style.wrapGlasgow}>
-            <h2>TĘTNO</h2>
-            <div className={Style.wrapPulse}>
-                <div className={`${Style.wrapCheck} ${Style.wrapBreathingRate}`}>
-                    <Field
-                        className={Style.breathingRate}
-                        name="pulse"
-                        type="number"
-                    />
-                    <p> /min</p>
-                </div>
-                <div className={Style.wrapPulseCheck}>
-                    <label htmlFor="heartRhythmRegular" className={Style.pulsText}>
-                        miarowe
-                    </label>
-                    <Field
-                        id="heartRhythmRegular"
-                        className={Style.check}
-                        name="heartRhythm"
-                        type="radio"
-                        value="Regular"
-                    />
-                    <Field
-                        id="heartRhythmIrregular"
-                        className={Style.check}
-                        name="heartRhythm"
-                        type="radio"
-                        value="Irregular"
-                    />
-                    <label htmlFor="heartRhythmIrregular" className={Style.pulsText}>
-                        niemiarowe
-                    </label>
-
-                    <div className={Style.wrapLungSide}></div>
-                </div>
-            </div>
-        </div>
+        <WrapList title="TĘTNO">
+            <li>
+                <NumberInput name='assessHealthConditionBreathEyes.pulse' id='pulse1' adornment='/min' />
+            </li>
+            <RadioNodeList description="Miarowe">
+                <CustomRadio name='assessHealthConditionBreathEyes.heartRhythm' value="Regular" id='heartRhythm1' />
+            </RadioNodeList>
+            <RadioNodeList description="Niemiarowe">
+                <CustomRadio name='assessHealthConditionBreathEyes.heartRhythm' value="Irregular" id='heartRhythm2' />
+            </RadioNodeList>
+        </WrapList>
     )
 }
-
 export default Pulse
