@@ -1,114 +1,40 @@
-import React from 'react'
-import Style from '../AssessHealthConditionBreathEyes.module.scss'
-import { Field } from 'formik';
+import Style from './Pupil.module.scss'
+import WrapList from '../../../Shared/WrapList/WrapList';
+import DualSidedChecklist from '../../../Shared/DualSidedChecklist/DualSidedChecklist';
+import DualListItem from '../../../Shared/DualListItem/DualListItem';
+import CustomCheckbox from '../../../Shared/CustomCheckbox/CustomCheckbox';
 
 const Pupil = () => {
     return (
-        <div className={Style.wrapGlasgow}>
-            <h2>ŹRENICE</h2>
-            <ul>
-                <div className={Style.wrapLungSide}>
-                    <p className={Style.description}>Reakcja na światło:</p>
-                    <p className={Style.lungSide}>L</p>
-                    <p className={Style.lungSide}>P</p>
-                </div>
-                <li className={Style.wrapCheck}>
-                    <label>prawidłowa</label>
-                    <div className={Style.wrapCheck}>
-                        <Field
-                            className={Style.check}
-                            name="public.normal.left"
-                            type="checkbox"
-                        />
-                        <Field
-                            className={Style.check}
-                            name="public.normal.right"
-                            type="checkbox"
-                        />
-                    </div>
-                </li>
-                <li className={Style.wrapCheck}>
-                    <label>powolna</label>
-                    <div className={Style.wrapCheck}>
-                        <Field
-                            className={Style.check}
-                            name="public.slow.left"
-                            type="checkbox"
-                        />
-                        <Field
-                            className={Style.check}
-                            name="public.slow.right"
-                            type="checkbox"
-                        />
-                    </div>
-                </li>
-                <li className={Style.wrapCheck}>
-                    <label>brak</label>
-                    <div className={Style.wrapCheck}>
-                        <Field
-                            className={Style.check}
-                            name="public.absent.left"
-                            type="checkbox"
-                        />
-                        <Field
-                            className={Style.check}
-                            name="public.absent.right"
-                            type="checkbox"
-                        />
-                    </div>
-                </li>
-            </ul>
-            <ul>
+        <WrapList title="ŹRENICE">
+            <DualSidedChecklist>
+                <DualListItem description="prawidłowa">
+                    <CustomCheckbox name="assessHealthConditionBreathEyes.pupil.normal.left" id="pupil1" />
+                    <CustomCheckbox name="assessHealthConditionBreathEyes.pupil.normal.right" id="pupil2" />
+                </DualListItem>
+                <DualListItem description="powolna">
+                    <CustomCheckbox name="assessHealthConditionBreathEyes.pupil.slow.left" id="pupil3" />
+                    <CustomCheckbox name="assessHealthConditionBreathEyes.pupil.slow.right" id="pupil4" />
+                </DualListItem>
+                <DualListItem description="brak">
+                    <CustomCheckbox name="assessHealthConditionBreathEyes.pupil.absent.left" id="pupil5" />
+                    <CustomCheckbox name="assessHealthConditionBreathEyes.pupil.absent.right" id="pupil6" />
+                </DualListItem>
                 <p className={Style.description}>Reakcja na światło:</p>
-                <li className={Style.wrapCheck}>
-                    <label>normalne</label>
-                    <div className={Style.wrapCheck}>
-                        <Field
-                            className={Style.check}
-                            name="public.regular.left"
-                            type="checkbox"
-                        />
-                        <Field
-                            className={Style.check}
-                            name="public.regular.right"
-                            type="checkbox"
-                        />
-                    </div>
-                </li>
-                <li className={Style.wrapCheck}>
-                    <label>wąskie</label>
-                    <div className={Style.wrapCheck}>
-                        <Field
-                            className={Style.check}
-                            name="public.narrow.left"
-                            type="checkbox"
-                        />
-                        <Field
-                            className={Style.check}
-                            name="public.narrow.right"
-                            type="checkbox"
-                        />
-                    </div>
-                </li>
-                <li className={Style.wrapCheck}>
-                    <label>szerokie</label>
-                    <div className={Style.wrapCheck}>
-                        <Field
-                            className={Style.check}
-                            name="public.wide.left"
-                            type="checkbox"
-                        />
-                        <Field
-                            className={Style.check}
-                            name="public.wide.right"
-                            type="checkbox"
-                        />
-                    </div>
-                </li>
-            </ul>
-        </div>
-
+                <DualListItem description="normalne">
+                    <CustomCheckbox name="assessHealthConditionBreathEyes.pupil.regular.left" id="pupil7" />
+                    <CustomCheckbox name="assessHealthConditionBreathEyes.pupil.regular.right" id="pupil8" />
+                </DualListItem>
+                <DualListItem description="wąskie">
+                    <CustomCheckbox name="assessHealthConditionBreathEyes.pupil.narrow.left" id="pupil9" />
+                    <CustomCheckbox name="assessHealthConditionBreathEyes.pupil.narrow.right" id="pupil10" />
+                </DualListItem>
+                <DualListItem description="szerokie">
+                    <CustomCheckbox name="assessHealthConditionBreathEyes.pupil.wide.left" id="pupil11" />
+                    <CustomCheckbox name="assessHealthConditionBreathEyes.pupil.wide.right" id="pupil12" />
+                </DualListItem>
+            </DualSidedChecklist>
+        </WrapList >
     )
 }
-
 export default Pupil
