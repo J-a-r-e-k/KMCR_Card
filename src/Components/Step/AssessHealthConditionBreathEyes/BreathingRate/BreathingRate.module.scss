@@ -1,0 +1,34 @@
+.wrapCheck {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1px;
+}
+
+.breathingRate {
+    width: 40px;
+    height: 25px;
+    margin: 0 5px;
+    font-size: 1.2rem;
+    text-align: center;
+    border: 1px #777 solid;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+
+.wrapBreathingRate {
+    margin: 5px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    font-weight: bold;
+}
+
+.breathDifferent {
+    width: 100%;
+    font-size: 1.2rem;
+    border-bottom: 1px #000 dotted;
+    cursor: pointer;
+}

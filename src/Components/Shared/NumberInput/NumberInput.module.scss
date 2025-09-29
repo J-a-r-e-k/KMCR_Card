@@ -1,0 +1,20 @@
+.input {
+    width: 40px;
+    height: 25px;
+    margin: 5px 3px;
+    font-size: 1.2rem;
+    text-align: center;
+    border: 1px #777 solid;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.label {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.adornment {
+    display: inline-block;
+    font-weight: bold;
+}

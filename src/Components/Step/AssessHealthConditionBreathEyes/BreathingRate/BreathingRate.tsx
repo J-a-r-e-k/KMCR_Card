@@ -1,24 +1,20 @@
 
-import Style from '../AssessHealthConditionBreathEyes.module.scss'
+import Style from './BreathingRate.module.scss'
 import CustomRadio from '../../../Shared/CustomRadio/CustomRadio'
 import { Field } from 'formik';
 import CustomCheckbox from '../../../Shared/CustomCheckbox/CustomCheckbox';
 import WrapList from '../../../Shared/WrapList/WrapList';
 import DualSidedChecklist from '../../../Shared/DualSidedChecklist/DualSidedChecklist';
 import DualListItem from '../../../Shared/DualListItem/DualListItem';
+import NumberInput from '../../../Shared/NumberInput/NumberInput';
+
 
 const BreathingRate = () => {
     return (
         <WrapList>
             <ul>
-                <li className={`${Style.wrapCheck} ${Style.wrapBreathingRate}`}>
-                    <label>częstość oddechów</label>
-                    <Field
-                        className={Style.breathingRate}
-                        name="assessHealthConditionBreathEyes.respiratorySystem.respiratoryRate"
-                        type="number"
-                    />
-                    <p>/min</p>
+                <li>
+                    <NumberInput name='assessHealthConditionBreathEyes.respiratorySystem.respiratoryRate' id='respiratory1' label='częstość oddechów' adornment='/min' />
                 </li>
                 <DualListItem description="duszność">
                     <CustomRadio name="assessHealthConditionBreathEyes.respiratorySystem.dyspnea" value="yes" id="dyspneaYes">TAK</CustomRadio>
@@ -68,18 +64,11 @@ const BreathingRate = () => {
                     placeholder="Inne"
                     type="text"
                 />
-                <li className={`${Style.wrapCheck} ${Style.wrapBreathingRate}`}>
-                    <label>Saturacja</label>
-                    <Field
-                        className={Style.breathingRate}
-                        name="respiratorySystem.oxygenSaturation"
-                        type="number"
-                    />
-                    <p> %</p>
+                <li>
+                    <NumberInput name='respiratorySystem.oxygenSaturation' id='oxygenSaturation1' label='Saturacja' adornment='%' />
                 </li>
             </DualSidedChecklist>
         </WrapList>
     )
 }
-
 export default BreathingRate
