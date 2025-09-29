@@ -23,6 +23,14 @@
     color: #fff;
 }
 
+.checkIcon {
+    color: transparent;
+    background-color: #999;
+    background-image: url('../../../../public/icon-checkmark.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 .check:hover,
 .breathingRate:hover {
     border: 2px blue solid;

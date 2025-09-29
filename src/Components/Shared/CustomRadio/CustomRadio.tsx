@@ -19,8 +19,8 @@ const CustomRadio: React.FC<CustomRadioProps> = ({ name, value, id, children }) 
                 type="radio"
                 value={value}
             />
-            <label htmlFor={id} className={Style.check}>
-                {children ?? value}
+            <label htmlFor={id} className={`${Style.check} ${!children ? Style.checkIcon : ''}`}>
+                {children ?? null}
             </label>
         </>
     )
